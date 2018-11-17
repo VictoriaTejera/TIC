@@ -64,7 +64,7 @@ public class ControladorVerTotalAPagar implements ApplicationContextAware {
 		stage = new Stage();
 		if (event.getSource() == btnVolver) {
 			stage = (Stage) btnVolver.getScene().getWindow();
-			root = fxmlLoader.load(AdminControladorRegistro.class.getResourceAsStream("MenuPrincipalRest.fxml"));
+			root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 		}
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());

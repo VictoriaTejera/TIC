@@ -19,16 +19,27 @@ public class ReservaAux {
 			@Override
 			public void handle(MouseEvent event) {
 				reserva.setConfirmado(true);
+				showAlert("Confirmación de reserva","Reserva confirmada con éxito");
 			}
 		});
 		
 		rechazar.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				reserva.setConfirmado(false); //hay que hacer un setRechazado
+				reserva.setRechazada(true);
+				showAlert("Rechazo de reserva","Reserva rechazada con éxito");
 			}
 		});
+	
 	}
+
+	public static void showAlert(String title, String contextText) {
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
+    }
 
 	public Reserva getReserva() {
 		return reserva;

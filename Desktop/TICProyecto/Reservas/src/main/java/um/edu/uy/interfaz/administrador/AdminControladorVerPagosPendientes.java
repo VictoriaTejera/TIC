@@ -2,7 +2,6 @@ package um.edu.uy.interfaz.administrador;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -28,7 +27,6 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import um.edu.uy.interfaz.cliente.ControladorInicio;
-import um.edu.uy.interfaz.cliente.clasesAuxiliares.RestauranteAUX;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 

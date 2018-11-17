@@ -50,9 +50,6 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 	private ApplicationContext applicationContext;
 	
 	Restaurante restaurante;
-	
-	@Autowired
-	private ReservaMgr resMgr;
 
 	@FXML
     void handleSubmitButtonAction(ActionEvent event) throws IOException {
@@ -67,7 +64,6 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 			if (restauranteMgr.verificarUsuarioRestaurante(txtUsuario.getText(), txtContrasena.getText()) == true) {
 				stage = (Stage) btnIniciarSesion.getScene().getWindow();
 				root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
-				//getRutRest();
 			}else {
 				showAlert("Lo sentimos, ", "El usuario o contraseña son incorrectos. Vuelva a intentarlo");
 			}

@@ -106,7 +106,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	@FXML
 	private Label descripciónRest;
-
+	
 	private Restaurante res;
 
 	public void llenarTabla() {

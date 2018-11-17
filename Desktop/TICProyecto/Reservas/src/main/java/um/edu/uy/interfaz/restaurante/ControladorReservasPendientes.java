@@ -27,15 +27,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import um.edu.uy.interfaz.cliente.ControladorInicio;
-import um.edu.uy.interfaz.cliente.ControladorInicioSesion;
 import um.edu.uy.interfaz.restaurante.clasesAuxiliares.ReservaAux;
 import um.edu.uy.persistance.ReservaMgr;
 import um.edu.uy.persistance.entidades.Reserva;
-import um.edu.uy.persistance.entidades.Restaurante;
-
 @Component
 public class ControladorReservasPendientes implements ApplicationContextAware {
-	
+
 	@FXML
 	private ResourceBundle resources;
 
@@ -78,14 +75,13 @@ public class ControladorReservasPendientes implements ApplicationContextAware {
 		stage = new Stage();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		if (event.getSource() == btnVolver) {
-			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipalRest.fxml"));
+			root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 			stage = (Stage) btnVolver.getScene().getWindow();
 		}
-			
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
-			stage.setScene(scene);
-	    	stage.show();
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@FXML
@@ -104,7 +100,7 @@ public class ControladorReservasPendientes implements ApplicationContextAware {
 						return prop;
 					}
 				});
-		
+
 		columnaCantPersonas.setCellValueFactory(
 				new Callback<TableColumn.CellDataFeatures<ReservaAux, String>, ObservableValue<String>>() {
 					public ObservableValue<String> call(TableColumn.CellDataFeatures<ReservaAux, String> r) {

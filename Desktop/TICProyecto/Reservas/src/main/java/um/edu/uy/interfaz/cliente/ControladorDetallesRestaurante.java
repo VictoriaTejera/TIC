@@ -103,6 +103,7 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
 			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Reservar.fxml"));	
 			stage = (Stage) btnReservar.getScene().getWindow();
 			Scene scene = new Scene(root);
+			scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 			stage.setScene(scene);
 			stage.show();
 		}
@@ -110,10 +111,10 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
 			stage = (Stage) btnVolver.getScene().getWindow();
 			stage.close();
 		}
-		Scene scene = new Scene(root);
-		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
-		stage.setScene(scene);
-    	stage.show();
+//		Scene scene = new Scene(root);
+//		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+//		stage.setScene(scene);
+//    	stage.show();
 
 	}
     

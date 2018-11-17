@@ -84,6 +84,10 @@ public class Reserva {
 	public void setConfirmado(boolean confirmado) {
 		this.confirmada = confirmado;
 	}
+	
+	public void setRechazada(boolean rechazada) {
+		this.rechazada = rechazada;
+	}
 
 	public Usuario getUsuario() {
 		return usuario;

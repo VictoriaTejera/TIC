@@ -21,7 +21,7 @@ public class MainCliente extends Application {
 	Scene scene, scene2, scene1, scene3, scene4, scene5, scene6,scene7;
 	Stage thestage;
 	private static ConfigurableApplicationContext context;
-	private FXMLLoader fxmlLoader, fxmlLoader1, fxmlLoader2, fxmlLoader3, fxmlLoader4, fxmlLoader5, fxmlLoader6,fxmlLoader7;
+	private FXMLLoader fxmlLoader;
 	private Parent root, root1, root2, root3, root4, root5, root6, root7;
 
 	@Override
@@ -56,50 +56,54 @@ public class MainCliente extends Application {
 		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("inicio.fxml"));
 		scene = new Scene(root);
 		
-		fxmlLoader1 = new FXMLLoader();
-		fxmlLoader1.setControllerFactory(MainCliente.getContext()::getBean);
+		fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(MainCliente.getContext()::getBean);
 
-		root1 = fxmlLoader1.load(ControladorRegistro.class.getResourceAsStream("registrarse.fxml"));
+		root1 = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("registrarse.fxml"));
 		scene1 = new Scene(root1);
 		scene1.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		
-		fxmlLoader2 = new FXMLLoader();
-		fxmlLoader2.setControllerFactory(MainCliente.getContext()::getBean);
+		fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(MainCliente.getContext()::getBean);
 
-		root2 = fxmlLoader2.load(ControladorRegistro.class.getResourceAsStream("iniciarSesion.fxml"));
+		root2 = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("iniciarSesion.fxml"));
 		scene2 = new Scene(root2);
 		scene2.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 
-		fxmlLoader3 = new FXMLLoader();
-		fxmlLoader3.setControllerFactory(MainCliente.getContext()::getBean);
+		fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(MainCliente.getContext()::getBean);
 
-		root3 = fxmlLoader3.load(ControladorRegistro.class.getResourceAsStream("MenuPrincipal.fxml"));
+		root3 = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("MenuPrincipal.fxml"));
 		scene3 = new Scene(root3);
 		scene3.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		
-		fxmlLoader4 = new FXMLLoader();
-		fxmlLoader4.setControllerFactory(MainCliente.getContext()::getBean);
+		fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(MainCliente.getContext()::getBean);
 		
-		root4 = fxmlLoader4.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
+		root4 = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
 		scene4 = new Scene(root4);
+		scene4.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		
-		fxmlLoader5 = new FXMLLoader();
-		fxmlLoader5.setControllerFactory(MainCliente.getContext()::getBean);
+		fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(MainCliente.getContext()::getBean);
 		
-		root5 = fxmlLoader5.load(ControladorRegistro.class.getResourceAsStream("Reservar.fxml"));
+		root5 = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("Reservar.fxml"));
 		scene5 = new Scene(root5);
+		scene5.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		
-		fxmlLoader6 = new FXMLLoader();
-		fxmlLoader6.setControllerFactory(MainCliente.getContext()::getBean);
+		fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(MainCliente.getContext()::getBean);
 		
-		root6 = fxmlLoader6.load(ControladorRegistro.class.getResourceAsStream("MisReservas.fxml"));
+		root6 = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("MisReservas.fxml"));
 		scene6 = new Scene(root6);
+		scene6.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 
-		fxmlLoader7 = new FXMLLoader();
-		fxmlLoader7.setControllerFactory(MainCliente.getContext()::getBean);
+		fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(MainCliente.getContext()::getBean);
 	
-		root7 = fxmlLoader7.load(ControladorRegistro.class.getResourceAsStream("PuntuarRestaurantes.fxml"));
+		root7 = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("PuntuarRestaurantes.fxml"));
 		scene7 = new Scene(root7);
+		scene7.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 
 		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		primaryStage.setScene(scene);
