@@ -18,6 +18,9 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+
+import javax.persistence.JoinColumn;
+
 @Entity
 @Table
 public class Restaurante implements Serializable {

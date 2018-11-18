@@ -42,6 +42,6 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 	
 //	@Transactional
 //	@Modifying
-//	@Query("UPDATE Reserva r SET r.")
+//	@Query("UPDATE Reserva r SET r.hora")
 
 }

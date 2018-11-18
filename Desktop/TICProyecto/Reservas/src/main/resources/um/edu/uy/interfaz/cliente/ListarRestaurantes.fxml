@@ -26,9 +26,10 @@
   <center>
     <TableView fx:id="tabla" onMouseClicked="#initialize" prefHeight="463.0" prefWidth="465.0">
       <columns>
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="107.0" text="Nombre" fx:id="columnaNombre" />
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="148.0" text="Dirección" fx:id="columnaDireccion" />
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="130.0" text="Teléfono" fx:id="columnaTelefono" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="97.0" text="" fx:id="columnaFoto" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="138.0" text="Nombre" fx:id="columnaNombre" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="144.0" text="Dirección" fx:id="columnaDireccion" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="137.0" text="Teléfono" fx:id="columnaTelefono" />
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="287.0" text="" fx:id="columnaReservar" />
       </columns>
     </TableView>

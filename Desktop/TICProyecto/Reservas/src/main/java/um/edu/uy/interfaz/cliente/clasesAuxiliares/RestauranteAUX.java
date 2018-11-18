@@ -3,14 +3,21 @@ package um.edu.uy.interfaz.cliente.clasesAuxiliares;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
+<<<<<<< HEAD
 import javax.imageio.ImageIO;
 
+=======
+import javax.persistence.Id;
+>>>>>>> branch 'master' of https://github.com/VictoriaTejera/TIC.git
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+<<<<<<< HEAD
 import javafx.embed.swing.SwingFXUtils;
+=======
+>>>>>>> branch 'master' of https://github.com/VictoriaTejera/TIC.git
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,13 +26,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import um.edu.uy.MainCliente;
 import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.interfaz.cliente.ControladorListarRestaurantes;
 import um.edu.uy.persistance.entidades.Restaurante;
 
-//@Entity
 public class RestauranteAUX {
 //	@Id
 //	private Integer id;
@@ -35,8 +40,8 @@ public class RestauranteAUX {
 	private ImageView logo;
 
 	@Autowired
-	// ControladorReservarDirecto controller;
 	ControladorListarRestaurantes controller;
+
 
 	public ObservableList<Restaurante> getRestaurants() {
 		return null;
@@ -46,12 +51,14 @@ public class RestauranteAUX {
 		this.restaurante = restaurante;
 		byte[] array = restaurante.getImagen();
 		this.logo.setImage(SwingFXUtils.toFXImage(ImageIO.read(new ByteArrayInputStream(array)),null));
+		//this.imagen = restaurante.getImagen();
 		this.button= new Button("Reservar");
 		button.setOnMouseClicked(new EventHandler<MouseEvent>(){
         	@Override
 	    	public void handle(MouseEvent event){
 	    		FXMLLoader fxmlLoader = new FXMLLoader();
 //	    		Parent root = null;
+//	    		Stage stage = null;
 	    		fxmlLoader.setControllerFactory(MainCliente.getContext()::getBean);
 	    		fxmlLoader.setLocation(ControladorInicio.class.getResource("Reservar2.fxml"));
 //	    		try {
@@ -67,12 +74,12 @@ public class RestauranteAUX {
 //	    		controller=(ControladorReservarDirecto)MainCliente.getContext().getBean("ControladorReservarDirecto");
 	    		controller=(ControladorListarRestaurantes)MainCliente.getContext().getBean("ControladorListarRestaurantes");
 	    		controller.setRestaurante(restaurante);
-	    		Parent root=fxmlLoader.getRoot();
+	    		Parent root = fxmlLoader.getRoot();
+//	    		stage = (Stage) button.getScene().getWindow();
 	    		Scene scene = new Scene(root);
 	    		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
-	    		Stage stage = null;
-				stage .setScene(scene);
-	        	stage.show();
+//				stage.setScene(scene);
+//	        	stage.show();
 }
 	    });
 		

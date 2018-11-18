@@ -4,12 +4,13 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="473.0" prefWidth="552.0000999999975" styleClass="anchor"  xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorDetallesRestaurante">
+<AnchorPane prefHeight="551.0" prefWidth="571.0000999999975" styleClass="anchor" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorDetallesRestaurante">
   <!-- TODO Add Nodes -->
   <children>
     <BorderPane prefHeight="444.0" prefWidth="455.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -55,8 +56,8 @@
           </top>
         </BorderPane>
       </bottom>
-      <left>
-        <GridPane prefHeight="232.0" prefWidth="536.0" BorderPane.alignment="CENTER">
+      <center>
+        <GridPane prefHeight="287.0" prefWidth="292.0" BorderPane.alignment="CENTER">
           <children>
             <Label alignment="CENTER_LEFT" font="$x1" prefWidth="80.0" text="Dirección:" textFill="$x2" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="0">
               <GridPane.margin>
@@ -85,9 +86,12 @@
             <RowConstraints maxHeight="73.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
           </rowConstraints>
         </GridPane>
+      </center>
+      <left>
+        <ImageView id="foto" fx:id="imagen" fitHeight="220.5" fitWidth="294.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER_RIGHT" />
       </left>
       <top>
-        <Label fx:id="nombreRest" alignment="CENTER" prefHeight="44.0" prefWidth="166.0" text="Nombre" textFill="$x2" BorderPane.alignment="CENTER">
+        <Label fx:id="nombreRest" alignment="CENTER" prefHeight="77.0" prefWidth="166.0" text="Nombre" textFill="$x2" BorderPane.alignment="CENTER">
           <font>
             <Font name="Yu Gothic UI Regular" size="20.0" />
           </font>

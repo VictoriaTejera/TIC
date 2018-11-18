@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
+
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +20,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 
 @Component
@@ -59,15 +64,21 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
     @FXML
     private Label txtTelefono;
     
+    @FXML
+    private ImageView imagen;
+    
     @Autowired
     ControladorListarRestaurantes controlador;
+    
+    @Autowired
+    RestauranteMgr resMgr;
     
     private ApplicationContext applicationContext;
     
     private Restaurante rest;
 
     @FXML
-    void initialize() {
+    void initialize() throws IOException {
         assert btnReservar != null : "fx:id=\"btnReservar\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
         assert descripcion != null : "fx:id=\"descripcion\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
         assert nombreRest != null : "fx:id=\"nombreRest\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
@@ -77,6 +88,7 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
         assert txtRating != null : "fx:id=\"txtRating\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
         assert txtTelefono != null : "fx:id=\"txtTelefono\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
         assert btnVolver != null : "fx:id=\"btnVolver\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
+        assert imagen != null : "fx:id=\"imagen\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
         
         rest = controlador.restSeleccionado();
         
@@ -88,7 +100,10 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
         txtTelefono.setText(Integer.toString(controlador.restSeleccionado().getTelefono()));
         descripcion.setText(controlador.restSeleccionado().getDescripcion());
         
-        logger.info("AAAAAAAAAAAAAAAAA " + controlador.restSeleccionado().getTelefono());
+        Image image = SwingFXUtils.toFXImage(resMgr.obtenerImagen(controlador.restSeleccionado().getRUT()), null);
+        imagen.setImage(image);
+        
+        //logger.info("AAAAAAAAAAAAAAAAA " + controlador.restSeleccionado().getTelefono());
     }
     
     @FXML
