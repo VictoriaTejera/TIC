@@ -1,10 +1,8 @@
 package um.edu.uy.persistance;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,8 +10,8 @@ import um.edu.uy.persistance.entidades.Reserva;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 
-@Service
-public class ReservaMgr {
+@Service("ReservaMgr")
+public class ReservaMgr{
 
 	@Autowired
 	private ReservaRepository repository;
@@ -26,6 +24,7 @@ public class ReservaMgr {
 
 	@Autowired
 	private MesaRepository mesaRepository;
+	
 	
 //	private Long ultimoNumeroUsado=(long) 0;
 
@@ -54,9 +53,8 @@ public class ReservaMgr {
 		return reservasNoTerminadas;
 	}
 
-	public List<Reserva> obtenerReservasNoConfirmadas(String rut) {
-		List<Reserva> reservasNoConfirmadas = repository.obtenerReservasNoConfirmadas(rut);
-		return reservasNoConfirmadas;
+	public List<Reserva> obtenerReservasNoConfirmadasNiRechazadas(String rut) {
+		return repository.obtenerReservasNoConfirmadasNiRechazadas(rut);
 	}
 
 	public List<Reserva> verEstadoReservasUsuario(Integer usuarioCelular) {
@@ -92,7 +90,6 @@ public class ReservaMgr {
 	public void rechazarReserva(Long idReserva) {
 		repository.marcarRechazada(idReserva);
 	}
-
 
 
 }

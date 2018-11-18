@@ -55,7 +55,7 @@ public class TestReserva {
 		restauranteMgr.save(r5);
 		int cantMesas= restauranteMgr.obtenerMesasNoReservadas(r5.getRUT()).size();
 		
-
+		
 		reservaMgr.save(u5.getCelular(), r5.getRUT(), 5);
 		
 		assertEquals(restauranteMgr.obtenerMesasNoReservadas(r5.getRUT()).size(), cantMesas-2);

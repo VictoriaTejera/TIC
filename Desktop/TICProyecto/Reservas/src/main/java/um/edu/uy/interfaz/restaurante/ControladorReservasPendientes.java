@@ -30,7 +30,7 @@ import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.interfaz.restaurante.clasesAuxiliares.ReservaAux;
 import um.edu.uy.persistance.ReservaMgr;
 import um.edu.uy.persistance.entidades.Reserva;
-@Component
+@Component("ControladorReservasPendientes")
 public class ControladorReservasPendientes implements ApplicationContextAware {
 
 	@FXML
@@ -58,14 +58,16 @@ public class ControladorReservasPendientes implements ApplicationContextAware {
 	private Button btnVolver;
 
 	@Autowired
-	private ReservaMgr resMgr;
+	private ReservaMgr reservaMgr;
 
 	@Autowired
 	private ControladorInicioSesionRest controladorInicio;
+	
+	private Reserva reserva;
 
 	private final StringProperty prop = new SimpleStringProperty();
 
-	private static ApplicationContext applicationContext;
+	private ApplicationContext applicationContext;
 
 	@FXML
 	void volverAlMenu(ActionEvent event) throws IOException {
@@ -113,7 +115,7 @@ public class ControladorReservasPendientes implements ApplicationContextAware {
 
 		colRechazar.setCellValueFactory(new PropertyValueFactory<ReservaAux, String>("rechazar"));
 
-		List<Reserva> listaDePendientes = resMgr.obtenerReservasNoConfirmadas(controladorInicio.getRutRestaurante());
+		List<Reserva> listaDePendientes = reservaMgr.obtenerReservasNoConfirmadasNiRechazadas(controladorInicio.getRutRestaurante());
 		ObservableList<ReservaAux> reservas = FXCollections.observableArrayList();
 		ReservaAux reserva;
 
@@ -127,6 +129,18 @@ public class ControladorReservasPendientes implements ApplicationContextAware {
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
 
+	}
+	
+	public <T> T getBean(Class<T> beanClass) {
+		return applicationContext.getBean(beanClass);
+	}
+	
+	public Reserva getReserva() {
+		return this.reserva;
+	}
+	
+	public void setReserva(Reserva reserva) {
+		this.reserva = reserva;
 	}
 
 }
