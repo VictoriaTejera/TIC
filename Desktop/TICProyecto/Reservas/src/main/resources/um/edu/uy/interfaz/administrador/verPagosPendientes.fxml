@@ -9,11 +9,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<<<<<<< HEAD
-<BorderPane prefHeight="554.9999000000025" prefWidth="609.999977929685" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorVerPagosPendientes">
-=======
 <BorderPane prefHeight="554.9999000000025" prefWidth="726.0000999999975" styleClass="anchor" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorVerPagosPendientes">
->>>>>>> 0214fdfdc67ee7c98f60dbc411583c17edc2e5ce
   <bottom>
     <Button fx:id="btnVolverAlMenu" blendMode="DARKEN" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="31.0" prefWidth="90.99990000000253" text="Volver" BorderPane.alignment="BOTTOM_RIGHT">
       <effect>

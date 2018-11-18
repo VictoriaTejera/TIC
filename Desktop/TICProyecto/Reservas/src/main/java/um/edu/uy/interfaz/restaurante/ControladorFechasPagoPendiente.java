@@ -2,6 +2,8 @@ package um.edu.uy.interfaz.restaurante;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.BeansException;
@@ -32,15 +34,27 @@ public class ControladorFechasPagoPendiente implements ApplicationContextAware  
     private Button btnVerPagosPendientes;
 
     @FXML
-    private TextField txtFechaFin;
+	private TextField txtAnioFin;
 
-    @FXML
-    private TextField txtFechaInicio;
+	@FXML
+	private TextField txtAnioInicio;
+
+	@FXML
+	private TextField txtDiaFin;
+
+	@FXML
+	private TextField txtDiaInicio;
+
+	@FXML
+	private TextField txtMesFin;
+
+	@FXML
+	private TextField txtMesInicio;
 
     ApplicationContext applicationContext;
     
-    private String fechaInicio;
-    private String fechaFin;
+    private Date fechaInicio;
+    private Date fechaFin;
 
 	@FXML
     void verPagosPendientes(ActionEvent event) throws IOException {
@@ -50,10 +64,18 @@ public class ControladorFechasPagoPendiente implements ApplicationContextAware  
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		stage = new Stage();
 		if (event.getSource() == btnVerPagosPendientes) {
-			if(txtFechaInicio.getText()!="" && txtFechaFin.getText()!="") {
-				fechaInicio=txtFechaInicio.getText();
-				fechaFin=txtFechaFin.getText();
-			}else {
+			try {
+				Calendar cal = Calendar.getInstance();
+				cal.set(Calendar.YEAR, Integer.parseInt(txtAnioInicio.getText()));
+				cal.set(Calendar.MONTH, Integer.parseInt(txtMesInicio.getText()));
+				cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(txtDiaInicio.getText()));
+				fechaInicio = cal.getTime();
+
+				cal.set(Calendar.YEAR, Integer.parseInt(txtAnioFin.getText()));
+				cal.set(Calendar.MONTH, Integer.parseInt(txtMesFin.getText()));
+				cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(txtDiaFin.getText()));
+				fechaFin = cal.getTime();
+			} catch (NumberFormatException e) {
 				showAlert("Lo sentimos, ", "Ingrese una fecha de inicio y de finalizacion.");
 			}
 			
@@ -68,10 +90,13 @@ public class ControladorFechasPagoPendiente implements ApplicationContextAware  
 
     @FXML
     void initialize() {
-        assert btnVerPagosPendientes != null : "fx:id=\"btnVerPagosPendientes\" was not injected: check your FXML file 'verPagosPendientes.fxml'.";
-        assert txtFechaFin != null : "fx:id=\"txtFechaFin\" was not injected: check your FXML file 'verPagosPendientes.fxml'.";
-        assert txtFechaInicio != null : "fx:id=\"txtFechaInicio\" was not injected: check your FXML file 'verPagosPendientes.fxml'.";
-
+    	assert btnVerPagosPendientes != null : "fx:id=\"btnVerPagosPendientes\" was not injected: check your FXML file 'recibirFechasParaPagosPendientes.fxml'.";
+        assert txtAnioFin != null : "fx:id=\"txtAnioFin\" was not injected: check your FXML file 'recibirFechasParaPagosPendientes.fxml'.";
+        assert txtAnioInicio != null : "fx:id=\"txtAnioInicio\" was not injected: check your FXML file 'recibirFechasParaPagosPendientes.fxml'.";
+        assert txtDiaFin != null : "fx:id=\"txtDiaFin\" was not injected: check your FXML file 'recibirFechasParaPagosPendientes.fxml'.";
+        assert txtDiaInicio != null : "fx:id=\"txtDiaInicio\" was not injected: check your FXML file 'recibirFechasParaPagosPendientes.fxml'.";
+        assert txtMesFin != null : "fx:id=\"txtMesFin\" was not injected: check your FXML file 'recibirFechasParaPagosPendientes.fxml'.";
+        assert txtMesInicio != null : "fx:id=\"txtMesInicio\" was not injected: check your FXML file 'recibirFechasParaPagosPendientes.fxml'.";
 
     }
 
@@ -88,11 +113,11 @@ public class ControladorFechasPagoPendiente implements ApplicationContextAware  
         alert.showAndWait();
     }
 	
-	public String getFechaInicio() {
+	public Date getFechaInicio() {
 		return fechaInicio;
 	}
 
-	public String getFechaFin() {
+	public Date getFechaFin() {
 		return fechaFin;
 	}
 }

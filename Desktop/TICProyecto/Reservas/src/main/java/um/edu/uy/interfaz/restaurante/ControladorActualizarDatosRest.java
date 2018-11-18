@@ -50,9 +50,15 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 
 	@FXML
 	private Button btnCargarImagen;
+	
+	@FXML
+	private Button btnCargarLogo;
 
 	@FXML
 	private ImageView imgView;
+	
+	@FXML
+	private ImageView logoView;
 
 	@FXML
 	private ComboBox<String> cboxBarrio;
@@ -90,6 +96,8 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 	private RestauranteMgr resMgr;
 
 	byte[] imagenAGuardar = null;
+	
+	byte[] logoAGuardar = null;
 
 	private Stage stage;
 
@@ -149,7 +157,8 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 			}
 
 			resMgr.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precioPromedio, mail,
-					barrio, imagenAGuardar, cantMesas, lugaresPorMesa);
+					barrio, imagenAGuardar, logoAGuardar, cantMesas, lugaresPorMesa);
+
 
 			stage = (Stage) btnGuardarDatos.getScene().getWindow();
 			root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("AgregarTiposComida.fxml"));
@@ -179,6 +188,23 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 
 		byte[] fileContent = Files.readAllBytes(file.toPath());
 		imagenAGuardar = fileContent;
+	}
+	
+	@FXML
+	void cargarLogo() throws IOException {
+		FileChooser fc = new FileChooser();
+		FileChooser.ExtensionFilter ext1 = new FileChooser.ExtensionFilter("JPG files(*.jpg)", "*.JPG");
+		FileChooser.ExtensionFilter ext2 = new FileChooser.ExtensionFilter("PNG files(*.png)", "*.PNG");
+		fc.getExtensionFilters().addAll(ext1, ext2);
+		File file = fc.showOpenDialog(stage);
+
+		BufferedImage bf;
+		bf = ImageIO.read(file);
+		Image image = SwingFXUtils.toFXImage(bf, null);
+		logoView.setImage(image);
+
+		byte[] fileContent = Files.readAllBytes(file.toPath());
+		logoAGuardar = fileContent;
 	}
 
 	// @FXML

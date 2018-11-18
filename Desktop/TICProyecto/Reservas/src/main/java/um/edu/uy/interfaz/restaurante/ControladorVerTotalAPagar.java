@@ -2,6 +2,8 @@ package um.edu.uy.interfaz.restaurante;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.BeansException;
@@ -79,11 +81,15 @@ public class ControladorVerTotalAPagar implements ApplicationContextAware {
 		assert txtFechaDesde != null : "fx:id=\"txtFechaDesde\" was not injected: check your FXML file 'VerTotalAPagar.fxml'.";
 		assert txtFechaHasta != null : "fx:id=\"txtFechaHasta\" was not injected: check your FXML file 'VerTotalAPagar.fxml'.";
 
-		Restaurante rest = restauranteMgr.find(controlador.getRutRestaurante());
+//		Restaurante rest = restauranteMgr.find(controlador.getRutRestaurante());
 
-		txtCantidad.setText(rest.getRUT());
-		txtFechaDesde.setText(controladorFechas.getFechaInicio());
-		txtFechaHasta.setText(controladorFechas.getFechaFin());
+		Long unLong=restauranteMgr.cantidadAPagar(controlador.getRutRestaurante(), controladorFechas.getFechaInicio(), controladorFechas.getFechaFin());
+		String string=unLong.toString();
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		
+		txtCantidad.setText(string);
+		txtFechaDesde.setText(df.format(controladorFechas.getFechaInicio()));
+		txtFechaHasta.setText(df.format(controladorFechas.getFechaFin()));
 	}
 
 	@Override

@@ -82,7 +82,7 @@ public class AdminControladorVerPagosPendientes implements ApplicationContextAwa
 		columnaCantidad.setCellValueFactory(
 				new Callback<TableColumn.CellDataFeatures<Restaurante, String>, ObservableValue<String>>() {
 					public ObservableValue<String> call(TableColumn.CellDataFeatures<Restaurante, String> r) {
-						prop.setValue(Long.toString(resMgr.cantidadAPagar(r.getValue().getRUT(),  LocalDate.parse(controller.getFechaInicio()), LocalDate.parse(controller.getFechaFin()))));
+						prop.setValue(Long.toString(resMgr.cantidadAPagar(r.getValue().getRUT(), controller.getFechaInicio(), controller.getFechaFin())));
 						return prop;
 					}
 				});
