@@ -78,6 +78,9 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 	@FXML
 	private TextField txtCantMesas;
 
+	@FXML
+	private TextField txtLugares;
+
 	ApplicationContext applicationContext;
 
 	@Autowired
@@ -101,11 +104,6 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 		cboxBarrio.setItems(barrioMgr.getBarrios());
 	}
 
-//	@FXML
-//	void handleTipoComidaCbox(ActionEvent event) {
-//		cboxTiposComida.setItems(comidaMgr.getComidas());
-//	}
-
 	@FXML
 	void handleSubmitButtonAction(ActionEvent event) throws IOException {
 		Stage stage = null;
@@ -124,6 +122,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 			String barrio = null;
 			Float precioPromedio = null;
 			Integer cantMesas = null;
+			Integer lugaresPorMesa = null;
 
 			if (cboxBarrio.getValue() != null) {
 				barrio = cboxBarrio.getValue();
@@ -137,12 +136,20 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 				cantMesas = Integer.parseInt(txtCantMesas.getText());
 			} catch (NumberFormatException e) {
 				if (resMgr.getCantMesas(rut) == 0) {
-					showAlert("Ingrese la cantidad de mesas", "para habilitar las reservas.");
+					showAlert("Cantidad de mesas", "Ingrese la cantidad de mesas para habilitar las reservas.");
+				}	
+			}
+			try {
+				lugaresPorMesa = Integer.parseInt(txtLugares.getText());
+			} catch (NumberFormatException e) {
+				if (resMgr.getCantMesas(rut) == 0) {
+					showAlert("Lugares por mesa", "Ingrese la cantidad de lugares por mesa para habilitar las reservas.");
 				}
+				
 			}
 
 			resMgr.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precioPromedio, mail,
-					barrio, imagenAGuardar, cantMesas);
+					barrio, imagenAGuardar, cantMesas, lugaresPorMesa);
 
 			stage = (Stage) btnGuardarDatos.getScene().getWindow();
 			root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("AgregarTiposComida.fxml"));
@@ -154,29 +161,8 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		stage.setScene(scene);
-    	stage.show();
+		stage.show();
 	}
-
-//	Stage getStage() {
-//		return stage;
-//	}
-
-//	@FXML
-//	void agregarTiposComida(ActionEvent event) throws IOException {
-//		Stage stage = null;
-//		Parent root = null;
-//		FXMLLoader fxmlLoader = new FXMLLoader();
-//		stage = new Stage();
-//		fxmlLoader.setControllerFactory(applicationContext::getBean);
-//		
-//		if (event.getSource() == btnAgregarTiposComida) {
-//			stage = (Stage) btnAgregarTiposComida.getScene().getWindow();
-//			root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("AgregarTiposComida.fxml"));
-//		}
-//		Scene scene = new Scene(root);
-//		stage.setScene(scene);
-//		stage.show();
-//	}
 
 	@FXML
 	void cargarImagen() throws IOException {
@@ -195,31 +181,31 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 		imagenAGuardar = fileContent;
 	}
 
-//	@FXML
-//	void volverAMenu(ActionEvent event) throws IOException {
-//		Stage stage = new Stage();
-//		Parent root = null;
-//		FXMLLoader fxmlLoader = new FXMLLoader();
-//		fxmlLoader.setControllerFactory(applicationContext::getBean);
-//		if(event.getSource()==btnVolverAMenu) {
-//			stage = (Stage) btnGuardarDatos.getScene().getWindow();
-//			root = fxmlLoader.load(
-//					ControladorActualizarDatosRest.class.getResourceAsStream("MenuPrincipal.fxml"));
-//		}
-//		Scene scene = new Scene(root);
-//		stage.setScene(scene);
-//		stage.show();
-//	}
+	// @FXML
+	// void volverAMenu(ActionEvent event) throws IOException {
+	// Stage stage = new Stage();
+	// Parent root = null;
+	// FXMLLoader fxmlLoader = new FXMLLoader();
+	// fxmlLoader.setControllerFactory(applicationContext::getBean);
+	// if(event.getSource()==btnVolverAMenu) {
+	// stage = (Stage) btnGuardarDatos.getScene().getWindow();
+	// root = fxmlLoader.load(
+	// ControladorActualizarDatosRest.class.getResourceAsStream("MenuPrincipal.fxml"));
+	// }
+	// Scene scene = new Scene(root);
+	// stage.setScene(scene);
+	// stage.show();
+	// }
 
 	@FXML
 	void initialize() {
 		assert btnGuardarDatos != null : "fx:id=\"btnGuardarDatos\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
 		assert cboxBarrio != null : "fx:id=\"cboxBarrio\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
-//		assert cboxTiposComida != null : "fx:id=\"cboxTiposComida\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
 		assert txtDescripcion != null : "fx:id=\"txtDescripcion\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
 		assert txtHorarioApertura != null : "fx:id=\"txtHorarioApertura\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
 		assert txtHorarioCierre != null : "fx:id=\"txtHorarioCierre\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
 		assert txtPrecioPromedio != null : "fx:id=\"txtPrecioPromedio\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
+		assert txtLugares != null : "fx:id=\"txtLugares\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
 	}
 
 	@Override

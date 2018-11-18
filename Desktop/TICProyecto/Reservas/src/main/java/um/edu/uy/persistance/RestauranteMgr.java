@@ -105,9 +105,9 @@ public class RestauranteMgr {
 
 	@Transactional
 	public void cargarDatosRes(String rut, String descripcion, String direccion, String horarioApertura,
-			String horarioCierre, Float precio_promedio, String mail, String barrio, byte[] imagen, Integer cantMesas) {
+			String horarioCierre, Float precio_promedio, String mail, String barrio, byte[] imagen, Integer cantMesas, Integer lugaresPorMesa) {
 		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, mail,
-				barrioMgr.find(barrio), imagen);
+				barrioMgr.find(barrio), imagen, lugaresPorMesa);
 		if (cantMesas != null) {
 			Integer cantMesasActuales = repository.obtenerCantMesas(rut);
 			if (cantMesasActuales == 0) {
@@ -172,6 +172,10 @@ public class RestauranteMgr {
 
 	public Integer getCantMesas(String rut) {
 		return repository.obtenerCantMesas(rut);
+	}
+	
+	public Integer getCantLugarPorMesa(String rut) {
+		return repository.obtenerCantLugaresPorMesa(rut);
 	}
 
 	public List<Mesa> obtenerMesas(String rut) {
