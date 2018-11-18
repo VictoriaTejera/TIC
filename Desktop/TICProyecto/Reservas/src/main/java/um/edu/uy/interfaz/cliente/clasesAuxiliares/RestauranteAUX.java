@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -20,6 +21,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import um.edu.uy.MainCliente;
@@ -37,17 +40,20 @@ public class RestauranteAUX {
 	private Integer id;
 	private Restaurante restaurante;
 	private Button button;
-	
-	@Autowired 
-//	ControladorReservarDirecto controller;
+	private ComboBox<Integer> puntaje;
+	private ImageView imagen;
+
+	@Autowired
+	// ControladorReservarDirecto controller;
 	ControladorListarRestaurantes controller;
-	
-	public ObservableList<Restaurante> getRestaurants(){
+
+	public ObservableList<Restaurante> getRestaurants() {
 		return null;
 	}
-	
+
 	public RestauranteAUX(Restaurante restaurante) {
 		this.restaurante = restaurante;
+		this.imagen = restaurante.getImagen();
 		this.button= new Button("Reservar");
 		button.setOnMouseClicked(new EventHandler<MouseEvent>(){
         	@Override
@@ -77,12 +83,24 @@ public class RestauranteAUX {
 	        	stage.show();
 }
 	    });
+		
+		ObservableList<Integer> puntos = FXCollections.observableArrayList();
+		puntos.add(1);
+		puntos.add(2);
+		puntos.add(3);
+		puntos.add(4);
+		puntos.add(5);
+		this.puntaje.setItems(puntos);
+		
+//		if(puntos.getValue()!=null) { operacion rating
+//			
+//		}
 	}
-	
+
 	public Button getButton() {
 		return button;
 	}
-	
+
 	public Restaurante getRestaurante() {
 		return restaurante;
 	}

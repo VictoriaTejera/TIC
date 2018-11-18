@@ -35,6 +35,7 @@ public class Restaurante implements Serializable {
 	private String horarioApertura;
 	private String horarioCierre;
 	private String direccion;
+	private Integer lugaresPorMesa;
 	@NotNull
 	private Integer telefono;
 	private Float rating;

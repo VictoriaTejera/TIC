@@ -84,6 +84,9 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 	@FXML
 	private TextField txtCantMesas;
 
+	@FXML
+	private TextField txtLugares;
+
 	ApplicationContext applicationContext;
 
 	@Autowired
@@ -109,11 +112,6 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 		cboxBarrio.setItems(barrioMgr.getBarrios());
 	}
 
-//	@FXML
-//	void handleTipoComidaCbox(ActionEvent event) {
-//		cboxTiposComida.setItems(comidaMgr.getComidas());
-//	}
-
 	@FXML
 	void handleSubmitButtonAction(ActionEvent event) throws IOException {
 		Stage stage = null;
@@ -132,6 +130,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 			String barrio = null;
 			Float precioPromedio = null;
 			Integer cantMesas = null;
+			Integer lugaresPorMesa = null;
 
 			if (cboxBarrio.getValue() != null) {
 				barrio = cboxBarrio.getValue();
@@ -145,12 +144,21 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 				cantMesas = Integer.parseInt(txtCantMesas.getText());
 			} catch (NumberFormatException e) {
 				if (resMgr.getCantMesas(rut) == 0) {
-					showAlert("Ingrese la cantidad de mesas", "para habilitar las reservas.");
+					showAlert("Cantidad de mesas", "Ingrese la cantidad de mesas para habilitar las reservas.");
+				}	
+			}
+			try {
+				lugaresPorMesa = Integer.parseInt(txtLugares.getText());
+			} catch (NumberFormatException e) {
+				if (resMgr.getCantLugarPorMesa(rut) == 0) {
+					showAlert("Lugares por mesa", "Ingrese la cantidad de lugares por mesa para habilitar las reservas.");
 				}
+				
 			}
 
 			resMgr.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precioPromedio, mail,
-					barrio, imagenAGuardar, logoAGuardar, cantMesas);
+					barrio, imagenAGuardar, logoAGuardar, cantMesas, lugaresPorMesa);
+
 
 			stage = (Stage) btnGuardarDatos.getScene().getWindow();
 			root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("AgregarTiposComida.fxml"));
@@ -162,7 +170,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		stage.setScene(scene);
-    	stage.show();
+		stage.show();
 	}
 
 	@FXML
@@ -199,21 +207,21 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 		logoAGuardar = fileContent;
 	}
 
-//	@FXML
-//	void volverAMenu(ActionEvent event) throws IOException {
-//		Stage stage = new Stage();
-//		Parent root = null;
-//		FXMLLoader fxmlLoader = new FXMLLoader();
-//		fxmlLoader.setControllerFactory(applicationContext::getBean);
-//		if(event.getSource()==btnVolverAMenu) {
-//			stage = (Stage) btnGuardarDatos.getScene().getWindow();
-//			root = fxmlLoader.load(
-//					ControladorActualizarDatosRest.class.getResourceAsStream("MenuPrincipal.fxml"));
-//		}
-//		Scene scene = new Scene(root);
-//		stage.setScene(scene);
-//		stage.show();
-//	}
+	// @FXML
+	// void volverAMenu(ActionEvent event) throws IOException {
+	// Stage stage = new Stage();
+	// Parent root = null;
+	// FXMLLoader fxmlLoader = new FXMLLoader();
+	// fxmlLoader.setControllerFactory(applicationContext::getBean);
+	// if(event.getSource()==btnVolverAMenu) {
+	// stage = (Stage) btnGuardarDatos.getScene().getWindow();
+	// root = fxmlLoader.load(
+	// ControladorActualizarDatosRest.class.getResourceAsStream("MenuPrincipal.fxml"));
+	// }
+	// Scene scene = new Scene(root);
+	// stage.setScene(scene);
+	// stage.show();
+	// }
 
 	@FXML
 	void initialize() {
@@ -223,6 +231,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 		assert txtHorarioApertura != null : "fx:id=\"txtHorarioApertura\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
 		assert txtHorarioCierre != null : "fx:id=\"txtHorarioCierre\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
 		assert txtPrecioPromedio != null : "fx:id=\"txtPrecioPromedio\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
+		assert txtLugares != null : "fx:id=\"txtLugares\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
 	}
 
 	@Override
