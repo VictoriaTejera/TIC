@@ -1,17 +1,10 @@
 package um.edu.uy.persistance;
 
-import java.io.IOException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.stage.Stage;
-import um.edu.uy.interfaz.cliente.ControladorInicioSesion;
 import um.edu.uy.persistance.entidades.Usuario;
 
 @Service

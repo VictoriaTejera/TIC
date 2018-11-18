@@ -1,5 +1,7 @@
 package um.edu.uy.persistance.entidades;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 import javax.persistence.Basic;
@@ -29,6 +31,7 @@ public class Reserva {
 	private Long Id;
 	private Integer cantPersonas;
 	private Date fecha;
+	private LocalTime hora;
 
 	@Column(columnDefinition="boolean default FALSE")
 	private boolean confirmada;

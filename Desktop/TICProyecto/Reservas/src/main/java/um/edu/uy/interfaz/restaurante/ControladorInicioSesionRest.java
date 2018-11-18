@@ -20,11 +20,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import um.edu.uy.interfaz.cliente.ControladorInicio;
-import um.edu.uy.persistance.ReservaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
-import um.edu.uy.persistance.entidades.Reserva;
-import um.edu.uy.persistance.entidades.Restaurante;
-import um.edu.uy.persistance.entidades.Usuario;
 
 @Component
 public class ControladorInicioSesionRest implements ApplicationContextAware {
@@ -60,8 +56,11 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 
 		if (event.getSource() == btnIniciarSesion) {
+			restauranteMgr.cargarDescripcion("rut", "descripcion");
+//			restauranteMgr.verificarUsuarioRestaurante("123", "111");
+//			restauranteMgr.getRut("123", "111");
 			restauranteRut = restauranteMgr.getRut(txtUsuario.getText(), txtContrasena.getText());
-			if (restauranteMgr.verificarUsuarioRestaurante(txtUsuario.getText(), txtContrasena.getText()) == true) {
+			if (restauranteRut!=null) {
 				stage = (Stage) btnIniciarSesion.getScene().getWindow();
 				root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 			}else {

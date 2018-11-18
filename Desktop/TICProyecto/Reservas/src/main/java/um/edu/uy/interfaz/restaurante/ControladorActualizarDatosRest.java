@@ -122,6 +122,9 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 
 		if (event.getSource() == btnGuardarDatos) {
 			String rut = controller.getRutRestaurante();
+			if(txtDescripcion.getText()!=null) {
+				resMgr.cargarDireccion(rut, txtDescripcion.getText());
+			}
 			String descripcion = txtDescripcion.getText();
 			String direccion = txtDireccion.getText();
 			String horarioApertura = txtHorarioApertura.getText();
@@ -150,14 +153,14 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 			try {
 				lugaresPorMesa = Integer.parseInt(txtLugares.getText());
 			} catch (NumberFormatException e) {
-				if (resMgr.getCantLugarPorMesa(rut) == 0) {
+				if (resMgr.getCantLugarPorMesa(rut) == null) {
 					showAlert("Lugares por mesa", "Ingrese la cantidad de lugares por mesa para habilitar las reservas.");
 				}
 				
 			}
 
-			resMgr.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precioPromedio, mail,
-					barrio, imagenAGuardar, logoAGuardar, cantMesas, lugaresPorMesa);
+//			resMgr.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precioPromedio, mail,
+//					barrio, imagenAGuardar, logoAGuardar, cantMesas, lugaresPorMesa);
 
 
 			stage = (Stage) btnGuardarDatos.getScene().getWindow();

@@ -40,6 +40,8 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 	@Query("UPDATE Reserva r SET r.rechazada =true WHERE r.id= :id")
 	public void marcarRechazada(@Param("id") Long id);
 	
-	
+//	@Transactional
+//	@Modifying
+//	@Query("UPDATE Reserva r SET r.")
 
 }

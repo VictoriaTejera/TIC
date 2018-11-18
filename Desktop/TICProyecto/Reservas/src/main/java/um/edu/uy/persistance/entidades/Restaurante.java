@@ -1,29 +1,22 @@
 package um.edu.uy.persistance.entidades;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
-
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.scene.control.Button;
-
-import javax.persistence.JoinColumn;
 
 @Entity
 @Table
@@ -41,7 +34,7 @@ public class Restaurante implements Serializable {
 	private Float rating;
 	private Integer cantRatings;
 	private String descripcion;
-	private Float precio_promedio;
+	private Float precioPromedio;
 	private String email;
 	private String password;
 
@@ -173,8 +166,8 @@ public class Restaurante implements Serializable {
 		this.password = password;
 	}
 
-	public Float getPrecio_promedio() {
-		return precio_promedio;
+	public Float getPrecioPromedio() {
+		return precioPromedio;
 	}
 
 	public String getEmail() {

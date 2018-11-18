@@ -1,21 +1,16 @@
 package um.edu.uy.interfaz.cliente.clasesAuxiliares;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.imageio.ImageIO;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,20 +23,16 @@ import javafx.stage.Stage;
 import um.edu.uy.MainCliente;
 import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.interfaz.cliente.ControladorListarRestaurantes;
-import um.edu.uy.interfaz.cliente.ControladorRegistro;
-import um.edu.uy.interfaz.cliente.ControladorReservarDirecto;
-import um.edu.uy.persistance.entidades.Barrio;
-import um.edu.uy.persistance.entidades.Comida;
 import um.edu.uy.persistance.entidades.Restaurante;
 
 //@Entity
 public class RestauranteAUX {
-	@Id
-	private Integer id;
+//	@Id
+//	private Integer id;
 	private Restaurante restaurante;
 	private Button button;
 	private ComboBox<Integer> puntaje;
-	private ImageView imagen;
+	private ImageView logo;
 
 	@Autowired
 	// ControladorReservarDirecto controller;
@@ -51,9 +42,10 @@ public class RestauranteAUX {
 		return null;
 	}
 
-	public RestauranteAUX(Restaurante restaurante) {
+	public RestauranteAUX(Restaurante restaurante) throws IOException {
 		this.restaurante = restaurante;
-		this.imagen = restaurante.getImagen();
+		byte[] array = restaurante.getImagen();
+		this.logo.setImage(SwingFXUtils.toFXImage(ImageIO.read(new ByteArrayInputStream(array)),null));
 		this.button= new Button("Reservar");
 		button.setOnMouseClicked(new EventHandler<MouseEvent>(){
         	@Override

@@ -1,13 +1,6 @@
 package um.edu.uy.persistance;
 
-import um.edu.uy.persistance.entidades.Barrio;
-import um.edu.uy.persistance.entidades.Comida;
-import um.edu.uy.persistance.entidades.Mesa;
-import um.edu.uy.persistance.entidades.Reserva;
-import um.edu.uy.persistance.entidades.Restaurante;
-import um.edu.uy.persistance.entidades.Usuario;
-
-import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +10,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import javafx.collections.ObservableList;
+import um.edu.uy.persistance.entidades.Barrio;
+import um.edu.uy.persistance.entidades.Mesa;
+import um.edu.uy.persistance.entidades.Reserva;
+import um.edu.uy.persistance.entidades.Restaurante;
 
 public interface RestauranteRepository extends CrudRepository<Restaurante, String>{
 	
@@ -35,24 +31,78 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	@Transactional
 	public void insertarComida(@Param("rut") String rut, @Param("id_comida") Long id_comida);	
 	
-	@Query("SELECT r FROM Restaurante r WHERE r.precio_promedio BETWEEN :precioMenor and :precioMayor")
+	@Query("SELECT r FROM Restaurante r WHERE r.precioPromedio BETWEEN :precioMenor and :precioMayor")
 	List<Restaurante> filtrarPorPrecio(@Param("precioMenor") Float precioMenor, @Param ("precioMayor") Float precioMayor);
 
 	@Query("SELECT r FROM Restaurante r WHERE r.nombre= :nombre and r.password= :password")
 	Restaurante verificarRestaurante(@Param("nombre") String nombre, @Param("password") String password);
 
+//	@Transactional
+//	@Modifying
+//	@Query("UPDATE Restaurante r SET r.descripcion= :descripcion, r.direccion= :direccion, r.horarioApertura= :horarioApertura, "
+//			+ "r.horarioCierre= :horarioCierre, r.precio_promedio= :precio_promedio, r.email= :mail, r.barrio= :barrio, "
+//			+ "r.imagen= :imagen, r.logo= :logo, r.lugaresPorMesa= :lugaresPorMesa WHERE r.rut= :rut")
+//	public void cargarDatosRes(@Param("rut") String rut, @Param("descripcion")String descripcion, @Param("direccion")String direccion, 
+//			@Param("horarioApertura") String horarioApertura, @Param("horarioCierre") String horarioCierre, 
+//			@Param("precio_promedio") Float precio_promedio, @Param("mail")String mail, @Param("barrio") Barrio barrio,
+//			@Param("imagen") byte[] imagen, @Param("logo") byte[] logo, @Param("lugaresPorMesa") Integer lugaresPorMesa);
+	
+	
 	@Transactional
 	@Modifying
-	@Query("UPDATE Restaurante r SET r.descripcion= :descripcion, r.direccion= :direccion, r.horarioApertura= :horarioApertura, "
-			+ "r.horarioCierre= :horarioCierre, r.precio_promedio= :precio_promedio, r.email= :mail, r.barrio= :barrio, "
-			+ "r.imagen= :imagen, r.logo= :logo, r.lugaresPorMesa= :lugaresPorMesa WHERE r.rut= :rut")
-	public void cargarDatosRes(@Param("rut") String rut, @Param("descripcion")String descripcion, @Param("direccion")String direccion, 
-			@Param("horarioApertura") String horarioApertura, @Param("horarioCierre") String horarioCierre, 
-			@Param("precio_promedio") Float precio_promedio, @Param("mail")String mail, @Param("barrio") Barrio barrio,
-			@Param("imagen") byte[] imagen, @Param("logo") byte[] logo, @Param("lugaresPorMesa") Integer lugaresPorMesa);
+	@Query("UPDATE Restaurante r SET r.descripcion= :descripcion WHERE r.rut= :rut")
+	public void cargarDescripcion(@Param("rut") String rut, @Param("descripcion") String descripcion);
+	
+	@Transactional
+	@Modifying
+	@Query("UPDATE Restaurante r SET r.direccion= :direccion WHERE r.rut= :rut")
+	public void cargarDireccion(@Param("rut") String rut, @Param("direccion") String direccion);
+	
+	@Transactional
+	@Modifying
+	@Query("UPDATE Restaurante r SET r.horarioApertura= :horarioApertura WHERE r.rut= :rut")
+	public void cargarHorarioApertura(@Param("rut") String rut, @Param("horarioApertura") String horarioApertura);
+	
+	@Transactional
+	@Modifying
+	@Query("UPDATE Restaurante r SET r.horarioCierre= :horarioCierre WHERE r.rut= :rut")
+	public void cargarHorarioCierre(@Param("rut") String rut, @Param("horarioCierre") String horarioCierre);
+	
+	@Transactional
+	@Modifying
+	@Query("UPDATE Restaurante r SET r.precioPromedio= :precioPromedio WHERE r.rut= :rut")
+	public void cargarPrecioPromedio(@Param("rut") String rut, @Param("precioPromedio") Float precioPromedio);
+	
+	@Transactional
+	@Modifying
+	@Query("UPDATE Restaurante r SET r.email= :email WHERE r.rut= :rut")
+	public void cargarEmail(@Param("rut") String rut, @Param("email") String email);
+	
+	@Transactional
+	@Modifying
+	@Query("UPDATE Restaurante r SET r.barrio= :barrio WHERE r.rut= :rut")
+	public void cargarBarrio(@Param("rut") String rut, @Param("barrio") Barrio barrio);
+	
+	@Transactional
+	@Modifying
+	@Query("UPDATE Restaurante r SET r.imagen= :imagen WHERE r.rut= :rut")
+	public void cargarImagen(@Param("rut") String rut, @Param("imagen") byte[] imagen);
+	
+	@Transactional
+	@Modifying
+	@Query("UPDATE Restaurante r SET r.logo= :logo WHERE r.rut= :rut")
+	public void cargarLogo(@Param("rut") String rut, @Param("logo") byte[] logo);
+	
+	@Transactional
+	@Modifying
+	@Query("UPDATE Restaurante r SET r.lugaresPorMesa= :lugaresPorMesa WHERE r.rut= :rut")
+	public void cargarLugaresPorMesa(@Param("rut") String rut, @Param("lugaresPorMesa") Integer lugaresPorMesa);
+	
+
+	
 
 	@Query("SELECT r from Restaurante r WHERE nombre= :nombre ")
-	Restaurante res1	(@Param("nombre") String nombre);
+	Restaurante res1(@Param("nombre") String nombre);
 
 	@Query("SELECT res FROM Restaurante res WHERE res.rut= :rut")
 	Restaurante verificarRutRestaurante(@Param("rut") String rut);
@@ -80,6 +130,9 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	
 	@Query("SELECT rv FROM Reserva rv WHERE rv.restaurante.rut= :rut AND rv.terminada=0 AND rv.fecha BETWEEN :fecha1 AND :fecha2")
 	List<Reserva> obtenerReservasTerminadasRangoDeFechas(@Param("rut") String rut, @Param("fecha1") Date fecha1, @Param("fecha2") Date fecha2);
+	
+//	@Query("SELECT r.horarioApertura FROM Restaurante r WHERE r.rut= :rut")
+//	LocalTime obtenerHorarioApertura(@Param("rut") String rut);
 	
 //	@Query("SELECT distinct r FROM Restaurant r INNER JOIN r.comidas c WHERE c.id IN (?1) " +
 //            "AND r.barrio IN (?2) ORDER BY r.rating desc ")

@@ -113,7 +113,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	
 	private Restaurante res;
 
-	public void llenarTabla() {
+	public void llenarTabla() throws IOException {
 		columnaNombre.setCellValueFactory(
 				new Callback<TableColumn.CellDataFeatures<RestauranteAUX, String>, ObservableValue<String>>() {
 					public ObservableValue<String> call(TableColumn.CellDataFeatures<RestauranteAUX, String> r) {
@@ -138,8 +138,8 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 					}
 				});
 		
-		columnaFoto.setCellValueFactory(new PropertyValueFactory<RestauranteAUX, String>("imagen"));
-
+		//columnaFoto.setCellValueFactory(new PropertyValueFactory<RestauranteAUX, String>("imagen"));
+		
 		columnaReservar.setCellValueFactory(new PropertyValueFactory<RestauranteAUX, String>("button"));
 
 		ObservableList<RestauranteAUX> restaurantes = FXCollections.observableArrayList();
@@ -147,9 +147,11 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 		for (int i = 0; i < restauranteMgr.getRestaurants().size(); i++) {
 			restAux = new RestauranteAUX(restauranteMgr.getRestaurants().get(i));
+			System.out.println(restAux);
 			restaurantes.add(restAux);
 		}
 
+	
 		tabla.setItems(restaurantes);
 	}
 
@@ -168,7 +170,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	}
 
 	@FXML
-	void ListarRestaurantes(ActionEvent event) {
+	void ListarRestaurantes(ActionEvent event) throws IOException {
 		if (event.getSource() == btnBuscar) {
 			ObservableList<RestauranteAUX> rest = FXCollections.observableArrayList();
 			RestauranteAUX restAux;
@@ -239,7 +241,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	}
 
 	@FXML
-	void initialize() {
+	void initialize() throws IOException {
 		assert btnBuscar != null : "fx:id=\"btnBuscar\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
 		assert cboxBarrio != null : "fx:id=\"cboxBarrio\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
 		assert cboxComida != null : "fx:id=\"cboxComida\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
