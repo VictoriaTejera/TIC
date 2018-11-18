@@ -28,6 +28,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -69,6 +70,9 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	@FXML
 	private TableColumn<RestauranteAUX, String> columnaReservar;
+	
+	@FXML
+	private TableColumn<RestauranteAUX, String> columnaFoto;
 
 	@FXML
 	private TableView<RestauranteAUX> tabla;
@@ -133,6 +137,8 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 						return prop;
 					}
 				});
+		
+		columnaFoto.setCellValueFactory(new PropertyValueFactory<RestauranteAUX, String>("imagen"));
 
 		columnaReservar.setCellValueFactory(new PropertyValueFactory<RestauranteAUX, String>("button"));
 

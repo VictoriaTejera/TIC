@@ -22,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import um.edu.uy.MainCliente;
@@ -40,6 +41,7 @@ public class RestauranteAUX {
 	private Restaurante restaurante;
 	private Button button;
 	private ComboBox<Integer> puntaje;
+	private ImageView imagen;
 
 	@Autowired
 	// ControladorReservarDirecto controller;
@@ -51,6 +53,7 @@ public class RestauranteAUX {
 
 	public RestauranteAUX(Restaurante restaurante) {
 		this.restaurante = restaurante;
+		this.imagen = restaurante.getImagen();
 		this.button= new Button("Reservar");
 		button.setOnMouseClicked(new EventHandler<MouseEvent>(){
         	@Override

@@ -142,7 +142,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 			try {
 				lugaresPorMesa = Integer.parseInt(txtLugares.getText());
 			} catch (NumberFormatException e) {
-				if (resMgr.getCantMesas(rut) == 0) {
+				if (resMgr.getCantLugarPorMesa(rut) == 0) {
 					showAlert("Lugares por mesa", "Ingrese la cantidad de lugares por mesa para habilitar las reservas.");
 				}
 				
