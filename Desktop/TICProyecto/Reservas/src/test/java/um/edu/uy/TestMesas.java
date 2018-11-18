@@ -30,7 +30,7 @@ public class TestMesas {
 		Restaurante res = new Restaurante("rut2", "nombre2", 543 , "pass2");
 		restauranteMgr.save(res);
 		restauranteMgr.cargarMesas("rut2", 3);
-		restauranteMgr.cargarMesas("1234", 3);
+		restauranteMgr.cargarMesas("123", 3);
 		restauranteMgr.cargarMesas("111", 3);
 //		
 //		mesaMgr.save("rut2", 4);
