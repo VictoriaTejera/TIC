@@ -23,6 +23,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import um.edu.uy.MainCliente;
 import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.interfaz.cliente.ControladorListarRestaurantes;
@@ -51,7 +52,7 @@ public class RestauranteAUX {
 			public void handle(MouseEvent event) {
 				FXMLLoader fxmlLoader = new FXMLLoader();
 //	    		Parent root = null;
-//	    		Stage stage = null;
+	    		Stage stage = null;
 				fxmlLoader.setControllerFactory(MainCliente.getContext()::getBean);
 				fxmlLoader.setLocation(ControladorInicio.class.getResource("Reservar2.fxml"));
 //	    		try {
@@ -69,11 +70,11 @@ public class RestauranteAUX {
 						.getBean("ControladorListarRestaurantes");
 				controller.setRestaurante(restaurante);
 				Parent root = fxmlLoader.getRoot();
-//	    		stage = (Stage) button.getScene().getWindow();
+	    		stage = (Stage) button.getScene().getWindow();
 				Scene scene = new Scene(root);
 				scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
-//				stage.setScene(scene);
-//	        	stage.show();
+				stage.setScene(scene);
+	        	stage.show();
 			}
 		});
 

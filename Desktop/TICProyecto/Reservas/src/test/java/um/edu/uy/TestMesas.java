@@ -48,26 +48,26 @@ public class TestMesas {
 		
 	}
 	
-	@Test
+//	@Test
 	public void test2() {
-		Restaurante res=new Restaurante("rut3", "nombre3", 543 , "pass2");
-		restauranteMgr.save(res);
-//		restauranteMgr.cargarDatosRes("rut3", null, null, null, null, (float)123, null, null, null, 3);
-		assertEquals(restauranteMgr.getCantMesas("rut3"), (Integer) 3);
-		
-		Restaurante res2=new Restaurante("rut4", "nombre4", 543 , "pass2");
-		restauranteMgr.save(res2);
-		assertEquals(restauranteMgr.getCantMesas("rut4"), (Integer) 0);
+//		Restaurante res=new Restaurante("rut3", "nombre3", 543 , "pass2");
+//		restauranteMgr.save(res);
+////		restauranteMgr.cargarDatosRes("rut3", null, null, null, null, (float)123, null, null, null, 3);
+//		assertEquals(restauranteMgr.getCantMesas("rut3"), (Integer) 3);
+//		
+//		Restaurante res2=new Restaurante("rut4", "nombre4", 543 , "pass2");
+//		restauranteMgr.save(res2);
+//		assertEquals(restauranteMgr.getCantMesas("rut4"), (Integer) 0);
 		
 	}
 	
-	@Test
+//	@Test
 	public void test3() {
-		Restaurante res=new Restaurante("rut5", "nombre5", 543 , "pass2");
-		restauranteMgr.save(res);
-//		restauranteMgr.cargarDatosRes("rut5", null, null, null, null, (float)123, null, null, null, 5);
-		
-//		restauranteMgr.cargarDatosRes("rut5", null, null, null, null, (float)123, null, null, null, 3);
+//		Restaurante res=new Restaurante("rut5", "nombre5", 543 , "pass2");
+//		restauranteMgr.save(res);
+////		restauranteMgr.cargarDatosRes("rut5", null, null, null, null, (float)123, null, null, null, 5);
+//		
+////		restauranteMgr.cargarDatosRes("rut5", null, null, null, null, (float)123, null, null, null, 3);
 		
 	}
 
