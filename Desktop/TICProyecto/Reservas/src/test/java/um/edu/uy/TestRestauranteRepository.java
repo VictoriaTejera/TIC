@@ -199,7 +199,7 @@ public class TestRestauranteRepository {
 		Usuario usu=  new Usuario("usu", "123", 9888);
 		usuMgr.save(usu);
 	    reservaMgr.save(usu.getCelular(), r8.getRUT(), 2);
-	  /  resMgr.cantidadAPagar(r8.getRUT(), LocalDate.parse(text, formatter)15/8/18, (Date)14/7/18);
+//	    resMgr.cantidadAPagar(r8.getRUT(), LocalDate.parse(text, formatter)15/8/18, (Date)14/7/18);
 	    
 	    
 	   

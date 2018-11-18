@@ -46,6 +46,8 @@ public class Restaurante implements Serializable {
 
 	@Lob
 	private byte[] imagen;
+	@Lob
+	private byte[] logo;
 
 	@ManyToMany
 	@JoinTable(name="RESTAURANTE_COMIDA", joinColumns = {@JoinColumn(name= "idRestaurante")}, inverseJoinColumns = {@JoinColumn(name="idComida")})

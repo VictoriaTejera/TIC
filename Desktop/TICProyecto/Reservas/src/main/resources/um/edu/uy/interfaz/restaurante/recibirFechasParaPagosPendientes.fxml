@@ -37,14 +37,21 @@
       </children>
     </VBox>
     <Label alignment="CENTER" contentDisplay="CENTER" font="$x3" layoutX="42.0" layoutY="69.0" prefHeight="79.0" prefWidth="287.0" text="desea ver los pagos pendientes:" textAlignment="CENTER" textFill="$x1" textOverrun="ELLIPSIS" underline="true" />
-    <TextField fx:id="txtFechaInicio" layoutX="149.0" layoutY="158.0" prefWidth="166.0" />
-    <Label layoutX="55.0" layoutY="160.0" text="Fecha inicio:">
+    <Label layoutX="55.0" layoutY="164.0" text="Fecha inicio:">
       <font>
         <Font size="14.0" fx:id="x4" />
       </font>
     </Label>
-    <Label font="$x4" layoutX="55.0" layoutY="205.0" text="Fecha fin:" />
-    <TextField fx:id="txtFechaFin" layoutX="149.0" layoutY="205.0" prefWidth="166.0" />
+    <Label font="$x4" layoutX="55.0" layoutY="204.0" text="Fecha fin:" />
     <Button fx:id="btnVerPagosPendientes" layoutX="171.0" layoutY="255.0" mnemonicParsing="false" onAction="#verPagosPendientes" text="Ver pagos pendientes" />
+    <TextField id="txtFechaInicio" fx:id="txtDiaInicio" layoutX="144.0" layoutY="162.0" prefWidth="36.0" />
+    <Label font="$x4" layoutX="157.0" layoutY="137.0" text="D" />
+    <Label font="$x4" layoutX="285.0" layoutY="137.0" text="A" />
+    <Label font="$x4" layoutX="217.0" layoutY="137.0" text="M" />
+    <TextField id="txtFechaInicio" fx:id="txtAnioInicio" layoutX="263.0" layoutY="161.0" prefWidth="55.0" />
+    <TextField id="txtFechaInicio" fx:id="txtMesInicio" layoutX="206.0" layoutY="161.0" prefWidth="36.0" />
+    <TextField id="txtFechaInicio" fx:id="txtDiaFin" layoutX="144.0" layoutY="202.0" prefWidth="36.0" />
+    <TextField id="txtFechaInicio" fx:id="txtMesFin" layoutX="206.0" layoutY="202.0" prefWidth="36.0" />
+    <TextField id="txtFechaInicio" fx:id="txtAnioFin" layoutX="263.0" layoutY="202.0" prefWidth="55.0" />
   </children>
 </AnchorPane>

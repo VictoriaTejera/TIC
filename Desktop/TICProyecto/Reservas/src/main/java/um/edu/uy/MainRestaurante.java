@@ -48,7 +48,7 @@ public class MainRestaurante extends Application{
 		
 		fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(MainRestaurante.getContext()::getBean);
-		
+
 		root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("inicio.fxml"));
 		scene = new Scene(root);
 		

@@ -67,15 +67,24 @@
     </ComboBox>
     <TextField id="txtContrasena" fx:id="txtDireccion" layoutX="207.0" layoutY="216.0" prefHeight="24.0" prefWidth="162.0" />
     <TextField id="txtContrasena" fx:id="txtMail" layoutX="207.0" layoutY="252.0" prefHeight="24.0" prefWidth="162.0" />
-    <ImageView fx:id="imgView" fitHeight="106.50001505533855" fitWidth="142.00001525878906" layoutX="213.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true" />
+    <ImageView fx:id="imgView" fitHeight="96.75001490955626" fitWidth="129.00001525878906" layoutX="39.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true" />
     <Label font="$x3" layoutX="41.0" layoutY="216.0" prefHeight="24.0" prefWidth="109.0" text="Dirección:" textFill="$x1" />
     <Label font="$x3" layoutX="40.0" layoutY="252.0" prefHeight="24.0" prefWidth="109.0" text="E-mail:" textFill="$x1" />
-    <Button fx:id="btnCargarImagen" blendMode="DARKEN" font="$x3" layoutX="41.0" layoutY="334.0" minHeight="24.0" mnemonicParsing="false" onAction="#cargarImagen" prefHeight="33.0" prefWidth="145.0" text="Cargar Imagen" textFill="$x1">
+    <Button fx:id="btnCargarImagen" blendMode="DARKEN" layoutX="39.0" layoutY="334.0" minHeight="24.0" mnemonicParsing="false" onAction="#cargarImagen" prefHeight="24.0" prefWidth="131.0" text="Cargar Imagen" textFill="$x1">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+      </effect>
+      <font>
+        <Font name="Yu Gothic UI Bold" size="14.0" fx:id="x5" />
+      </font>
+    </Button>
+    <Label font="$x3" layoutX="40.0" layoutY="284.0" prefHeight="24.0" prefWidth="142.0" text="Cantidad de mesas:" textFill="$x1" />
+    <TextField id="txtContrasena" fx:id="txtCantMesas" layoutX="207.0" layoutY="284.0" prefHeight="24.0" prefWidth="162.0" />
+    <Button id="btnCargarImagen" fx:id="btnCargarLogo" blendMode="DARKEN" font="$x5" layoutX="198.0" layoutY="334.0" minHeight="24.0" mnemonicParsing="false" onAction="#cargarLogo" prefHeight="24.0" prefWidth="131.0" text="Cargar logo" textFill="$x1">
       <effect>
         <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
       </effect>
     </Button>
-    <Label font="$x3" layoutX="40.0" layoutY="284.0" prefHeight="24.0" prefWidth="142.0" text="Cantidad de mesas:" textFill="$x1" />
-    <TextField id="txtContrasena" fx:id="txtCantMesas" layoutX="207.0" layoutY="284.0" prefHeight="24.0" prefWidth="162.0" />
+    <ImageView fx:id="logoView" fitHeight="102.24998474121094" fitWidth="136.33331298828125" layoutX="195.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true" />
   </children>
 </AnchorPane>

@@ -105,9 +105,9 @@ public class RestauranteMgr {
 
 	@Transactional
 	public void cargarDatosRes(String rut, String descripcion, String direccion, String horarioApertura,
-			String horarioCierre, Float precio_promedio, String mail, String barrio, byte[] imagen, Integer cantMesas) {
+			String horarioCierre, Float precio_promedio, String mail, String barrio, byte[] imagen, byte[] logo, Integer cantMesas) {
 		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, mail,
-				barrioMgr.find(barrio), imagen);
+				barrioMgr.find(barrio), imagen, logo);
 		if (cantMesas != null) {
 			Integer cantMesasActuales = repository.obtenerCantMesas(rut);
 			if (cantMesasActuales == 0) {
@@ -162,7 +162,7 @@ public class RestauranteMgr {
 
 	}
 
-	public long cantidadAPagar(String rut, LocalDate fecha1, LocalDate fecha2) {
+	public long cantidadAPagar(String rut, Date fecha1, Date fecha2) {
 		long cantAPagar = 0;
 		List<Reserva> reservasTerminadas = repository.obtenerReservasTerminadasRangoDeFechas(rut, fecha1, fecha2);
 		cantAPagar = reservasTerminadas.size() * 500;
@@ -182,5 +182,12 @@ public class RestauranteMgr {
 		byte[] array = repository.obtenerImagen(rut);
 		return ImageIO.read(new ByteArrayInputStream(array));
 	}
+	
+	public BufferedImage obtenerLogo(String rut) throws IOException {
+		byte[] array = repository.obtenerLogo(rut);
+		return ImageIO.read(new ByteArrayInputStream(array));
+	}
+	
+	
 
 }

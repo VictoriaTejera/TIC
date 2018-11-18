@@ -45,11 +45,11 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	@Modifying
 	@Query("UPDATE Restaurante r SET r.descripcion= :descripcion, r.direccion= :direccion, r.horarioApertura= :horarioApertura, "
 			+ "r.horarioCierre= :horarioCierre, r.precio_promedio= :precio_promedio, r.email= :mail, r.barrio= :barrio, "
-			+ "r.imagen= :imagen WHERE r.rut= :rut")
+			+ "r.imagen= :imagen, r.logo= :logo WHERE r.rut= :rut")
 	public void cargarDatosRes(@Param("rut") String rut, @Param("descripcion")String descripcion, @Param("direccion")String direccion, 
 			@Param("horarioApertura") String horarioApertura, @Param("horarioCierre") String horarioCierre, 
 			@Param("precio_promedio") Float precio_promedio, @Param("mail")String mail, @Param("barrio") Barrio barrio,
-			@Param("imagen") byte[] imagen);
+			@Param("imagen") byte[] imagen, @Param("logo") byte[] logo);
 
 	@Query("SELECT r from Restaurante r WHERE nombre= :nombre ")
 	Restaurante res1	(@Param("nombre") String nombre);
@@ -72,10 +72,16 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	@Query("SELECT r.imagen FROM Restaurante r WHERE r.rut= :rut")
 	byte[] obtenerImagen(@Param ("rut") String rut);
 	
-	@Query("SELECT rv FROM Reserva rv WHERE rv.restaurante= :rut AND rv.terminada=0 AND rv.fecha BETWEEN :fecha1 AND :fecha2")
-	List<Reserva> obtenerReservasTerminadasRangoDeFechas(@Param("rut") String rut, @Param("fecha1") LocalDate fecha1, @Param("fecha2") LocalDate fecha2);
+	@Query("SELECT r.logo FROM Restaurante r WHERE r.rut= :rut")
+	byte[] obtenerLogo(@Param ("rut") String rut);
+	
+	@Query("SELECT rv FROM Reserva rv WHERE rv.restaurante.rut= :rut AND rv.terminada=0 AND rv.fecha BETWEEN :fecha1 AND :fecha2")
+	List<Reserva> obtenerReservasTerminadasRangoDeFechas(@Param("rut") String rut, @Param("fecha1") Date fecha1, @Param("fecha2") Date fecha2);
 	
 //	@Query("SELECT distinct r FROM Restaurant r INNER JOIN r.comidas c WHERE c.id IN (?1) " +
 //            "AND r.barrio IN (?2) ORDER BY r.rating desc ")
 //    List<Restaurante> findByTipoComidaAndBarrio(List<Integer> idListaTiposComidas, List<Barrio> listaBarrio);
+	
+//	@Query("UPDATE Reserva r SET r.fechaInicio= :imagen WHERE r.rut= :rut")
+//	void insertDate(@Param("rut") String rut);
 }
