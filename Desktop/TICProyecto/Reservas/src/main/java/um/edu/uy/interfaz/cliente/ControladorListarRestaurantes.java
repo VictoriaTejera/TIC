@@ -96,7 +96,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	
 	private Restaurante res;
 	
-	public void llenarTabla() {
+	public void llenarTabla() throws IOException {
 		columnaNombre.setCellValueFactory(
 				new Callback<TableColumn.CellDataFeatures<RestauranteAUX, String>, ObservableValue<String>>() {
 					public ObservableValue<String> call(TableColumn.CellDataFeatures<RestauranteAUX, String> r) {
@@ -152,7 +152,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	}
 
 	@FXML
-	void ListarRestaurantes(ActionEvent event) {
+	void ListarRestaurantes(ActionEvent event) throws IOException {
 		if (event.getSource() == btnBuscar) {
 			ObservableList<RestauranteAUX> rest = FXCollections.observableArrayList();
 			RestauranteAUX restAux;
@@ -223,7 +223,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	}
 
 	@FXML
-	void initialize() {
+	void initialize() throws IOException {
 		assert btnBuscar != null : "fx:id=\"btnBuscar\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
 		assert cboxBarrio != null : "fx:id=\"cboxBarrio\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
 		assert cboxComida != null : "fx:id=\"cboxComida\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";

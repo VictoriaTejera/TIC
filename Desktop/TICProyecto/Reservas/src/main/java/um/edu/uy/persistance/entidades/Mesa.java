@@ -8,15 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
-@SuppressWarnings("unused")
+//@Table
+//@SuppressWarnings("unused")
 public class Mesa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private Integer capacidad;
-	@Column(columnDefinition="boolean default FALSE")
+//	@Column(columnDefinition="boolean default FALSE")
 	private boolean reservada;	
 	
 	public Mesa() {
@@ -50,7 +50,5 @@ public class Mesa {
 	public void reservar() {
 		reservada=true;
 	}
-	
-	
 	
 }

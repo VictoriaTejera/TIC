@@ -29,7 +29,23 @@ public class TestMesas {
 	public void test() {
 		Restaurante res = new Restaurante("rut2", "nombre2", 543 , "pass2");
 		restauranteMgr.save(res);
-		mesaMgr.save("rut2", 4);
+		restauranteMgr.cargarMesas("rut2", 3);
+		restauranteMgr.cargarMesas("1234", 3);
+		restauranteMgr.cargarMesas("111", 3);
+//		
+//		mesaMgr.save("rut2", 4);
+//		mesaMgr.save("rut2", 4);
+//		mesaMgr.save("rut2", 4);
+//		mesaMgr.save("rut2", 4);
+//		mesaMgr.save("rut2", 4);
+//		mesaMgr.save("rut2", 4);
+//
+//		mesaMgr.save("111", 4);
+//		mesaMgr.save("111", 4);
+//		mesaMgr.save("111", 4);
+//		mesaMgr.save("1234", 4);
+		
+		
 	}
 	
 	@Test
