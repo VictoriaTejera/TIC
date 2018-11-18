@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import org.jboss.logging.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -89,30 +90,12 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	@Autowired
 	private ComidaMgr comidaMgr;
 
-	private static ApplicationContext applicationContext;
-
-	@FXML
-	private TableColumn<RestauranteAUX, String> colDireccion;
-
-	@FXML
-	private Label nombreRest;
+	private ApplicationContext applicationContext;
 
 	private StringProperty prop = new SimpleStringProperty();
-
-	@FXML
-	private TableColumn<RestauranteAUX, String> colHorario;
-
-	@FXML
-	private TableColumn<RestauranteAUX, Float> colRating;
-
-	@FXML
-	private TableColumn<RestauranteAUX, Integer> colTel;
-
-	@FXML
-	private Label descripciónRest;
 	
 	private Restaurante res;
-
+	
 	public void llenarTabla() {
 		columnaNombre.setCellValueFactory(
 				new Callback<TableColumn.CellDataFeatures<RestauranteAUX, String>, ObservableValue<String>>() {
@@ -151,6 +134,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		}
 
 		tabla.setItems(restaurantes);
+		
 	}
 
 	@FXML
@@ -247,13 +231,15 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		assert columnaDireccion != null : "fx:id=\"columnaDireccion\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
 		assert columnaNombre != null : "fx:id=\"columnaNombre\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
 		assert columnaTelefono != null : "fx:id=\"columnaTelefono\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
+		assert columnaFoto != null : "fx:id=\"columnaFoto\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
 		assert tabla != null : "fx:id=\"tabla\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
-
-
+		
 		llenarTabla();
 		filtroBarrio();
 		filtroComida();
 		filtroPrecio();
+		
+//		System.out.println("AAAAAAAAAAAAAAAAA " + tabla.getItems());
 
 		tabla.setOnMousePressed(new EventHandler<MouseEvent>() {
 			@Override
@@ -280,7 +266,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	}
 
-	public static <T> T getBean(Class<T> beanClass) {
+	public <T> T getBean(Class<T> beanClass) {
 		return applicationContext.getBean(beanClass);
 	}
 
