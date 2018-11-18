@@ -1,5 +1,6 @@
 package um.edu.uy.persistance;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Modifying;
@@ -40,6 +41,13 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 	@Query("UPDATE Reserva r SET r.rechazada =true WHERE r.id= :id")
 	public void marcarRechazada(@Param("id") Long id);
 	
+	@Transactional
+	@Modifying
+	@Query("UPDATE Reserva r SET r.hora= hora")
+	public void agregarHora(@Param("hora") LocalTime hora);
 	
 
+	@Query("SELECT r FROM Reserva r WHERE r.hora= :hora AND r.restaurante.rut= :rut ")
+	Reserva verificarSiHayReservaAEsaHora(@Param ("hora") LocalTime hora, @Param("rut") String rut);
+			
 }

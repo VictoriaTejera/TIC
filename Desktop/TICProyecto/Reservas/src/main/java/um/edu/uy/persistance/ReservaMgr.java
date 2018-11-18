@@ -1,5 +1,6 @@
 package um.edu.uy.persistance;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,5 +92,17 @@ public class ReservaMgr{
 		repository.marcarRechazada(idReserva);
 	}
 
+	public boolean agregarHora(LocalTime hora, Restaurante restaurante) {
+		boolean agregarHora=false;
+		if(repository.verificarSiHayReservaAEsaHora(hora, restaurante.getRUT())==null) {
+			repository.agregarHora(hora);
+			agregarHora=true;
+		}
+		else {
+			agregarHora=false;
+			
+		}
+		return agregarHora;
+	}
 
 }

@@ -71,9 +71,14 @@ public class TestRestauranteI {
 		resMgr.save(res1);
 	}
 
-//	@Test
+	@Test
 	public void testGetRestaurantesII() {
-		resMgr.getRestaurants();
+		List <Restaurante> restaurantes= resMgr.getRestaurants();
+		System.out.println(restaurantes.size());
+		System.out.println(restaurantes.get(1));
+		System.out.println(restaurantes.get(2));
+		System.out.println(restaurantes.get(3));
+		System.out.println(restaurantes.get(0));
 	}
 
 	// @Test
@@ -109,7 +114,7 @@ public class TestRestauranteI {
 
 	}
 
-	@Test
+	//@Test
 	public void testFiltroPorComida() {
 
 		Restaurante res1 = new Restaurante("111", "Ginebra", 353454, "123456");
@@ -165,7 +170,7 @@ public class TestRestauranteI {
 		assertTrue(resMgr.restauranteYaFueCreado(r1));
 	}
 
-	@Test
+	//@Test
 	public void testCargarDatosRes() {
 
 		List<String> tipoComidas = new LinkedList();
@@ -176,7 +181,7 @@ public class TestRestauranteI {
 
 	}
 	
-	@Test
+	//@Test
 	public void testObtenerMesasNoReservadas() {
 		resMgr.obtenerMesasNoReservadas("123");
 	}

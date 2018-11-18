@@ -1,10 +1,12 @@
 package um.edu.uy.persistance.entidades;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
@@ -15,6 +17,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+
 
 import javax.persistence.JoinColumn;
 
@@ -34,7 +37,7 @@ public class Restaurante implements Serializable {
 	private Float rating;
 	private Integer cantRatings;
 	private String descripcion;
-	private Float precio_promedio;
+	private Float precioPromedio;
 	private String email;
 	private String password;
 
@@ -166,8 +169,8 @@ public class Restaurante implements Serializable {
 		this.password = password;
 	}
 
-	public Float getPrecio_promedio() {
-		return precio_promedio;
+	public Float getPrecioPromedio() {
+		return precioPromedio;
 	}
 
 	public String getEmail() {

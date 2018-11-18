@@ -3,7 +3,7 @@ package um.edu.uy.persistance;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -14,14 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import um.edu.uy.persistance.entidades.Barrio;
+import javafx.collections.FXCollections;
 import um.edu.uy.persistance.entidades.Comida;
 import um.edu.uy.persistance.entidades.Mesa;
 import um.edu.uy.persistance.entidades.Reserva;
 import um.edu.uy.persistance.entidades.Restaurante;
-import um.edu.uy.persistance.entidades.Usuario;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 @Service
 public class RestauranteMgr {
@@ -45,6 +42,7 @@ public class RestauranteMgr {
 			if (repository.obtenerCantMesas(r.getRUT()) != 0) {
 				lista.add(r);
 			}
+			
 		}
 		return lista;
 	}
@@ -103,11 +101,82 @@ public class RestauranteMgr {
 		return verifico;
 	}
 
+//	@Transactional
+//	public void cargarDatosRes(String rut, String descripcion, String direccion, String horarioApertura,
+//			String horarioCierre, Float precio_promedio, String mail, String barrio, byte[] imagen, byte[] logo, Integer cantMesas, Integer lugaresPorMesa) {
+//		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, mail,
+//				barrioMgr.find(barrio), imagen, logo, lugaresPorMesa);
+//		if (cantMesas != null) {
+//			Integer cantMesasActuales = repository.obtenerCantMesas(rut);
+//			if (cantMesasActuales == 0) {
+//				for (int i = 0; i < cantMesas; i++) {
+//					mesaMgr.save(rut, 4);
+//				}
+//			} else if (cantMesasActuales > cantMesas) {
+//				List<Mesa> mesas = repository.obtenerMesas(rut);
+//				for (int i = 0; i < cantMesasActuales - cantMesas; i++) {
+//					mesaMgr.delete(mesas.get(i).getId());
+//				}
+//			} else if (cantMesasActuales < cantMesas) {
+//				for (int i = 0; i < cantMesas - cantMesasActuales; i++) {
+//					mesaMgr.save(rut, 4);
+//				}
+//			}
+//		}
+//	}
+	
 	@Transactional
-	public void cargarDatosRes(String rut, String descripcion, String direccion, String horarioApertura,
-			String horarioCierre, Float precio_promedio, String mail, String barrio, byte[] imagen, byte[] logo, Integer cantMesas, Integer lugaresPorMesa) {
-		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, mail,
-				barrioMgr.find(barrio), imagen, logo, lugaresPorMesa);
+	public void cargarDescripcion(String rut, String descripcion) {
+		repository.cargarDescripcion(rut, descripcion);
+	}
+	
+	@Transactional
+	public void cargarDireccion(String rut, String direccion) {
+		repository.cargarDireccion(rut, direccion);
+	}
+	
+	@Transactional
+	public void cargarHorarioApertura(String rut, String horarioApertura) {
+		repository.cargarHorarioApertura(rut, horarioApertura);
+	}
+	
+	@Transactional
+	public void cargarHorarioCierre(String rut, String horarioCierre) {
+		repository.cargarHorarioCierre(rut, horarioCierre);
+	}
+	
+	@Transactional
+	public void cargarPrecioPromedio(String rut, Float precioPromedio) {
+		repository.cargarPrecioPromedio(rut, precioPromedio);
+	}
+	
+	@Transactional
+	public void cargarEmail(String rut, String email) {
+		repository.cargarEmail(rut, email);
+	}
+	
+	@Transactional
+	public void cargarBarrio(String rut, String barrio) {
+		repository.cargarBarrio(rut, barrioMgr.find(barrio));
+	}
+	
+	@Transactional
+	public void cargarImagen(String rut, byte[] imagen) {
+		repository.cargarImagen(rut, imagen);
+	}
+	
+	@Transactional
+	public void cargarLogo(String rut, byte[] logo) {
+		repository.cargarLogo(rut, logo);
+	}
+	
+	@Transactional
+	public void cargarLugaresPorMesa(String rut, Integer lugaresPorMesa) {
+		repository.cargarLugaresPorMesa(rut, lugaresPorMesa);
+	}
+	
+	@Transactional
+	public void cargarMesas(String rut, Integer cantMesas) {
 		if (cantMesas != null) {
 			Integer cantMesasActuales = repository.obtenerCantMesas(rut);
 			if (cantMesasActuales == 0) {
@@ -126,6 +195,14 @@ public class RestauranteMgr {
 			}
 		}
 	}
+	
+
+	
+	
+	
+	
+	
+	
 
 	public boolean restauranteYaFueCreado(Restaurante res) {
 		boolean creado = true;
@@ -192,6 +269,8 @@ public class RestauranteMgr {
 		return ImageIO.read(new ByteArrayInputStream(array));
 	}
 	
-	
+//	public LocalTime obtenerHorarioApertura(String rut) {
+//		return repository.obtenerHorarioApertura(rut);
+//	}
 
 }

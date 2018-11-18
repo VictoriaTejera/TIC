@@ -94,8 +94,8 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
         
         nombreRest.setText(controlador.restSeleccionado().getNombre());
         txtDireccion.setText(controlador.restSeleccionado().getDireccion());
-        txtHoraApertura.setText(controlador.restSeleccionado().getHorarioAperura());
-        txtHoraCierre.setText(controlador.restSeleccionado().getHorarioCierre());
+        txtHoraApertura.setText(controlador.restSeleccionado().getHorarioAperura().toString());
+        txtHoraCierre.setText(controlador.restSeleccionado().getHorarioCierre().toString());
         txtRating.setText(Float.toString(controlador.restSeleccionado().getRating() != null ? controlador.restSeleccionado().getRating() : 0));
         txtTelefono.setText(Integer.toString(controlador.restSeleccionado().getTelefono()));
         descripcion.setText(controlador.restSeleccionado().getDescripcion());
