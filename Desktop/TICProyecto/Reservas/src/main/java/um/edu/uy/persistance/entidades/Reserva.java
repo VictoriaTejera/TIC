@@ -11,8 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
-
-
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -27,19 +25,19 @@ public class Reserva {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Basic(optional = false)
-	@Column(name="id", unique=true, nullable=false)
+	@Column(name = "id", unique = true, nullable = false)
 	private Long Id;
 	private Integer cantPersonas;
 	private LocalDate fecha;
 	private LocalTime hora;
 
-	@Column(columnDefinition="boolean default FALSE")
+	@Column(columnDefinition = "boolean default FALSE")
 	private boolean confirmada;
-	@Column(columnDefinition="boolean default FALSE")
+	@Column(columnDefinition = "boolean default FALSE")
 	private boolean rechazada;
-	@Column(columnDefinition="boolean default FALSE")
+	@Column(columnDefinition = "boolean default FALSE")
 	private boolean terminada;
-	
+
 	@ManyToOne
 	@Cascade(CascadeType.ALL)
 	private Usuario usuario;
@@ -51,16 +49,16 @@ public class Reserva {
 	public Reserva() {
 	}
 
-	public Reserva(Usuario usuario, Restaurante restaurante, Integer cantPersonas) {
+	public Reserva(Usuario usuario, Restaurante restaurante, Integer cantPersonas, LocalDate fecha, LocalTime hora) {
 		super();
 		this.usuario = usuario;
 		this.restaurante = restaurante;
 		this.cantPersonas = cantPersonas;
-		confirmada=false;
-		terminada=false;
-		rechazada=false;
-		
-		fecha=LocalDate.now();
+		confirmada = false;
+		terminada = false;
+		rechazada = false;
+		this.fecha = fecha;
+		this.hora = hora;
 	}
 
 	public Long getId() {
@@ -86,7 +84,7 @@ public class Reserva {
 	public void setConfirmado(boolean confirmado) {
 		this.confirmada = confirmado;
 	}
-	
+
 	public void setRechazada(boolean rechazada) {
 		this.rechazada = rechazada;
 	}
@@ -132,6 +130,5 @@ public class Reserva {
 		return "Reserva [Id=" + Id + ", cantPersonas=" + cantPersonas + ", confirmada=" + confirmada + ", terminada="
 				+ terminada + ", usuario=" + usuario + ", restaurante=" + restaurante + "]";
 	}
-	
-	
+
 }

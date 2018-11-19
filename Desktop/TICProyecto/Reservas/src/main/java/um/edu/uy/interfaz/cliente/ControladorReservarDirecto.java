@@ -54,9 +54,8 @@ public class ControladorReservarDirecto {
 		if (event.getSource() == btnReservar) {
 			try {
 				reservaMgr.save(controladorInicioSesion.getUsuario().getCelular(), controladorListarRestaurantes.getRestaurante().getRUT(),
-						Integer.parseInt(cantPersonas.getText()));
-				fecha.getValue();
-				reservaMgr.agregarHora(hora.getValue() , controladorListarRestaurantes.getRestaurante());
+						Integer.parseInt(cantPersonas.getText()), fecha.getValue(), hora.getValue());
+				
 				stage = (Stage) btnReservar.getScene().getWindow();
 				stage.close();
 			}catch(NumberFormatException e) {
