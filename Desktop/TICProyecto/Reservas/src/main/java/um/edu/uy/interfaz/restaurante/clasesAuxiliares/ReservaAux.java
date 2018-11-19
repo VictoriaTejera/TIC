@@ -18,7 +18,6 @@ public class ReservaAux {
 	private Button rechazar;
 	private Button finalizar;
 	
-	@Autowired
 	ReservaMgr resMgr;
 	
 	@Autowired 
@@ -52,7 +51,7 @@ public class ReservaAux {
 		finalizar.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-//				resMgr.finalizarReserva(controller.getReserva().getId());;
+				resMgr.terminarReserva(controller.getReserva().getRestaurante().getRUT(), controller.getReserva().getUsuario().getCelular(), controller.getReserva().getFecha());
 				showAlert("Finalización de reserva","Reserva finalizada con éxito");
 			}
 		});

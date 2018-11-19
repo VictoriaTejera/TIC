@@ -15,9 +15,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
+import um.edu.uy.interfaz.cliente.clasesAuxiliares.RestauranteAUX;
+import um.edu.uy.persistance.entidades.Restaurante;
 
-@Component
+@Component("ControladorPuntuarRestaurantes")
 public class ControladorPuntuarRestaurantes implements ApplicationContextAware {
 
     @FXML
@@ -28,9 +31,16 @@ public class ControladorPuntuarRestaurantes implements ApplicationContextAware {
 
     @FXML
     private Button btnVolver;
-
+    
+    @FXML
+    private TableColumn<RestauranteAUX, String> colPuntaje;
+    
+    @FXML
+    private TableColumn<RestauranteAUX, String> colRestaurante;
 
 	private ApplicationContext applicationContext;
+	
+	private Restaurante restaurante;
 
     @FXML
     void volverAlMenu(ActionEvent event) throws IOException {
@@ -53,12 +63,26 @@ public class ControladorPuntuarRestaurantes implements ApplicationContextAware {
     @FXML
     void initialize() {
         assert btnVolver != null : "fx:id=\"btnVolver\" was not injected: check your FXML file 'PuntuarRestaurantes.fxml'.";
+        assert colPuntaje != null : "fx:id=\"colPuntaje\" was not injected: check your FXML file 'PuntuarRestaurantes.fxml'.";
+        assert colRestaurante != null : "fx:id=\"colRestaurante\" was not injected: check your FXML file 'PuntuarRestaurantes.fxml'.";
     }
     
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
 
 	}
+    
+    public <T> T getBean(Class<T> beanClass) {
+		return applicationContext.getBean(beanClass);
+	}
+    
+    public Restaurante getRestaurante() {
+    	return this.restaurante;
+    }
+    
+    public void setRestaurante(Restaurante res) {
+    	this.restaurante = res;
+    }
 
 }
 

@@ -21,7 +21,7 @@ import um.edu.uy.persistance.entidades.Mesa;
 import um.edu.uy.persistance.entidades.Reserva;
 import um.edu.uy.persistance.entidades.Restaurante;
 
-@Service
+@Service("RestauranteMgr")
 public class RestauranteMgr {
 
 	@Autowired
