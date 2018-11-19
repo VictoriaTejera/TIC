@@ -51,7 +51,6 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 	@Modifying
 	@Query("UPDATE Reserva r SET r.terminada=1 WHERE r.restaurante.rut= :rut and r.usuario.celular= :telefonoUsuario and r.fecha= :fecha")
 	void terminarReserva(@Param("rut") String rut, @Param("telefonoUsuario") Integer telefonoUsuario, @Param("fecha") LocalDate fecha);
-	
 
 	@Query("SELECT r FROM Reserva r WHERE r.hora= :hora AND r.restaurante.rut= :rut ")
 	Reserva verificarSiHayReservaAEsaHora(@Param ("hora") LocalTime hora, @Param("rut") String rut);
