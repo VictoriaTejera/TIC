@@ -53,7 +53,13 @@
         <Label font="$x2" prefHeight="40.0" prefWidth="45.0" text="S" textFill="$x1" />
       </children>
     </VBox>
-      <JFXButton fx:id="btnConfirmarRegistro" buttonType="RAISED" layoutX="152.0" layoutY="309.0" onAction="#handleSubmitButtonAction" ripplerFill="LIME" text="REGISTRARSE" />
-      <JFXButton fx:id="btnVolver" buttonType="RAISED" layoutX="167.0" layoutY="347.0" onAction="#handleSubmitButtonAction" ripplerFill="RED" text="VOLVER" />
+      <JFXButton fx:id="btnConfirmarRegistro" buttonType="RAISED" layoutX="152.0" layoutY="309.0" onAction="#handleSubmitButtonAction" ripplerFill="LIME" text="REGISTRARSE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btnVolver" buttonType="RAISED" layoutX="167.0" layoutY="347.0" onAction="#handleSubmitButtonAction" ripplerFill="RED" text="VOLVER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
   </children>
 </AnchorPane>

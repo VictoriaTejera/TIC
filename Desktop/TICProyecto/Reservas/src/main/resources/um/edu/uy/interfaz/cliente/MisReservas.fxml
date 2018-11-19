@@ -50,6 +50,9 @@
         <TableColumn fx:id="confirmadas" maxWidth="5000.0" minWidth="10.0" prefWidth="158.0" text="Confirmadas" />
       </columns>
     </TableView>
-      <JFXButton fx:id="btnVolver" buttonType="RAISED" layoutX="333.0" layoutY="376.0" onAction="#volverAlMenu" ripplerFill="RED" text="VOLVER" />
+      <JFXButton fx:id="btnVolver" buttonType="RAISED" layoutX="333.0" layoutY="376.0" onAction="#volverAlMenu" ripplerFill="RED" text="VOLVER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
   </children>
 </AnchorPane>

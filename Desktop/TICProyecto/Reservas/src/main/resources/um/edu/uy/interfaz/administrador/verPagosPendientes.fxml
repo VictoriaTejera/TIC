@@ -24,7 +24,7 @@
          <bottom>
             <JFXButton fx:id="btnVolverAlMenu" buttonType="RAISED" onAction="#volverAlMenu" ripplerFill="RED" text="VOLVER" BorderPane.alignment="CENTER">
                <font>
-                  <Font name="Yu Gothic Regular" size="15.0" />
+                  <Font name="Yu Gothic Bold" size="15.0" />
                </font>
                <BorderPane.margin>
                   <Insets bottom="20.0" />

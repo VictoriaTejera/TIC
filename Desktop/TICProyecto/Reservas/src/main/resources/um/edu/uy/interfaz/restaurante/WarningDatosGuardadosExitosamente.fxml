@@ -19,7 +19,7 @@
     </Label>
       <JFXButton fx:id="btnVolverAMenu" buttonType="RAISED" layoutX="157.0" layoutY="77.0" onAction="#volverAMenu" prefHeight="45.0" prefWidth="177.0" ripplerFill="RED" text="VOLVER AL MENU">
          <font>
-            <Font name="Yu Gothic Regular" size="15.0" />
+            <Font name="Yu Gothic Bold" size="15.0" />
          </font>
       </JFXButton>
   </children>
