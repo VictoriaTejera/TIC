@@ -6,6 +6,9 @@ import java.util.ResourceBundle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTimePicker;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -29,6 +32,12 @@ public class ControladorReservarDirecto {
 
 	@FXML
 	private TextField cantPersonas;
+	
+	 @FXML
+	 private JFXTimePicker hora;
+
+	 @FXML
+	 private JFXDatePicker fecha;
 
 	@Autowired
 	ControladorInicioSesion controladorInicioSesion;
@@ -46,6 +55,8 @@ public class ControladorReservarDirecto {
 			try {
 				reservaMgr.save(controladorInicioSesion.getUsuario().getCelular(), controladorListarRestaurantes.getRestaurante().getRUT(),
 						Integer.parseInt(cantPersonas.getText()));
+				fecha.getValue();
+				reservaMgr.agregarHora(hora.getValue() , controladorListarRestaurantes.getRestaurante());
 				stage = (Stage) btnReservar.getScene().getWindow();
 				stage.close();
 			}catch(NumberFormatException e) {

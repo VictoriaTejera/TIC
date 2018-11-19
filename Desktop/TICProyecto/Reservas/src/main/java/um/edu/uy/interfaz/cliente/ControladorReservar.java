@@ -59,7 +59,8 @@ public class ControladorReservar {
 				reservaMgr.save(controladorInicioSesion.getUsuario().getCelular(), controlador2.getRestaurante().getRUT(),
 						Integer.parseInt(cantPersonas.getText()));
 				fecha.getValue();
-				hora.getValue();
+				reservaMgr.agregarHora(hora.getValue() , controlador2.getRestaurante());
+				
 				stage = (Stage) btnReservar.getScene().getWindow();
 				stage.close();
 			}catch(NumberFormatException e) {
