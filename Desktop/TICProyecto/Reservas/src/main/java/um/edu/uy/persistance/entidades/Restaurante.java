@@ -156,6 +156,10 @@ public class Restaurante implements Serializable {
 		this.imagen = imagen;
 	}
 	
+	public void setLogo(byte[] logo) {
+		this.logo=logo;
+	}
+	
 	public byte[] getLogo() {
 		return logo;
 	}
