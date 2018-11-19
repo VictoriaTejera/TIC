@@ -46,7 +46,7 @@ public class RestauranteAUX {
 	public RestauranteAUX(Restaurante restaurante) throws IOException {
 		this.restaurante = restaurante;
 
-		//byte[] array = restaurante.getImagen();
+		//byte[] array = resMgr.obtenerLogo(restaurante.getRUT());
 		
 		//BufferedImage img = ImageIO.read(new ByteArrayInputStream(array));
 		
