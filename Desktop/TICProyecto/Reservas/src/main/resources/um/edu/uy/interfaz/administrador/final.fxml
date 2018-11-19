@@ -22,7 +22,7 @@
       </textFill>
     </Label>
     <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnRegresar" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" layoutX="166.0" layoutY="162.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="43.0" prefWidth="120.0" text="Regresar" textAlignment="LEFT" textFill="$x1" underline="false" visible="true">
+    <Button id="submitButton" fx:id="btnRegresar" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" layoutX="166.0" layoutY="162.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="43.0" prefWidth="120.0" text="Regresar" textAlignment="LEFT" textFill="BLACK" underline="false" visible="true">
       <effect>
         <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
       </effect>
