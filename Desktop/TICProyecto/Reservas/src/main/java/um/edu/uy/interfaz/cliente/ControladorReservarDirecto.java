@@ -64,7 +64,7 @@ public class ControladorReservarDirecto implements ApplicationContextAware{
 		stage = new Stage();
 		if (event.getSource() == btnReservar) {
 			try {
-				reservaMgr.save(controladorInicioSesion.getUsuario().getCelular(), controladorListarRestaurantes.getRestaurante().getRUT(),
+				reservaMgr.save(controladorInicioSesion.getUsuarioCelular(), controladorListarRestaurantes.getRestaurante().getRUT(),
 						Integer.parseInt(cantPersonas.getText()), fecha.getValue(), hora.getValue());
 				
 				root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
