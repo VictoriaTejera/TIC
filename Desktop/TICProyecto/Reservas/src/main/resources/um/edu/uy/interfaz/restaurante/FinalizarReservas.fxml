@@ -21,7 +21,7 @@
             </Label>
          </top>
          <center>
-            <TableView prefHeight="329.0" prefWidth="395.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="reservas" prefHeight="329.0" prefWidth="395.0" BorderPane.alignment="CENTER">
               <columns>
                 <TableColumn fx:id="colUsuario" prefWidth="156.0" text="Usuario" />
                 <TableColumn fx:id="colRestaurante" prefWidth="143.0" text="Restaurante" />

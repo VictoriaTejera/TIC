@@ -1,13 +1,17 @@
 package um.edu.uy.interfaz.restaurante;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,11 +19,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.interfaz.restaurante.clasesAuxiliares.ReservaAux;
+import um.edu.uy.persistance.ReservaMgr;
+import um.edu.uy.persistance.entidades.Reserva;
 
 public class ControladorFinalizarReservas {
 
@@ -35,9 +42,18 @@ public class ControladorFinalizarReservas {
     @FXML
     private TableColumn<ReservaAux, String> colFinalizar;
     
+    @FXML
+    private TableView<ReservaAux> reservas;
+    
     private final StringProperty prop = new SimpleStringProperty();
     
     private ApplicationContext applicationContext;
+    
+    @Autowired
+	private ControladorInicioSesionRest controladorInicio;
+    
+    @Autowired
+    ReservaMgr reservaMgr;
 
     @FXML
 	void volverAlMenu(ActionEvent event) throws IOException {
@@ -79,6 +95,16 @@ public class ControladorFinalizarReservas {
 				});
     	
     	colFinalizar.setCellValueFactory(new PropertyValueFactory<ReservaAux, String>("finalizar"));
+    	
+    	List<Reserva> reservasConfirmadas = reservaMgr.obtenerReservasConfirmadasNoTerminadas(controladorInicio.getRutRestaurante());
+		ObservableList<ReservaAux> reservasSinTerminar = FXCollections.observableArrayList();
+		ReservaAux reserva;
+
+		for (int i = 0; i < reservasConfirmadas.size(); i++) {
+			reserva = new ReservaAux(reservasConfirmadas.get(i));
+			reservasSinTerminar.add(reserva);
+		}
+		reservas.setItems(reservasSinTerminar);
     }
 
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {

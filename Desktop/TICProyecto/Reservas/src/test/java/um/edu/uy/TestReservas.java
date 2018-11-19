@@ -34,7 +34,7 @@ public class TestReservas {
 		Restaurante res = new Restaurante("rut", "nombre", 325, "pass");
 		Usuario u = new Usuario("nombre", "contrasena", 123);
 
-		reservaMgr.save(u.getCelular(), res.getRUT(), 123);
+//		reservaMgr.save(u.getCelular(), res.getRUT(), 123, nu);
 	}
 
 //	@Test
@@ -50,8 +50,8 @@ public class TestReservas {
 
 //		Reserva reserva = new Reserva(u, res, 5);
 		// reservaMgr.save(reserva);
-		reservaMgr.save(123, "rut2", 4);
-		reservaMgr.save(123, "rut2", 4);
+//		reservaMgr.save(123, "rut2", 4);
+//		reservaMgr.save(123, "rut2", 4);
 
 		List<Reserva> lista = reservaMgr.verEstadoReservasUsuario(123);
 		for (int i = 0; i < lista.size(); i++) {
@@ -70,7 +70,7 @@ public class TestReservas {
 //			Restaurante r1=new Restaurante("Mc", "123");
 //			restauranteMgr.save(r1);
 
-		Reserva rr = new Reserva(u1, r1, 3);
+//		Reserva rr = new Reserva(u1, r1, 3);
 
 	}
 
@@ -85,7 +85,7 @@ public class TestReservas {
 //			Restaurante r5=new Restaurante("Ruffi", "1233");
 //			restauranteMgr.save(r5);
 
-		Reserva r1 = new Reserva(u5, r5, 7);
+//		Reserva r1 = new Reserva(u5, r5, 7);
 
 		// reserMgr.save(r1);
 

@@ -11,8 +11,8 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="404.9608154296875" prefWidth="480.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.cliente.ControladorInicio">
-  <!-- TODO Add Nodes -->
+<AnchorPane prefHeight="358.0" prefWidth="495.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.cliente.ControladorInicio">
+ <!-- TODO Add Nodes -->
   <children>
     <BorderPane prefHeight="404.9608154296875" prefWidth="454.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <center>
@@ -20,7 +20,7 @@
           <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="37.999900000002526" prefWidth="60.0" text="R" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="0" GridPane.rowIndex="0">
               <font>
-                <Font name="System Bold Italic" size="25.0" fx:id="x1" />
+               <Font name="System Bold Italic" size="25.0" fx:id="x1" />
               </font>
               <textFill>
                 <Color blue="0.000" green="0.000" red="0.600" fx:id="x2" />

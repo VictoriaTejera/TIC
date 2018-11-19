@@ -2,10 +2,10 @@ package um.edu.uy.persistance;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -88,6 +88,10 @@ public class ReservaMgr{
 	public void rechazarReserva(String rut, Integer telefonoUsuario, LocalDate fecha) {
 		repository.marcarRechazada(rut, telefonoUsuario, fecha);
 	}
+	
+	public void terminarReserva(String rut, Integer telefonoUsuario, LocalDate fecha) {
+		repository.marcarTerminada(rut, telefonoUsuario, fecha);
+	}
 
 
 //	public boolean agregarHora(LocalTime hora, Restaurante restaurante) {
@@ -111,6 +115,17 @@ public class ReservaMgr{
 	public List<Reserva> obtenerReservasTerminadas(String rut) {
 		return repository.obtenerReservasTerminadas(rut);
 
+	}
+	
+	public List<Restaurante> obtenerRestaurantesVisitados(Usuario usuario){
+		List<Restaurante> restaurantesVisitados= new LinkedList<>();
+		
+		for (int i=0; i<repository.reservasTerminadas(usuario.getCelular()).size(); i++) {
+			restaurantesVisitados.add(repository.reservasTerminadas(usuario.getCelular()).get(i).getRestaurante());
+			
+		}
+		return restaurantesVisitados;
+		
 	}
 
 }
