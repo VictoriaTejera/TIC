@@ -5,12 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
-
-import javax.persistence.Id;
-
 import org.jboss.logging.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,7 +17,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import um.edu.uy.MainCliente;
@@ -47,13 +41,12 @@ public class RestauranteAUX {
 	public RestauranteAUX(Restaurante restaurante) throws IOException {
 		this.restaurante = restaurante;
 
-		//byte[] array = restaurante.getImagen();
-		
+		//byte[] array = resMgr.obtenerLogo(restaurante.getRUT());
 		//BufferedImage img = ImageIO.read(new ByteArrayInputStream(array));
 		
-		this.logo = SwingFXUtils.toFXImage(resMgr.obtenerLogo(restaurante.getRUT()), null);
+//		this.logo = SwingFXUtils.toFXImage(resMgr.obtenerLogo(restaurante.getRUT()), null);
 		// this.imagen = restaurante.getImagen();
-
+		
 		this.button = new Button("Reservar");
 
 		button.setOnMouseClicked(new EventHandler<MouseEvent>() {

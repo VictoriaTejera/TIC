@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.BeansException;
@@ -88,8 +89,10 @@ public class ControladorVerTotalAPagar implements ApplicationContextAware {
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		
 		txtCantidad.setText(string);
-		txtFechaDesde.setText(df.format(controladorFechas.getFechaInicio()));
-		txtFechaHasta.setText(df.format(controladorFechas.getFechaFin()));
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		txtFechaDesde.setText((controladorFechas.getFechaInicio()).format(formatter));
+		txtFechaHasta.setText((controladorFechas.getFechaFin()).format(formatter));
 	}
 
 	@Override
