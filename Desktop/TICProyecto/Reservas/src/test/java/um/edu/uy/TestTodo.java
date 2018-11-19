@@ -54,79 +54,79 @@ public class TestTodo {
 	@Test
 	public void testGuardarUnRestaurante() {
 		Restaurante McDonalds = new Restaurante("rutMc", "McDonalds", 1111, "ContraMc");
-		File file = new File("C:\\Users\\pachu\\Desktop\\Fotos TIC\\mc.png.jpeg");
-		byte[] img = null;
-		try {
-			BufferedImage bufferedImage = ImageIO.read(file);
-			ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
-			ImageIO.write(bufferedImage, "png", byteOutStream);
-			img = byteOutStream.toByteArray();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		McDonalds.setImagen(img);
-		File logo = new File("C:\\Users\\pachu\\Desktop\\Fotos TIC\\McDonalds_logo.png.jpeg");
-		byte[] imglogo = null;
-		try {
-			BufferedImage bufferedImage = ImageIO.read(logo);
-			ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
-			ImageIO.write(bufferedImage, "png", byteOutStream);
-			imglogo = byteOutStream.toByteArray();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		McDonalds.setLogo(imglogo);
+//		File file = new File("C:\\Users\\pachu\\Desktop\\Fotos TIC\\mc.png.jpeg");
+//		byte[] img = null;
+//		try {
+//			BufferedImage bufferedImage = ImageIO.read(file);
+//			ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
+//			ImageIO.write(bufferedImage, "png", byteOutStream);
+//			img = byteOutStream.toByteArray();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		McDonalds.setImagen(img);
+//		File logo = new File("C:\\Users\\pachu\\Desktop\\Fotos TIC\\McDonalds_logo.png.jpeg");
+//		byte[] imglogo = null;
+//		try {
+//			BufferedImage bufferedImage = ImageIO.read(logo);
+//			ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
+//			ImageIO.write(bufferedImage, "png", byteOutStream);
+//			imglogo = byteOutStream.toByteArray();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		McDonalds.setLogo(imglogo);
 		resMgr.save(McDonalds);
 
 		Restaurante LaPasiva = new Restaurante("rutLaPasiva", "LaPasiva", 2222, "ContraLaPasiva");
-		File file1 = new File("C:\\Users\\pachu\\Desktop\\Fotos TIC\\lp.png.jpeg");
-		byte[] img1 = null;
-		try {
-			BufferedImage bufferedImage = ImageIO.read(file1);
-			ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
-			ImageIO.write(bufferedImage, "png", byteOutStream);
-			img1 = byteOutStream.toByteArray();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		LaPasiva.setImagen(img1);
-		File logo1 = new File("C:\\Users\\pachu\\Desktop\\Fotos TIC\\LaPasiva-logo.png.jpeg");
-		byte[] imglogo1 = null;
-		try {
-			BufferedImage bufferedImage = ImageIO.read(logo1);
-			ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
-			ImageIO.write(bufferedImage, "png", byteOutStream);
-			imglogo1 = byteOutStream.toByteArray();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		LaPasiva.setLogo(imglogo1);
+//		File file1 = new File("C:\\Users\\pachu\\Desktop\\Fotos TIC\\lp.png.jpeg");
+//		byte[] img1 = null;
+//		try {
+//			BufferedImage bufferedImage = ImageIO.read(file1);
+//			ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
+//			ImageIO.write(bufferedImage, "png", byteOutStream);
+//			img1 = byteOutStream.toByteArray();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		LaPasiva.setImagen(img1);
+//		File logo1 = new File("C:\\Users\\pachu\\Desktop\\Fotos TIC\\LaPasiva-logo.png.jpeg");
+//		byte[] imglogo1 = null;
+//		try {
+//			BufferedImage bufferedImage = ImageIO.read(logo1);
+//			ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
+//			ImageIO.write(bufferedImage, "png", byteOutStream);
+//			imglogo1 = byteOutStream.toByteArray();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		LaPasiva.setLogo(imglogo1);
 		resMgr.save(LaPasiva);
 
 		Restaurante BurgerKing = new Restaurante("rutBK", "BurgerKing", 3333, "ContraBK");
-		File file2 = new File("C:\\Users\\pachu\\Desktop\\Fotos TIC\\BK-logo.svg.png.jpeg");
-		byte[] img2 = null;
-		try {
-			BufferedImage bufferedImage = ImageIO.read(file2);
-			ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
-			ImageIO.write(bufferedImage, "png", byteOutStream);
-			img2 = byteOutStream.toByteArray();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		BurgerKing.setImagen(img2);
-		
-		File logo2 = new File("C:\\Users\\pachu\\Desktop\\Fotos TIC\\BK-logo.svg.png.jpeg");
-		byte[] imglogo2 = null;
-		try {
-			BufferedImage bufferedImage = ImageIO.read(logo2);
-			ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
-			ImageIO.write(bufferedImage, "png", byteOutStream);
-			imglogo2 = byteOutStream.toByteArray();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		BurgerKing.setLogo(imglogo2);
+//		File file2 = new File("C:\\Users\\pachu\\Desktop\\Fotos TIC\\BK-logo.svg.png.jpeg");
+//		byte[] img2 = null;
+//		try {
+//			BufferedImage bufferedImage = ImageIO.read(file2);
+//			ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
+//			ImageIO.write(bufferedImage, "png", byteOutStream);
+//			img2 = byteOutStream.toByteArray();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		BurgerKing.setImagen(img2);
+//		
+//		File logo2 = new File("C:\\Users\\pachu\\Desktop\\Fotos TIC\\BK-logo.svg.png.jpeg");
+//		byte[] imglogo2 = null;
+//		try {
+//			BufferedImage bufferedImage = ImageIO.read(logo2);
+//			ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
+//			ImageIO.write(bufferedImage, "png", byteOutStream);
+//			imglogo2 = byteOutStream.toByteArray();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		BurgerKing.setLogo(imglogo2);
 		resMgr.save(BurgerKing);
 
 		Comida Hamburguesas = new Comida("Hamburguesas");

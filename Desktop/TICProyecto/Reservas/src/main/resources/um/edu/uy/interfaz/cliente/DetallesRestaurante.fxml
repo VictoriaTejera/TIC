@@ -1,112 +1,264 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?> 
+<?import javafx.scene.control.*?> 
+<?import javafx.scene.effect.*?> 
+<?import javafx.scene.image.*?> 
+<?import javafx.scene.layout.*?> 
+<?import javafx.scene.layout.AnchorPane?> 
+<?import javafx.scene.paint.*?> 
+<?import javafx.scene.text.*?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="551.0" prefWidth="571.0000999999975" styleClass="anchor" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorDetallesRestaurante"> 
+ <!-- TODO Add Nodes --> 
+  <children> 
+    <BorderPane prefHeight="444.0" prefWidth="455.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"> 
+<bottom>
 
-<AnchorPane prefHeight="570.0" prefWidth="587.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.cliente.ControladorDetallesRestaurante">
-  <!-- TODO Add Nodes -->
-  <children>
-    <BorderPane prefHeight="444.0" prefWidth="455.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <bottom>
-        <BorderPane prefHeight="93.0" prefWidth="572.0">
-          <top>
-            <HBox prefHeight="93.0" prefWidth="587.0">
-              <children>
-                <Label alignment="CENTER" prefHeight="50.9998779296875" prefWidth="152.0" text="DESCRIPCIÓN:">
-                  <font>
-                    <Font name="Yu Gothic UI Bold" size="18.0" />
-                  </font>
-                  <textFill>
-                    <Color blue="0.000" green="0.000" red="0.600" fx:id="x2" />
-                  </textFill>
-                </Label>
-              </children>
-            </HBox>
-          </top>
-               <center>
-                     <textFill>
-                        <Color blue="0.000" green="0.000" red="0.600" fx:id="x21" />
-                     </textFill>
-                     <effect>
-                        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-                     </effect>
-                     <font>
-                        <Font name="Yu Gothic UI Bold" size="15.0" />
-                     </font>
-                  </Button>
-               </center>
-               <right>
-          <Label id="Descripción" fx:id="descripcion" alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="263.0" text="" BorderPane.alignment="CENTER" />
-               </right>
-               <bottom>
-                     <textFill>
-                        <Color blue="0.000" green="0.000" red="0.600" fx:id="x211" />
-                     </textFill>
-                     <effect>
-                        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-                     </effect>
-                     <font>
-                        <Font name="Yu Gothic UI Bold" size="15.0" />
-                     </font>
-                  </Button>
-               </bottom>
-        </BorderPane>
+
+         <BorderPane prefHeight="162.0" prefWidth="455.0">
+
+
+           <bottom>
+
+
+             <Button fx:id="btnVolver" blendMode="DARKEN" mnemonicParsing="false" onAction="#RealizarReserva" prefHeight="31.000099999997474" prefWidth="80.0" text="Volver" BorderPane.alignment="TOP_RIGHT">
+
+
+               <effect>
+
+
+                 <DropShadow blurType="TWO_PASS_BOX" height="31.64" radius="15.32" width="31.64" />
+
+
+               </effect>
+
+
+               <font>
+
+
+                 <Font name="Yu Gothic UI Bold" size="15.0" fx:id="x1" />
+
+
+               </font>
+
+
+               <BorderPane.margin>
+
+
+                 <Insets bottom="10.0" right="20.0" />
+
+
+               </BorderPane.margin>
+
+
+             </Button>
+
+
+           </bottom>
+
+
+           <right>
+
+
+             <Button fx:id="btnReservar" alignment="CENTER" blendMode="DARKEN" font="$x1" minHeight="20.0" mnemonicParsing="false" onAction="#RealizarReserva" prefHeight="31.0" prefWidth="110.0" text="Reservar" BorderPane.alignment="BASELINE_CENTER">
+
+
+               <effect>
+
+
+                 <DropShadow blurType="TWO_PASS_BOX" height="31.64" radius="15.32" width="31.64" />
+
+
+               </effect>
+
+
+               <BorderPane.margin>
+
+
+                 <Insets right="20.0" />
+
+
+               </BorderPane.margin>
+
+
+             </Button>
+
+
+           </right>
+
+
+           <top>
+
+
+             <HBox prefHeight="83.0" prefWidth="536.0">
+
+
+               <children>
+
+
+                 <Label alignment="CENTER" prefHeight="50.9998779296875" prefWidth="152.0" text="DESCRIPCIÓN:">
+
+
+                   <font>
+
+
+                     <Font name="Yu Gothic UI Bold" size="18.0" />
+
+
+                   </font>
+
+
+                   <textFill>
+
+
+                     <Color blue="0.000" green="0.000" red="0.600" fx:id="x2" />
+
+
+                   </textFill>
+
+
+                 </Label>
+
+
+                 <Label id="Descripción" fx:id="descripcion" alignment="CENTER_LEFT" prefHeight="103.0" prefWidth="263.0" text="" />
+
+
+               </children>
+
+
+             </HBox>
+
+
+          </top> 
+
+
+        </BorderPane> 
+
+
       </bottom>
       <center>
-        <GridPane prefHeight="287.0" prefWidth="292.0" BorderPane.alignment="CENTER">
-          <children>
-            <Label alignment="CENTER_LEFT" prefWidth="80.0" text="Dirección:" textFill="$x2" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="0">
-              <GridPane.margin>
+        <GridPane prefHeight="287.0" prefWidth="292.0" BorderPane.alignment="CENTER"> 
+
+
+          <children> 
+
+
+            <Label alignment="CENTER_LEFT" font="$x1" prefWidth="80.0" text="Dirección:" textFill="$x2" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="0"> 
+
+
+              <GridPane.margin> 
                 <Insets left="20.0" fx:id="x3" />
-              </GridPane.margin>
-                     <font>
-                <Font name="Yu Gothic UI Bold" size="15.0" fx:id="x1" />
-                     </font>
-            </Label>
-            <Label alignment="CENTER_LEFT" font="$x1" text="Teléfono:" textFill="$x2" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.margin="$x3" GridPane.rowIndex="1" />
-            <Label font="$x1" prefHeight="21.0" prefWidth="111.0" text="Hora apertura:" textAlignment="LEFT" textFill="$x2" textOverrun="ELLIPSIS" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.margin="$x3" GridPane.rowIndex="2" />
-            <Label font="$x1" text="Hora cierre:" textFill="$x2" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.margin="$x3" GridPane.rowIndex="3" />
-            <Label font="$x1" text="Rating:" textFill="$x2" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.margin="$x3" GridPane.rowIndex="4" />
-            <Label fx:id="txtDireccion" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-            <Label fx:id="txtTelefono" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Label fx:id="txtHoraApertura" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Label fx:id="txtHoraCierre" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Label fx:id="txtRating" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-          </children>
-          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          </columnConstraints>
-          <rowConstraints>
-            <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="85.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="71.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="73.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
-          </rowConstraints>
-        </GridPane>
-      </center>
-      <left>
-        <ImageView id="foto" fx:id="imagen" fitHeight="220.5" fitWidth="294.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER_RIGHT" />
-      </left>
-      <top>
-        <Label fx:id="nombreRest" alignment="CENTER" prefHeight="77.0" prefWidth="166.0" text="Nombre" textFill="$x2" BorderPane.alignment="CENTER">
-          <font>
-            <Font name="Yu Gothic UI Regular" size="20.0" />
-          </font>
-        </Label>
-      </top>
-    </BorderPane>
-  </children>
-</AnchorPane>
+
+
+               </GridPane.margin>
+
+
+             </Label>
+
+
+             <Label alignment="CENTER_LEFT" font="$x1" text="Teléfono:" textFill="$x2" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.margin="$x3" GridPane.rowIndex="1" />
+
+
+             <Label font="$x1" text="Hora apertura:" textAlignment="LEFT" textFill="$x2" textOverrun="ELLIPSIS" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.margin="$x3" GridPane.rowIndex="2" />
+
+
+             <Label font="$x1" text="Hora cierre:" textFill="$x2" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.margin="$x3" GridPane.rowIndex="3" />
+
+
+             <Label font="$x1" text="Rating:" textFill="$x2" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.margin="$x3" GridPane.rowIndex="4" />
+
+
+             <Label fx:id="txtDireccion" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+
+
+             <Label fx:id="txtTelefono" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+
+
+             <Label fx:id="txtHoraApertura" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+
+
+             <Label fx:id="txtHoraCierre" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+
+
+             <Label fx:id="txtRating" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+
+
+           </children>
+
+
+           <columnConstraints>
+
+
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+
+
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+
+
+           </columnConstraints>
+
+
+           <rowConstraints>
+
+
+             <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+
+
+             <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+
+
+             <RowConstraints maxHeight="85.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+
+
+             <RowConstraints maxHeight="71.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+
+
+            <RowConstraints maxHeight="73.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" /> 
+
+
+          </rowConstraints> 
+
+
+        </GridPane> 
+
+
+      </center> 
+
+
+      <left> 
+
+
+        <ImageView id="foto" fx:id="imagen" fitHeight="220.5" fitWidth="294.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER_RIGHT" /> 
+
+
+      </left> 
+
+
+      <top> 
+        <Label fx:id="nombreRest" alignment="CENTER" prefHeight="77.0" prefWidth="166.0" text="Nombre" textFill="$x2" BorderPane.alignment="CENTER"> 
+
+
+          <font> 
+
+
+            <Font name="Yu Gothic UI Regular" size="20.0" /> 
+
+
+          </font> 
+
+
+         </Label>
+
+
+       </top>
+
+
+     </BorderPane>
+
+
+   </children>
+
+
+ </AnchorPane>
+			
