@@ -1,5 +1,6 @@
 package um.edu.uy.persistance;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
@@ -37,16 +38,10 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	@Query("SELECT r FROM Restaurante r WHERE r.nombre= :nombre and r.password= :password")
 	Restaurante verificarRestaurante(@Param("nombre") String nombre, @Param("password") String password);
 
-//	@Transactional
-//	@Modifying
-//	@Query("UPDATE Restaurante r SET r.descripcion= :descripcion, r.direccion= :direccion, r.horarioApertura= :horarioApertura, "
-//			+ "r.horarioCierre= :horarioCierre, r.precio_promedio= :precio_promedio, r.email= :mail, r.barrio= :barrio, "
-//			+ "r.imagen= :imagen, r.logo= :logo, r.lugaresPorMesa= :lugaresPorMesa WHERE r.rut= :rut")
-//	public void cargarDatosRes(@Param("rut") String rut, @Param("descripcion")String descripcion, @Param("direccion")String direccion, 
-//			@Param("horarioApertura") String horarioApertura, @Param("horarioCierre") String horarioCierre, 
-//			@Param("precio_promedio") Float precio_promedio, @Param("mail")String mail, @Param("barrio") Barrio barrio,
-//			@Param("imagen") byte[] imagen, @Param("logo") byte[] logo, @Param("lugaresPorMesa") Integer lugaresPorMesa);
-	
+	@Transactional
+	@Modifying
+	@Query("UPDATE Restaurante r SET r.rating = :rating, r.cantRatings= :cantRatings WHERE r.rut= :rut")
+	void agregarRating(@Param("rut") String rut, @Param("rating") Float rating , @Param("cantRatings") Integer cantRatings);
 	
 	@Transactional
 	@Modifying
@@ -101,17 +96,14 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 
 	
 
-	@Query("SELECT r from Restaurante r WHERE nombre= :nombre ")
-	Restaurante res1(@Param("nombre") String nombre);
+//	@Query("SELECT r from Restaurante r WHERE nombre= :nombre ")
+//	Restaurante res1(@Param("nombre") String nombre);
 
 	@Query("SELECT res FROM Restaurante res WHERE res.rut= :rut")
 	Restaurante verificarRutRestaurante(@Param("rut") String rut);
 	
 	@Query("SELECT rm FROM Restaurante r INNER JOIN r.mesas rm WHERE r.rut= :rut and rm.reservada=false")
 	List<Mesa> obtenerMesasNoReservadas(@Param("rut") String rut);
-	
-	@Query("SELECT rv FROM  Reserva rv WHERE rv.restaurante= :rut  and rv.terminada=0")
-	List<Reserva> obtenerReservasTerminadas(@Param ("rut") String rut);
 	
 	@Query(value="SELECT COUNT(m.id) FROM Mesa m WHERE m.restaurante_id= :rut", nativeQuery=true)
 	Integer obtenerCantMesas(@Param ("rut") String rut);
@@ -137,8 +129,6 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	@Query("SELECT r.cantRatings FROM Restaurante r WHERE r.rut= :rut")
 	Integer getCantRatings(@Param("rut") String rut);
 	
-	@Query("UPDATE Restaurante r SET r.rating = :rating, r.cantRatings= :cantRatings WHERE r.rut= :rut")
-	void agregarRating(@Param("rut") String rut, @Param("rating") Float rating , @Param("cantRatings") Integer cantRatings);
 	
 //	@Query("SELECT r.horarioApertura FROM Restaurante r WHERE r.rut= :rut")
 //	LocalTime obtenerHorarioApertura(@Param("rut") String rut);
