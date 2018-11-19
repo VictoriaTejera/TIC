@@ -71,5 +71,6 @@
             <Font name="Yu Gothic Regular" size="15.0" />
          </font>
       </JFXButton>
+
   </children>
 </AnchorPane>

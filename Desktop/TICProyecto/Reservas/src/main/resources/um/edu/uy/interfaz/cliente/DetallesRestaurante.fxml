@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTimePicker?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -31,15 +31,28 @@
                     <Color blue="0.000" green="0.000" red="0.600" fx:id="x2" />
                   </textFill>
                 </Label>
-                <Label id="Descripción" fx:id="descripcion" alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="263.0" text="" />
               </children>
             </HBox>
           </top>
                <center>
                   <JFXButton fx:id="btnReservar" buttonType="RAISED" onAction="#RealizarReserva" prefHeight="25.0" prefWidth="122.0" ripplerFill="#8ddc70" text="RESERVAR" BorderPane.alignment="CENTER" />
+                     <textFill>
+                        <Color blue="0.000" green="0.000" red="0.600" fx:id="x21" />
+                     </textFill>
+                     <effect>
+                        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+                     </effect>
+                     <font>
+                        <Font name="Yu Gothic UI Bold" size="15.0" />
+                     </font>
+                  </Button>
                </center>
+               <right>
+          <Label id="Descripción" fx:id="descripcion" alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="263.0" text="" BorderPane.alignment="CENTER" />
+               </right>
                <bottom>
                   <JFXButton fx:id="btnVolver" buttonType="RAISED" onAction="#RealizarReserva" prefHeight="51.0" prefWidth="59.0" text="VOLVER" BorderPane.alignment="CENTER" />
+
                </bottom>
         </BorderPane>
       </bottom>
