@@ -44,8 +44,8 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 	
 	@Transactional
 	@Modifying
-	@Query("UPDATE Reserva r SET r.hora= hora")
-	public void agregarHora(@Param("hora") LocalTime hora);
+	@Query("UPDATE Reserva r SET r.hora= :hora AND r.fecha= : fecha")
+	public void agregarHoraYFecha(@Param("hora") LocalTime hora, @Param("fecha") LocalDate fecha);
 	
 	@Transactional
 	@Modifying
@@ -55,11 +55,13 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 
 	@Query("SELECT r FROM Reserva r WHERE r.hora= :hora AND r.restaurante.rut= :rut ")
 	Reserva verificarSiHayReservaAEsaHora(@Param ("hora") LocalTime hora, @Param("rut") String rut);
+
 			
 	@Query("SELECT rv FROM Reserva rv WHERE rv.restaurante= :rut  and rv.terminada=1")
 	List<Reserva> obtenerReservasTerminadas(@Param ("rut") String rut);
 	
 	@Query("SELECT rv FROM Reserva rv WHERE rv.restaurante= :rut and rv.terminada=0 and rv.confirmada=1")
 	List<Reserva> obtenerReservasConfirmadasNoTerminadas(@Param("rut") String rut);
+
 	
 }

@@ -101,7 +101,7 @@ public class ReservaMgr{
 //		}
 //		return agregarHora;
 //	}
-	
+
 	public List<Reserva> obtenerReservasConfirmadasNoTerminadas(String rut){
 		return repository.obtenerReservasConfirmadasNoTerminadas(rut);
 	}
