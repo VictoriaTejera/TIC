@@ -1,11 +1,24 @@
 package um.edu.uy.interfaz.restaurante;
 
 import java.io.IOException;
+import java.lang.annotation.Annotation;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.MessageSourceResolvable;
+import org.springframework.context.NoSuchMessageException;
+import org.springframework.core.ResolvableType;
+import org.springframework.core.env.Environment;
+import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Component;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -28,7 +41,8 @@ import um.edu.uy.interfaz.restaurante.clasesAuxiliares.ReservaAux;
 import um.edu.uy.persistance.ReservaMgr;
 import um.edu.uy.persistance.entidades.Reserva;
 
-public class ControladorFinalizarReservas {
+@Component
+public class ControladorFinalizarReservas implements ApplicationContextAware{
 
     @FXML
     private TableColumn<ReservaAux, String> colUsuario;
@@ -111,5 +125,8 @@ public class ControladorFinalizarReservas {
 		this.applicationContext = applicationContext;
 
 	}
+
+	
+
 
 }
