@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXDatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -56,10 +55,9 @@
         <Font name="Yu Gothic UI Bold" size="25.0" />
       </font>
     </Label>
-      <JFXDatePicker defaultColor="#990000" layoutX="162.0" layoutY="218.0" prefHeight="21.0" prefWidth="54.0" />
       <JFXButton fx:id="btnVolver" buttonType="RAISED" layoutX="141.0" layoutY="281.0" onAction="#volver" prefHeight="36.0" prefWidth="97.0" ripplerFill="RED" text="VOLVER">
          <font>
-            <Font name="Yu Gothic Regular" size="15.0" />
+            <Font name="Yu Gothic Bold" size="15.0" />
          </font>
       </JFXButton>
   </children>
