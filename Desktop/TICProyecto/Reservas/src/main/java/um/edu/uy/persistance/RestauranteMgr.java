@@ -3,6 +3,7 @@ package um.edu.uy.persistance;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
@@ -228,7 +229,7 @@ public class RestauranteMgr {
 	
 	
 
-	public long cantidadAPagar(String rut, Date fecha1, Date fecha2) {
+	public long cantidadAPagar(String rut, LocalDate fecha1, LocalDate fecha2) {
 		long cantAPagar = 0;
 		List<Reserva> reservasTerminadas = repository.obtenerReservasTerminadasRangoDeFechas(rut, fecha1, fecha2);
 		cantAPagar = reservasTerminadas.size() * 500;

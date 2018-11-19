@@ -88,6 +88,12 @@ public class ReservaMgr{
 	public void rechazarReserva(String rut, Integer telefonoUsuario, LocalDate fecha) {
 		repository.marcarRechazada(rut, telefonoUsuario, fecha);
 	}
+	
+	public void terminarReserva(String rut, Integer telefonoUsuario, LocalDate fecha) {
+		repository.marcarTerminada(rut, telefonoUsuario, fecha);
+	}
+	
+	
 
 //	public boolean agregarHora(LocalTime hora, Restaurante restaurante) {
 //		boolean agregarHora=false;
