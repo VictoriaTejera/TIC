@@ -18,7 +18,6 @@ public class ReservaAux {
 	private Button rechazar;
 	private Button finalizar;
 	
-	@Autowired
 	ReservaMgr resMgr;
 	
 	@Autowired 
