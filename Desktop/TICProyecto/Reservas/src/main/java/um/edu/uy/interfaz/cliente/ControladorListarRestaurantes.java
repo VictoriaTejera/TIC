@@ -239,7 +239,6 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		filtroComida();
 		filtroPrecio();
 		
-//		System.out.println("AAAAAAAAAAAAAAAAA " + tabla.getItems());
 
 		tabla.setOnMousePressed(new EventHandler<MouseEvent>() {
 			@Override
@@ -265,10 +264,6 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		this.applicationContext = applicationContext;
 
 	}
-
-//	public <T> T getBean(Class<T> beanClass) {
-//		return applicationContext.getBean(beanClass);
-//	}
 
 	public Restaurante getRestaurante() {
 		return res;

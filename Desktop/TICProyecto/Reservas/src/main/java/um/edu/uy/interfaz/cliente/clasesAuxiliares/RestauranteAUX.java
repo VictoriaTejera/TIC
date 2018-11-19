@@ -32,8 +32,7 @@ import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 
 public class RestauranteAUX {
-//	@Id
-//	private Integer id;
+
 	private Restaurante restaurante;
 	private Button button;
 	private ComboBox<Integer> puntaje;

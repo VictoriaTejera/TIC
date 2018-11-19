@@ -167,8 +167,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 				
 			}
 
-//			resMgr.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precioPromedio, mail,
-//					barrio, imagenAGuardar, logoAGuardar, cantMesas, lugaresPorMesa);
+
 
 
 			stage = (Stage) btnGuardarDatos.getScene().getWindow();

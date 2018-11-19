@@ -1,6 +1,7 @@
 package um.edu.uy.persistance.entidades;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -80,5 +81,6 @@ public class Usuario  implements Serializable{
 	public void setNombreUsuario(String nombreUsuario) {
 		NombreUsuario = nombreUsuario;
 	}
+
 
 }

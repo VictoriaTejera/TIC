@@ -22,7 +22,5 @@ public interface MesaRepository extends CrudRepository<Mesa, Long>{
 	@Transactional
 	public void insertarMesa(@Param("capacidad") Integer capacidad, @Param("rut") String rut);
 	
-//	@Query("SELECT m.reservada FROM Mesa m WHERE id= :id")
-//	public boolean isReservada(@Param("id") Long id);
 	
 }
