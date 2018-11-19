@@ -39,12 +39,12 @@
     </VBox>
       <JFXButton fx:id="btnRegresar" buttonType="RAISED" layoutX="141.0" layoutY="199.0" onAction="#handleSubmitButtonAction" ripplerFill="LIME" text="REGRESAR">
          <font>
-            <Font name="Yu Gothic Regular" size="15.0" />
+            <Font name="Yu Gothic Bold" size="15.0" />
          </font>
       </JFXButton>
       <JFXButton fx:id="btnSalir" buttonType="RAISED" layoutX="159.0" layoutY="248.0" onAction="#handleSubmitButtonAction" ripplerFill="RED" text="SALIR">
          <font>
-            <Font name="Yu Gothic Regular" size="15.0" />
+            <Font name="Yu Gothic Bold" size="15.0" />
          </font>
       </JFXButton>
   </children>

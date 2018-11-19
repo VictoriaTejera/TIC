@@ -17,13 +17,14 @@ import um.edu.uy.interfaz.restaurante.ControladorInicioSesionRest;
 
 @SpringBootApplication
 public class MainRestaurante extends Application{
-	Button btnIniciarSesion, btnDatos, btnGuardarDatos, btnCargarImagen, btnReservas, btnFinalizarReservas;
-	Scene scene, scene1, scene2, scene3, scene4, scene5;
+	Button btnIniciarSesion, btnDatos, btnGuardarDatos, btnCargarImagen, btnReservas, btnFinalizarReservas, btnVerTotalAPagar;
+	Scene scene, scene1, scene2, scene3, scene4, scene5, scene6;
 	Stage thestage;
 	
 	private static ConfigurableApplicationContext context;
 	private FXMLLoader fxmlLoader;
-	private Parent root, root1, root2, root3, root4, root5;
+	private Parent root, root1, root2, root3, root4, root5, root6;
+
 	
 	@Override
 	public void init() throws IOException  {
@@ -39,6 +40,7 @@ public class MainRestaurante extends Application{
 		btnCargarImagen = new Button();
 		btnReservas = new Button();
 		btnFinalizarReservas = new Button();
+		btnVerTotalAPagar = new Button();
 		
 		btnIniciarSesion.setOnAction(e -> ButtonClicked(e));
 		btnDatos.setOnAction(e -> ButtonClicked(e));
@@ -46,6 +48,7 @@ public class MainRestaurante extends Application{
 		btnCargarImagen.setOnAction(e -> ButtonClicked(e));
 		btnReservas.setOnAction(e -> ButtonClicked(e));
 		btnFinalizarReservas.setOnAction(e -> ButtonClicked(e));
+		btnVerTotalAPagar.setOnAction(e -> ButtonClicked(e));
 		
 		fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(MainRestaurante.getContext()::getBean);
@@ -81,6 +84,13 @@ public class MainRestaurante extends Application{
 		scene5 = new Scene(root5);
 		scene5.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		
+		fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(MainRestaurante.getContext()::getBean);
+		
+		root6 = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("recibirFechasParaPagosPendientes.fxml"));
+		scene6 = new Scene(root6);
+		scene6.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		
 		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -101,6 +111,8 @@ public class MainRestaurante extends Application{
 			thestage.setScene(scene4);	
 		if (e.getSource() == btnFinalizarReservas)
 			thestage.setScene(scene5);	
+		if (e.getSource() == btnVerTotalAPagar)
+			thestage.setScene(scene6);	
 	}
 	
 	public void stop() {

@@ -58,12 +58,12 @@
         <PasswordField id="passwordField" fx:id="txtContrasena" prefHeight="33.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <JFXButton fx:id="btnConfirmarInicioSesion" buttonType="RAISED" onAction="#handleSubmitButtonAction" ripplerFill="LIME" text="INICIAR SESIÓN" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                <font>
-                  <Font name="Yu Gothic Regular" size="15.0" />
+                  <Font name="Yu Gothic Bold" size="15.0" />
                </font>
             </JFXButton>
             <JFXButton fx:id="btnVolver" buttonType="RAISED" onAction="#handleSubmitButtonAction" prefHeight="25.0" prefWidth="112.0" ripplerFill="RED" text="VOLVER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                <font>
-                  <Font name="Yu Gothic Regular" size="15.0" />
+                  <Font name="Yu Gothic Bold" size="15.0" />
                </font>
             </JFXButton>
       </children>

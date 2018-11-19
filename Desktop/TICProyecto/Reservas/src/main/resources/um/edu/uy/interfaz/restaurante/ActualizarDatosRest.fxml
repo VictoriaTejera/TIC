@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTimePicker?>
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="508.0" prefWidth="496.0000999999975" styleClass="anchor" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.restaurante.ControladorActualizarDatosRest">
+<AnchorPane prefHeight="508.0" prefWidth="496.0000999999975" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.restaurante.ControladorActualizarDatosRest">
   <!-- TODO Add Nodes -->
   <children>
     <Label alignment="CENTER" layoutX="104.0" layoutY="23.0" prefHeight="24.0" prefWidth="282.0" text="Ingrese sus datos" textAlignment="CENTER" underline="true">
@@ -41,11 +33,6 @@
     </Label>
     <TextField id="txtNombre" fx:id="txtPrecioPromedio" layoutX="207.0" layoutY="114.0" prefHeight="24.0" prefWidth="162.0" />
     <Label font="$x3" layoutX="40.0" layoutY="144.0" prefHeight="24.0" prefWidth="120.0" text="Barrio:" textFill="$x1" />
-    <Button id="btnRegistrar" fx:id="btnGuardarDatos" blendMode="DARKEN" font="$x3" layoutX="365.0" layoutY="412.0" minHeight="16.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="39.0" prefWidth="120.0" text="Aceptar" textFill="#990000">
-      <effect>
-        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-      </effect>
-    </Button>
     <Label font="$x3" layoutX="40.0" layoutY="173.0" prefHeight="24.0" prefWidth="120.0" text="Descripción:" textFill="$x1" />
     <TextField id="txtContrasena" fx:id="txtDescripcion" layoutX="207.0" layoutY="173.0" prefHeight="24.0" prefWidth="162.0" />
     <TextField id="txt" fx:id="txtHorarioCierre" layoutX="348.0" layoutY="85.0" prefHeight="24.0" prefWidth="84.0" />
@@ -81,28 +68,31 @@
     <ImageView fx:id="imgView" fitHeight="73.0" fitWidth="109.0" layoutX="50.0" layoutY="419.0" pickOnBounds="true" preserveRatio="true" />
     <Label font="$x3" layoutX="40.0" layoutY="212.0" prefHeight="24.0" prefWidth="109.0" text="Dirección:" textFill="$x1" />
     <Label font="$x3" layoutX="40.0" layoutY="252.0" prefHeight="24.0" prefWidth="109.0" text="E-mail:" textFill="$x1" />
-    <Button fx:id="btnCargarImagen" blendMode="DARKEN" layoutX="40.0" layoutY="372.0" minHeight="24.0" mnemonicParsing="false" onAction="#cargarImagen" prefHeight="32.0" prefWidth="131.0" text="Cargar Imagen" textFill="$x1">
-      <effect>
-        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-      </effect>
-      <font>
-        <Font name="Yu Gothic UI Bold" size="14.0" fx:id="x5" />
-      </font>
-    </Button>
     <Label font="$x3" layoutX="40.0" layoutY="295.0" prefHeight="24.0" prefWidth="142.0" text="Cantidad de mesas:" textFill="$x1" />
-    <Button id="btnCargarImagen" fx:id="btnCargarLogo" blendMode="DARKEN" font="$x5" layoutX="198.0" layoutY="372.0" minHeight="24.0" mnemonicParsing="false" onAction="#cargarLogo" prefHeight="32.0" prefWidth="131.0" text="Cargar logo" textFill="$x1">
-      <effect>
-        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-      </effect>
-    </Button>
     <ImageView fx:id="logoView" fitHeight="73.0" fitWidth="109.0" layoutX="209.0" layoutY="419.0" pickOnBounds="true" preserveRatio="true" />
     <TextField id="txtContrasena" fx:id="txtCantMesas" layoutX="207.0" layoutY="295.0" prefHeight="24.0" prefWidth="162.0" />
     <Label font="$x3" layoutX="40.0" layoutY="334.0" prefHeight="24.0" prefWidth="142.0" text="Lugares por mesa:" textFill="$x1" />
     <TextField id="txtContrasena" fx:id="txtLugares" layoutX="207.0" layoutY="334.0" prefHeight="24.0" prefWidth="162.0" />
-      <Button id="btnRegistrar" fx:id="btnVolver" blendMode="DARKEN" font="$x3" layoutX="384.0" layoutY="466.0" minHeight="16.0" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="32.0" prefWidth="84.0" text="Volver" textFill="#990000">
-         <effect>
-            <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-         </effect>
-      </Button>
+      <JFXButton fx:id="btnCargarImagen" buttonType="RAISED" layoutX="39.0" layoutY="374.0" onAction="#cargarImagen" text="CARGAR IMAGEN">
+         <font>
+            <Font name="Yu Gothic Regular" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnCargarLogo" buttonType="RAISED" layoutX="206.0" layoutY="374.0" onAction="#cargarLogo" text="CARGAR LOGO">
+         <font>
+            <Font name="Yu Gothic Regular" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnGuardarDatos" buttonType="RAISED" layoutX="380.0" layoutY="404.0" onAction="#handleSubmitButtonAction" text="ACEPTAR">
+         <font>
+            <Font name="Yu Gothic Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnVolver" buttonType="RAISED" layoutX="385.0" layoutY="446.0" onAction="#volverAlMenu" text="VOLVER">
+         <font>
+            <Font name="Yu Gothic Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXTimePicker defaultColor="#990000" layoutX="315.0" layoutY="59.0" prefHeight="0.0" prefWidth="22.0" />
   </children>
 </AnchorPane>

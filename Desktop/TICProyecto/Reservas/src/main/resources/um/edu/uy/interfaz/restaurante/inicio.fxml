@@ -50,7 +50,7 @@
     </VBox>
       <JFXButton fx:id="btnIniciarSesion" buttonType="RAISED" layoutX="110.0" layoutY="256.0" onAction="#handleSubmitButtonAction" prefHeight="41.0" prefWidth="158.0" ripplerFill="LIME" text="INICIAR SESIÓN">
          <font>
-            <Font name="Yu Gothic Regular" size="15.0" />
+            <Font name="Yu Gothic Bold" size="15.0" />
          </font>
       </JFXButton>
   </children>

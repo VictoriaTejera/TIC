@@ -46,7 +46,10 @@
         <VBox prefHeight="402.0" prefWidth="42.0" />
       </right>
          <bottom>
-            <JFXButton fx:id="btnVolver" buttonType="RAISED" onAction="#volverAlMenu" ripplerFill="RED" text="VOLVER" BorderPane.alignment="CENTER" />
+            <JFXButton fx:id="btnVolver" buttonType="RAISED" onAction="#volverAlMenu" ripplerFill="RED" text="VOLVER" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></JFXButton>
          </bottom>
     </BorderPane>
   </children>
