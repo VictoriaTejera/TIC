@@ -28,18 +28,6 @@ public class ReservaMgr{
 	@Autowired
 	private MesaRepository mesaRepository;
 	
-	
-//	private Long ultimoNumeroUsado=(long) 0;
-
-	
-//	@Transactional
-//	public void save(Reserva reserva) {
-//		reserva.setRestaurante(resMgr.find(reserva.getRestaurante().getRUT()));
-//		reserva.setUsuario(usuarioMgr.find(reserva.getUsuario().getCelular()));
-////		reserva.setId(ultimoNumeroUsado);
-//		repository.save(reserva);
-//	//	ultimoNumeroUsado++;
-//	}
 
 	@Transactional
 	public void save(Integer usuarioCelular, String restauranteRUT, Integer cantPersonas, LocalDate fecha, LocalTime hora) {
