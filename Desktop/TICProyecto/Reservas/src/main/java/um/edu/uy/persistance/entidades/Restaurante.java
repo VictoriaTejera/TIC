@@ -52,6 +52,7 @@ public class Restaurante implements Serializable {
 	private List<Comida> comidas;
 	
 	@ManyToOne
+	@JoinColumn(name="Barrio_id")
 	@Cascade(CascadeType.ALL)
 	private Barrio barrio;
 	

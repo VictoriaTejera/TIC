@@ -42,12 +42,9 @@ public class TestReserva {
 //		restauranteMgr.save(r1);
 
 		Reserva rr= new Reserva(u1, r1, 3);
-		
-		
-		
 	}
 	
-	//@Test
+	@Test
 	public void testConfirmarReserva() {
 		Usuario u5=new Usuario("nombre2", "con2", 1234);
 		usuarioMgr.save(u5);
@@ -55,13 +52,9 @@ public class TestReserva {
 		restauranteMgr.save(r5);
 		int cantMesas= restauranteMgr.obtenerMesasNoReservadas(r5.getRUT()).size();
 		
-		
 		reservaMgr.save(u5.getCelular(), r5.getRUT(), 5);
 		
-		assertEquals(restauranteMgr.obtenerMesasNoReservadas(r5.getRUT()).size(), cantMesas-2);
-		
-
-		
+		assertEquals(restauranteMgr.obtenerMesasNoReservadas(r5.getRUT()).size(), cantMesas-2);		
 	}
 	
 	

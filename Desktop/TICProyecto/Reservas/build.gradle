@@ -23,7 +23,6 @@ repositories {
 	mavenCentral()
 }
 
-
 dependencies {
 	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
 	implementation('org.springframework.boot:spring-boot-starter-web')
@@ -31,5 +30,4 @@ dependencies {
 	runtime('mysql:mysql-connector-java')
 	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.12'
 	compile group: 'com.jfoenix', name: 'jfoenix', version: '8.0.7'
-	
 }
