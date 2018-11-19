@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" prefHeight="376.0" prefWidth="446.0" snapToPixel="true" styleClass="anchor" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorMenuPrincipal">
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" prefHeight="376.0" prefWidth="446.0" snapToPixel="true" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.cliente.ControladorMenuPrincipal">
   <!-- TODO Add Nodes -->
   <children>
     <Pane prefHeight="376.0" prefWidth="446.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -21,32 +21,6 @@
             <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
           </textFill>
         </Label>
-        <Button fx:id="btnListarRestaurantes" blendMode="DARKEN" layoutX="134.0" layoutY="101.0" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="43.0" prefWidth="185.0" text="Ver restaurantes" textFill="$x1" underline="false">
-          <effect>
-            <DropShadow blurType="TWO_PASS_BOX" color="#332500" height="31.064" radius="15.032" width="31.064" />
-          </effect>
-          <font>
-            <Font name="Yu Gothic Bold" size="15.0" fx:id="x3" />
-          </font>
-        </Button>
-        <Button id="btnListarRestaurantes" fx:id="btnReservasRealizadas" blendMode="DARKEN" font="$x3" layoutX="134.0" layoutY="180.0" mnemonicParsing="false" onAction="#reservasRealizadas" prefHeight="43.0" prefWidth="185.0" text="Mis reservas" textFill="$x1" underline="false">
-          <effect>
-            <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-          </effect>
-        </Button>
-        <Button id="btnListarRestaurantes" fx:id="btnPuntuarRest" blendMode="DARKEN" font="$x3" layoutX="80.0" layoutY="253.0" mnemonicParsing="false" onAction="#PuntuarRestaurantes" prefHeight="43.0" prefWidth="272.0" text="Puntuar restaurantes visitados" textAlignment="CENTER" textFill="$x1" underline="false" wrapText="false">
-          <effect>
-            <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-          </effect>
-        </Button>
-        <Button id="btnSalir" fx:id="btnCloseButton" blendMode="DARKEN" layoutX="328.0" layoutY="322.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="29.0" prefWidth="88.0" text="Salir" textFill="BLACK">
-          <effect>
-            <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" spread="0.3253968253968254" width="31.064" />
-          </effect>
-          <font>
-            <Font name="Yu Gothic Bold" size="20.0" />
-          </font>
-        </Button>
         <VBox layoutX="41.0" layoutY="86.0" prefHeight="200.0" prefWidth="53.0" />
         <VBox layoutX="7.0" layoutY="0.0" prefHeight="384.99980000000505" prefWidth="52.999977929684974">
           <children>
@@ -64,6 +38,22 @@
             <Label font="$x2" prefHeight="44.0" prefWidth="41.0" text="S" textFill="$x1" />
           </children>
         </VBox>
+            <JFXButton fx:id="btnCloseButton" buttonType="RAISED" layoutX="201.0" layoutY="291.0" onAction="#closeButtonAction" prefHeight="43.0" prefWidth="67.0" ripplerFill="RED" text="SALIR" />
+            <JFXButton fx:id="btnPuntuarRest" buttonType="RAISED" layoutX="85.0" layoutY="222.0" onAction="#PuntuarRestaurantes" prefHeight="63.0" prefWidth="307.0" ripplerFill="LIME" text="PUNTUAR RESTAURANTES VISITADOS">
+               <font>
+                  <Font name="Yu Gothic Regular" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnReservasRealizadas" buttonType="RAISED" layoutX="150.0" layoutY="179.0" onAction="#reservasRealizadas" prefHeight="43.0" prefWidth="148.0" ripplerFill="LIME" text="MIS RESERVAS">
+               <font>
+                  <Font name="Yu Gothic Regular" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnListarRestaurantes" buttonType="RAISED" layoutX="138.0" layoutY="123.0" onAction="#ListarRestaurantes" ripplerFill="LIME" text="VER RESTAURANTES">
+               <font>
+                  <Font name="Yu Gothic Regular" size="15.0" />
+               </font>
+            </JFXButton>
       </children>
     </Pane>
   </children>

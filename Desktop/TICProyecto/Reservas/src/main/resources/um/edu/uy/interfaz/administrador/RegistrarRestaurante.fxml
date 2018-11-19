@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="342.0" prefWidth="413.0" styleClass="anchor"  xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorRegistro">
+<AnchorPane prefHeight="342.0" prefWidth="413.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorRegistro">
   <!-- TODO Add Nodes -->
   <children>
     <Label alignment="CENTER" layoutX="44.0" layoutY="34.0" prefHeight="24.0" prefWidth="282.0" text="Ingrese los datos del restaurante" textAlignment="CENTER" underline="true">
@@ -27,13 +27,8 @@
     <TextField id="txt" fx:id="txtRut" layoutX="164.0" layoutY="95.0" prefHeight="24.0" prefWidth="162.0" />
     <Label font="$x3" layoutX="80.0" layoutY="145.0" prefHeight="24.0" prefWidth="84.0" text="Nombre:" textFill="$x1" />
     <TextField fx:id="txtNombre" layoutX="164.0" layoutY="138.0" prefHeight="24.0" prefWidth="162.0" />
-    <Label font="$x3" layoutX="80.0" layoutY="183.0" prefHeight="24.0" prefWidth="84.0" text="Telefono:" textFill="$x1" />
+    <Label font="$x3" layoutX="80.0" layoutY="183.0" prefHeight="24.0" prefWidth="84.0" text="Teléfono:" textFill="$x1" />
     <TextField id="txtEmail" fx:id="txtTelefono" layoutX="164.0" layoutY="183.0" prefHeight="24.0" prefWidth="162.0" />
-    <Button fx:id="btnRegistrar" blendMode="DARKEN" font="$x3" layoutX="245.0" layoutY="269.0" minHeight="16.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="40.0" prefWidth="117.0" text="Aceptar" textFill="$x1">
-      <effect>
-        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-      </effect>
-    </Button>
     <Label font="$x3" layoutX="80.0" layoutY="223.0" prefHeight="24.0" prefWidth="84.0" text="Contraseña:" textFill="$x1" />
     <TextField fx:id="txtContrasena" layoutX="164.0" layoutY="223.0" prefHeight="24.0" prefWidth="162.0" />
     <VBox layoutX="0.0" layoutY="14.0" prefHeight="314.0" prefWidth="58.0">
@@ -52,5 +47,10 @@
         <Label font="$x2" prefHeight="44.0" prefWidth="44.0" text="S" textFill="$x1" />
       </children>
     </VBox>
+      <JFXButton fx:id="btnRegistrar" buttonType="RAISED" layoutX="162.0" layoutY="285.0" onAction="#handleSubmitButtonAction" ripplerFill="LIME" text="ACEPTAR">
+         <font>
+            <Font name="Yu Gothic Regular" size="15.0" />
+         </font>
+      </JFXButton>
   </children>
 </AnchorPane>

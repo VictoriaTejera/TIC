@@ -35,7 +35,6 @@
             </HBox>
           </top>
                <center>
-                  <Button fx:id="btnAceptar" blendMode="DARKEN" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="41.0" prefWidth="123.0" text="ACEPTAR" BorderPane.alignment="CENTER_RIGHT">
                      <textFill>
                         <Color blue="0.000" green="0.000" red="0.600" fx:id="x21" />
                      </textFill>
@@ -51,7 +50,6 @@
           <Label id="Descripción" fx:id="descripcion" alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="263.0" text="" BorderPane.alignment="CENTER" />
                </right>
                <bottom>
-                  <Button fx:id="btnVolver" blendMode="DARKEN" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="36.0" prefWidth="109.0" text="Volver" BorderPane.alignment="CENTER_RIGHT">
                      <textFill>
                         <Color blue="0.000" green="0.000" red="0.600" fx:id="x211" />
                      </textFill>

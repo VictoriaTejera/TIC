@@ -1,3 +1,4 @@
+
 package um.edu.uy.interfaz.cliente.clasesAuxiliares;
 
 import java.awt.image.BufferedImage;

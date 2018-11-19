@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="414.0" prefWidth="408.0" styleClass="anchor" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorRegistro">
+<AnchorPane prefHeight="414.0" prefWidth="408.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.cliente.ControladorRegistro">
   <!-- TODO Add Nodes -->
   <children>
     <!-- Add Name Label -->
@@ -31,24 +31,12 @@
     <TextField id="nameField" fx:id="txtCelular" layoutX="178.0" layoutY="171.0" prefHeight="40.0" prefWidth="145.0" />
     <!-- Add Name Label -->
     <Label alignment="CENTER_RIGHT" font="$x3" layoutX="12.0" layoutY="183.0" prefWidth="100.0" text="Celular:" textAlignment="JUSTIFY" textFill="$x1" />
-    <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnConfirmarRegistro" blendMode="DARKEN" cancelButton="true" defaultButton="false" font="$x3" layoutX="210.0" layoutY="295.0" onAction="#handleSubmitButtonAction" prefHeight="44.0" prefWidth="116.0" text="Registrarse" textFill="BLACK">
-      <effect>
-        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-      </effect>
-    </Button>
     <!-- Add Header Label -->
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="40.0" text="Ingrese sus datos" textAlignment="CENTER" textFill="$x1" underline="true">
       <font>
         <Font name="Yu Gothic UI Regular" size="24.0" />
       </font>
     </Label>
-    <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnVolver" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" font="$x3" layoutX="276.0" layoutY="358.0" minHeight="16.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="40.0" prefWidth="109.0" text="Volver" textAlignment="LEFT" textFill="BLACK" underline="false" visible="true">
-      <effect>
-        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-      </effect>
-    </Button>
     <VBox prefHeight="331.0" prefWidth="45.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="334.0" AnchorPane.topAnchor="33.0">
       <children>
         <Label prefHeight="40.0" prefWidth="45.0" text="R" textFill="$x1">
@@ -65,5 +53,7 @@
         <Label font="$x2" prefHeight="40.0" prefWidth="45.0" text="S" textFill="$x1" />
       </children>
     </VBox>
+      <JFXButton fx:id="btnConfirmarRegistro" buttonType="RAISED" layoutX="152.0" layoutY="309.0" onAction="#handleSubmitButtonAction" ripplerFill="LIME" text="REGISTRARSE" />
+      <JFXButton fx:id="btnVolver" buttonType="RAISED" layoutX="167.0" layoutY="347.0" onAction="#handleSubmitButtonAction" ripplerFill="RED" text="VOLVER" />
   </children>
 </AnchorPane>
