@@ -131,6 +131,4 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 //            "AND r.barrio IN (?2) ORDER BY r.rating desc ")
 //    List<Restaurante> findByTipoComidaAndBarrio(List<Integer> idListaTiposComidas, List<Barrio> listaBarrio);
 	
-//	@Query("UPDATE Reserva r SET r.fechaInicio= :imagen WHERE r.rut= :rut")
-//	void insertDate(@Param("rut") String rut);
 }
