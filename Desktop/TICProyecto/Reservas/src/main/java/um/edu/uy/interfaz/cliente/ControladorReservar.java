@@ -57,9 +57,7 @@ public class ControladorReservar {
     	if (event.getSource() == btnReservar) {
     		try {
 				reservaMgr.save(controladorInicioSesion.getUsuario().getCelular(), controlador2.getRestaurante().getRUT(),
-						Integer.parseInt(cantPersonas.getText()));
-				fecha.getValue();
-				reservaMgr.agregarHora(hora.getValue() , controlador2.getRestaurante());
+						Integer.parseInt(cantPersonas.getText()), fecha.getValue(), hora.getValue());
 				
 				stage = (Stage) btnReservar.getScene().getWindow();
 				stage.close();

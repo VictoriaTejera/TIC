@@ -39,13 +39,13 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 	
 	@Transactional
 	@Modifying
-	@Query("UPDATE Reserva r SET r.rechazada =true WHERE r.restaurante.rut= :rut and r.usuario.telefono= :telefonoUsuario and r.fecha= :fecha")
+	@Query("UPDATE Reserva r SET r.rechazada =true WHERE r.restaurante.rut= :rut and r.usuario.celular= :telefonoUsuario and r.fecha= :fecha")
 	public void marcarRechazada(@Param("rut") String rut, @Param("telefonoUsuario") Integer telefonoUsuario, @Param("fecha") LocalDate fecha);
 
 	
 	@Transactional
 	@Modifying
-	@Query("UPDATE Reserva r SET r.terminada=1 WHERE r.restaurante.rut= :rut and r.usuario.telefono= :telefonoUsuario and r.fecha= :fecha")
+	@Query("UPDATE Reserva r SET r.terminada=1 WHERE r.restaurante.rut= :rut and r.usuario.celular= :telefonoUsuario and r.fecha= :fecha")
 	void terminarReserva(@Param("rut") String rut, @Param("telefonoUsuario") Integer telefonoUsuario, @Param("fecha") LocalDate fecha);
 	
 
