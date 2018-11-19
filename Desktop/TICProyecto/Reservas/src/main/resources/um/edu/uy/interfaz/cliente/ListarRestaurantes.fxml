@@ -1,42 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="579.0" prefWidth="762.999977929685" styleClass="anchor" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorListarRestaurantes">
+<BorderPane prefHeight="579.0" prefWidth="877.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.cliente.ControladorListarRestaurantes">
   <bottom>
-    <Button fx:id="btnVolverAlMenu" blendMode="DARKEN" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="31.0" prefWidth="90.99990000000253" text="Volver" textFill="BLACK" BorderPane.alignment="BOTTOM_RIGHT">
+    <Button fx:id="btnVolverAlMenu" blendMode="DARKEN" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="31.0" prefWidth="90.99990000000253" text="Volver" BorderPane.alignment="BOTTOM_RIGHT">
       <effect>
         <DropShadow height="31.064" radius="15.032" width="31.064" />
       </effect>
       <font>
         <Font name="Yu Gothic UI Regular" size="15.0" fx:id="x2" />
       </font>
+      <textFill>
+        <Color blue="0.000" green="0.144" red="0.600" fx:id="x1" />
+      </textFill>
     </Button>
   </bottom>
   <center>
-    <TableView fx:id="tabla" onMouseClicked="#initialize" prefHeight="463.0" prefWidth="465.0" styleClass="anchor">
+    <TableView fx:id="tabla" onMouseClicked="#initialize" prefHeight="463.0" prefWidth="465.0">
       <columns>
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="97.0" text="" fx:id="columnaFoto" />
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="138.0" text="Nombre" fx:id="columnaNombre" />
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="144.0" text="Dirección" fx:id="columnaDireccion" />
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="137.0" text="Teléfono" fx:id="columnaTelefono" />
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="287.0" text="" fx:id="columnaReservar" />
+        <TableColumn fx:id="columnaFoto" maxWidth="5000.0" minWidth="10.0" prefWidth="97.0" text="" />
+        <TableColumn fx:id="columnaNombre" maxWidth="5000.0" minWidth="10.0" prefWidth="153.0" text="Nombre" />
+        <TableColumn fx:id="columnaDireccion" maxWidth="5000.0" minWidth="10.0" prefWidth="148.0" text="Dirección" />
+        <TableColumn fx:id="columnaTelefono" minWidth="0.0" prefWidth="143.0" text="Teléfono" />
+        <TableColumn fx:id="columnaReservar" maxWidth="117.0" minWidth="10.0" prefWidth="117.0" text="" />
       </columns>
     </TableView>
   </center>
   <left>
-    <BorderPane prefHeight="473.0" prefWidth="246.0">
+    <BorderPane prefHeight="502.0" prefWidth="218.0">
       <bottom>
         <AnchorPane prefHeight="46.0" prefWidth="151.0">
           <children>
-            <Button fx:id="btnBuscar" blendMode="DARKEN" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="45.999900000002526" prefWidth="202.0" text="Buscar" textFill="BLACK" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="0.0">
+            <Button fx:id="btnBuscar" blendMode="DARKEN" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="45.999900000002526" prefWidth="202.0" text="Buscar" textFill="$x1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="0.0">
               <effect>
                 <DropShadow height="31.064" radius="15.032" width="31.064" />
               </effect>
@@ -50,11 +60,7 @@
       <center>
         <GridPane prefHeight="318.0" prefWidth="187.0">
           <children>
-            <Label font="$x2" text="Precio" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-              <textFill>
-                <Color blue="0.000" green="0.144" red="0.600" fx:id="x1" />
-              </textFill>
-            </Label>
+            <Label font="$x2" text="Precio" textFill="$x1" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
             <ComboBox fx:id="cboxPrecio" onAction="#filtroPrecio" prefHeight="21.0" prefWidth="73.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
               <items>
                 <FXCollections fx:factory="observableArrayList">

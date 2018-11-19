@@ -28,7 +28,7 @@ public class TestUsuarioRepository {
 	
 	}
 
-	@Test
+//	@Test
 	public void testVerificarUsuario() {
 		Usuario u1=new Usuario("nombre2", "con2", 1234);
 		usuMgr.save(u1);
@@ -49,7 +49,7 @@ public class TestUsuarioRepository {
 		
 	}
 	
-	@Test
+//	@Test
 	public void testGetCelular() {
 		Usuario u2=new Usuario("nombre2", "con1", 12345);
 		usuMgr.save(u2);

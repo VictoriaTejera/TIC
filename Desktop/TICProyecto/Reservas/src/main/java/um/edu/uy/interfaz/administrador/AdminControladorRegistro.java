@@ -46,10 +46,10 @@ public class AdminControladorRegistro implements ApplicationContextAware {
 
 	@FXML
 	private TextField txtRut;
-	
+
 	@Autowired
 	private RestauranteMgr resMgr;
-	
+
 	ApplicationContext applicationContext;
 
 	public AdminControladorRegistro() {
@@ -65,20 +65,28 @@ public class AdminControladorRegistro implements ApplicationContextAware {
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 
 		if (event.getSource() == btnRegistrar) {
-			Restaurante restaurante = new Restaurante(txtRut.getText(), txtNombre.getText(), Integer.parseInt(txtTelefono.getText()), txtContrasena.getText());
-			if(resMgr.restauranteYaFueCreado(restaurante) == false) {
+			Restaurante restaurante = null;
+
+			if (txtRut.getText().trim().isEmpty() || txtNombre.getText().trim().isEmpty()
+					|| txtContrasena.getText().trim().isEmpty() || txtTelefono.getText().trim().isEmpty()) {
+				showAlert("Lo sentimos, ", "Debe ingresar todos los datos para registrar un restaurante");
+			}
+			restaurante = new Restaurante(txtRut.getText(), txtNombre.getText(),
+					Integer.parseInt(txtTelefono.getText()), txtContrasena.getText());
+
+			if (resMgr.restauranteYaFueCreado(restaurante) == false) {
 				resMgr.save(restaurante);
 				root = fxmlLoader.load(AdminControladorRegistro.class.getResourceAsStream("final.fxml"));
 				stage = (Stage) btnRegistrar.getScene().getWindow();
-			}else {
+			} else {
 				showAlert("Lo sentimos, ", "El restaurante ya ha sido creado.");
 			}
 		}
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		stage.setScene(scene);
-    	stage.show();
-}
+		stage.show();
+	}
 
 	@FXML
 	void initialize() {
@@ -87,20 +95,21 @@ public class AdminControladorRegistro implements ApplicationContextAware {
 		assert txtTelefono != null : "fx:id=\"txtEmail\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
 		assert txtNombre != null : "fx:id=\"txtNombre\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
 		assert txtRut != null : "fx:id=\"txtRut\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
-	
-		}
+
+	}
 
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
 	}
-	
+
 	public static void showAlert(String title, String contextText) {
-        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(contextText);
-        alert.showAndWait();
-    }
+		javafx.scene.control.Alert alert = new javafx.scene.control.Alert(
+				javafx.scene.control.Alert.AlertType.INFORMATION);
+		alert.setTitle(title);
+		alert.setHeaderText(null);
+		alert.setContentText(contextText);
+		alert.showAndWait();
+	}
 
 }

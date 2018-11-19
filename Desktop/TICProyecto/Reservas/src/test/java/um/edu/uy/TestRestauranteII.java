@@ -42,7 +42,7 @@ public class TestRestauranteII {
 		System.out.println(df.format(fechaInicio));
 	}
 	
-	@Test
+//	@Test
 	public void testBuscandoProblemas() {
 		Restaurante res= new Restaurante("rutx", "nombre", 11, "pass");
 		restauranteMgr.save(res);
@@ -58,6 +58,16 @@ public class TestRestauranteII {
 		if(restauranteRut==null) {
 			System.out.println("---------------------------------------");
 		}
+	}
+	
+	@Test
+	public void testActualizarRating() {
+		Restaurante res=new Restaurante("rutxyz", "nombreyxz", 11, "pass");
+		restauranteMgr.save(res);
+		restauranteMgr.agregarRating("rutxyz", 1);
+		restauranteMgr.agregarRating("rutxyz", 2);
+		restauranteMgr.agregarRating("rutxyz", 3);
+		
 	}
 
 }
