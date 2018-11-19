@@ -94,18 +94,7 @@ public class ReservaMgr{
 		repository.marcarRechazada(rut, telefonoUsuario, fecha);
 	}
 
-	public boolean agregarHora(LocalTime hora, LocalDate fecha, Restaurante restaurante) {
-		boolean agregarHora=false;
-		if(repository.verificarSiHayReservaAEsaHora(hora, restaurante.getRUT())==null) {
-			repository.agregarHoraYFecha(hora, fecha);
-			agregarHora=true;
-		}
-		else {
-			agregarHora=false;
-			
-		}
-		return agregarHora;
-	}
+
 	
 	public List<Reserva> obtenerReservasConfirmadasNoTerminadas(String rut){
 		return repository.obtenerReservasConfirmadasNoTerminadas(rut);
