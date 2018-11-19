@@ -41,12 +41,12 @@ public class RestauranteAUX {
 	public RestauranteAUX(Restaurante restaurante) throws IOException {
 		this.restaurante = restaurante;
 
-		//byte[] array = resMgr.obtenerLogo(restaurante.getRUT());
-		//BufferedImage img = ImageIO.read(new ByteArrayInputStream(array));
-		
-//		this.logo = SwingFXUtils.toFXImage(resMgr.obtenerLogo(restaurante.getRUT()), null);
-		// this.imagen = restaurante.getImagen();
-		
+		resMgr = (RestauranteMgr) MainCliente.getContext().getBean("RestauranteMgr");
+		BufferedImage bfi = resMgr.obtenerLogo(restaurante.getRUT());
+		if (bfi != null) {
+			this.logo = SwingFXUtils.toFXImage(bfi, null);
+		}
+
 		this.button = new Button("Reservar");
 
 		button.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -83,18 +83,18 @@ public class RestauranteAUX {
 		puntos.add(4);
 		puntos.add(5);
 
-//		this.puntaje.setItems(puntos);
-		
-//		puntaje.setOnMouseClicked(new EventHandler<MouseEvent>() {
-//			@Override
-//			public void handle(MouseEvent event) {
-//				if(puntaje.getValue()!=null) {
-//					resMgr = (RestauranteMgr) MainCliente.getContext().getBean("RestauranteMgr");
-//					controladorPuntuar.setRestaurante(restaurante);
-//					resMgr.agregarRating(controladorPuntuar.getRestaurante().getRUT(), puntaje.getValue());
-//				}
-//			}
-//		});
+		this.puntaje.setItems(puntos);
+
+		puntaje.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				if(puntaje.getValue()!=null) {
+					resMgr = (RestauranteMgr) MainCliente.getContext().getBean("RestauranteMgr");
+					controladorPuntuar.setRestaurante(restaurante);
+					resMgr.agregarRating(controladorPuntuar.getRestaurante().getRUT(), puntaje.getValue());
+				}
+			}
+		});
 
 	}
 
