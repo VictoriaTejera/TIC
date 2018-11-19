@@ -42,7 +42,7 @@ public class RestauranteMgr {
 			if (repository.obtenerCantMesas(r.getRUT()) != 0) {
 				lista.add(r);
 			}
-			
+
 		}
 		return lista;
 	}
@@ -124,57 +124,57 @@ public class RestauranteMgr {
 //			}
 //		}
 //	}
-	
+
 	@Transactional
 	public void cargarDescripcion(String rut, String descripcion) {
 		repository.cargarDescripcion(rut, descripcion);
 	}
-	
+
 	@Transactional
 	public void cargarDireccion(String rut, String direccion) {
 		repository.cargarDireccion(rut, direccion);
 	}
-	
+
 	@Transactional
 	public void cargarHorarioApertura(String rut, String horarioApertura) {
 		repository.cargarHorarioApertura(rut, horarioApertura);
 	}
-	
+
 	@Transactional
 	public void cargarHorarioCierre(String rut, String horarioCierre) {
 		repository.cargarHorarioCierre(rut, horarioCierre);
 	}
-	
+
 	@Transactional
 	public void cargarPrecioPromedio(String rut, Float precioPromedio) {
 		repository.cargarPrecioPromedio(rut, precioPromedio);
 	}
-	
+
 	@Transactional
 	public void cargarEmail(String rut, String email) {
 		repository.cargarEmail(rut, email);
 	}
-	
+
 	@Transactional
 	public void cargarBarrio(String rut, String barrio) {
 		repository.cargarBarrio(rut, barrioMgr.find(barrio));
 	}
-	
+
 	@Transactional
 	public void cargarImagen(String rut, byte[] imagen) {
 		repository.cargarImagen(rut, imagen);
 	}
-	
+
 	@Transactional
 	public void cargarLogo(String rut, byte[] logo) {
 		repository.cargarLogo(rut, logo);
 	}
-	
+
 	@Transactional
 	public void cargarLugaresPorMesa(String rut, Integer lugaresPorMesa) {
 		repository.cargarLugaresPorMesa(rut, lugaresPorMesa);
 	}
-	
+
 	@Transactional
 	public void cargarMesas(String rut, Integer cantMesas) {
 		if (cantMesas != null) {
@@ -195,14 +195,6 @@ public class RestauranteMgr {
 			}
 		}
 	}
-	
-
-	
-	
-	
-	
-	
-	
 
 	public boolean restauranteYaFueCreado(Restaurante res) {
 		boolean creado = true;
@@ -233,11 +225,8 @@ public class RestauranteMgr {
 	public List<Mesa> obtenerMesasNoReservadas(String RUT) {
 		return repository.obtenerMesasNoReservadas(RUT);
 	}
-
-	public List<Reserva> obtenerReservasTerminadas(String rut) {
-		return repository.obtenerReservasTerminadas(rut);
-
-	}
+	
+	
 
 	public long cantidadAPagar(String rut, Date fecha1, Date fecha2) {
 		long cantAPagar = 0;
@@ -250,7 +239,7 @@ public class RestauranteMgr {
 	public Integer getCantMesas(String rut) {
 		return repository.obtenerCantMesas(rut);
 	}
-	
+
 	public Integer getCantLugarPorMesa(String rut) {
 		return repository.obtenerCantLugaresPorMesa(rut);
 	}
@@ -263,19 +252,25 @@ public class RestauranteMgr {
 		byte[] array = repository.obtenerImagen(rut);
 		return ImageIO.read(new ByteArrayInputStream(array));
 	}
-	
+
 	public BufferedImage obtenerLogo(String rut) throws IOException {
 		byte[] array = repository.obtenerLogo(rut);
 		return ImageIO.read(new ByteArrayInputStream(array));
 	}
-	
+
 	public void agregarRating(String rut, Integer rating) {
-		Float ratingAnterior=repository.getRating(rut);
-		Integer cantRatings=repository.getCantRatings(rut);
-		Float nuevoRating=(ratingAnterior*cantRatings + rating)/(cantRatings+1);
-		repository.agregarRating(rut, nuevoRating, cantRatings+1);
+		Float ratingAnterior = repository.getRating(rut);
+		Integer cantRatings = repository.getCantRatings(rut);
+		Float nuevoRating;
+		if (ratingAnterior != null) {
+			nuevoRating = (ratingAnterior * cantRatings + rating) / (cantRatings + 1);
+		} else {
+			nuevoRating = (float)rating;
+			cantRatings=0;
+		}
+		repository.agregarRating(rut, nuevoRating, cantRatings + 1);
 	}
-	
+
 //	public LocalTime obtenerHorarioApertura(String rut) {
 //		return repository.obtenerHorarioApertura(rut);
 //	}

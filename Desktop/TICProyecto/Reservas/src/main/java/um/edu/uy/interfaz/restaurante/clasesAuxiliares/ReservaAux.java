@@ -16,6 +16,7 @@ public class ReservaAux {
 	private Reserva reserva;
 	private Button aceptar;
 	private Button rechazar;
+	private Button finalizar;
 	
 	@Autowired
 	ReservaMgr resMgr;
@@ -27,6 +28,7 @@ public class ReservaAux {
 		this.reserva = reserva;
 		this.aceptar = new Button("Aceptar");
 		this.rechazar = new Button("Rechazar");
+		this.finalizar = new Button("Finalizar");
 		
 		controller = (ControladorReservasPendientes)MainRestaurante.getContext().getBean("ControladorReservasPendientes");
 		controller.setReserva(reserva);
@@ -43,8 +45,15 @@ public class ReservaAux {
 		rechazar.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				resMgr.rechazarReserva(controller.getReserva().getId());;
+				resMgr.rechazarReserva(controller.getReserva().getRestaurante().getRUT(),controller.getReserva().getUsuario().getCelular(), controller.getReserva().getFecha());
 				showAlert("Rechazo de reserva","Reserva rechazada con éxito");
+			}
+		});
+		finalizar.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+//				resMgr.finalizarReserva(controller.getReserva().getId());;
+				showAlert("Finalización de reserva","Reserva finalizada con éxito");
 			}
 		});
 	

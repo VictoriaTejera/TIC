@@ -39,17 +39,29 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 	
 	@Transactional
 	@Modifying
-	@Query("UPDATE Reserva r SET r.rechazada =true WHERE r.id= :id")
-	public void marcarRechazada(@Param("id") Long id);
+	@Query("UPDATE Reserva r SET r.rechazada =true WHERE r.restaurante.rut= :rut and r.usuario.telefono= :telefonoUsuario and r.fecha= :fecha")
+	public void marcarRechazada(@Param("rut") String rut, @Param("telefonoUsuario") Integer telefonoUsuario, @Param("fecha") LocalDate fecha);
 	
 	@Transactional
 	@Modifying
 	@Query("UPDATE Reserva r SET r.hora= :hora AND r.fecha= : fecha")
 	public void agregarHoraYFecha(@Param("hora") LocalTime hora, @Param("fecha") LocalDate fecha);
 	
+	@Transactional
+	@Modifying
+	@Query("UPDATE Reserva r SET r.terminada=1 WHERE r.restaurante.rut= :rut and r.usuario.telefono= :telefonoUsuario and r.fecha= :fecha")
+	void terminarReserva(@Param("rut") String rut, @Param("telefonoUsuario") Integer telefonoUsuario, @Param("fecha") LocalDate fecha);
+	
 
 	@Query("SELECT r FROM Reserva r WHERE r.hora= :hora AND r.restaurante.rut= :rut ")
 	Reserva verificarSiHayReservaAEsaHora(@Param ("hora") LocalTime hora, @Param("rut") String rut);
-		
+
+			
+	@Query("SELECT rv FROM Reserva rv WHERE rv.restaurante= :rut  and rv.terminada=1")
+	List<Reserva> obtenerReservasTerminadas(@Param ("rut") String rut);
+	
+	@Query("SELECT rv FROM Reserva rv WHERE rv.restaurante= :rut and rv.terminada=0 and rv.confirmada=1")
+	List<Reserva> obtenerReservasConfirmadasNoTerminadas(@Param("rut") String rut);
+
 	
 }

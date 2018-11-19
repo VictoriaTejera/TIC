@@ -62,9 +62,12 @@ public class TestRestauranteII {
 	
 	@Test
 	public void testActualizarRating() {
-		Restaurante res=new Restaurante("rutxy", "nombreyx", 11, "pass");
+		Restaurante res=new Restaurante("rutxyz", "nombreyxz", 11, "pass");
 		restauranteMgr.save(res);
-		restauranteMgr.agregarRating("rutxy", 1);
+		restauranteMgr.agregarRating("rutxyz", 1);
+		restauranteMgr.agregarRating("rutxyz", 2);
+		restauranteMgr.agregarRating("rutxyz", 3);
+		
 	}
 
 }

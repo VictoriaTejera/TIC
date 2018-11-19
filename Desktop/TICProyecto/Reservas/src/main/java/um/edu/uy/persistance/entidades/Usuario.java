@@ -16,6 +16,7 @@ public class Usuario  implements Serializable{
 	private String Nombre;
 	private String NombreUsuario;
 	private String contrasena;
+	@Column(columnDefinition="float default 0.0")
 	private Float rating;
 	private Integer cantRatings;
 

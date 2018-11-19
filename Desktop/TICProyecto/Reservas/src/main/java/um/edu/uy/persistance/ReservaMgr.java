@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -89,8 +90,8 @@ public class ReservaMgr{
 
 //	public boolean confirmarReserva() {}
 
-	public void rechazarReserva(Long idReserva) {
-		repository.marcarRechazada(idReserva);
+	public void rechazarReserva(String rut, Integer telefonoUsuario, LocalDate fecha) {
+		repository.marcarRechazada(rut, telefonoUsuario, fecha);
 	}
 
 	public boolean agregarHora(LocalTime hora, LocalDate fecha, Restaurante restaurante) {
@@ -104,6 +105,15 @@ public class ReservaMgr{
 			
 		}
 		return agregarHora;
+	}
+	
+	public List<Reserva> obtenerReservasConfirmadasNoTerminadas(String rut){
+		return repository.obtenerReservasConfirmadasNoTerminadas(rut);
+	}
+
+	public List<Reserva> obtenerReservasTerminadas(String rut) {
+		return repository.obtenerReservasTerminadas(rut);
+
 	}
 
 }
