@@ -28,6 +28,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -58,7 +59,10 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	private ComboBox<String> cboxComida;
 
 	@FXML
-	private ComboBox<String> cboxPrecio;
+	private TextField txtPrecioMax;
+	  
+	@FXML
+	private TextField txtPrecioMin;
 
 	@FXML
 	private TableColumn<RestauranteAUX, String> columnaDireccion;
@@ -150,6 +154,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	@FXML
 	void filtroPrecio() {
+		
 	}
 
 	@FXML
@@ -157,6 +162,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		if (event.getSource() == btnBuscar) {
 			ObservableList<RestauranteAUX> rest = FXCollections.observableArrayList();
 			RestauranteAUX restAux;
+			
 			if (cboxBarrio.getValue() != null) {
 				for (int i = 0; i < restauranteMgr.filtrarPorBarrio(cboxBarrio.getValue()).size(); i++) {
 					restAux = new RestauranteAUX(restauranteMgr.filtrarPorBarrio(cboxBarrio.getValue()).get(i));
@@ -169,16 +175,16 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 					restAux = new RestauranteAUX(restauranteMgr.filtrarPorComida(cboxComida.getValue()).get(i));
 					rest.add(restAux);
 				}
+			
 				tabla.setItems(rest);
 			}
-
-			/*
-			 * if (cboxComida.getValue() != null && cboxBarrio.getValue() != null) { for
-			 * (int i = 0; i < restaurante.filtrarPorVarios(cboxComida.getValue(),
-			 * cboxBarrio.getValue()) .size(); i++) { restAux = new RestauranteAUX(
-			 * restaurante.filtrarPorVarios(cboxComida.getValue(),
-			 * cboxBarrio.getValue()).get(i)); rest.add(restAux); } }
-			 */
+			if (txtPrecioMin.getText() != null && txtPrecioMax.getText() != null) {
+				for (int i = 0; i < restauranteMgr.filtrarPorPrecio(Float.parseFloat(txtPrecioMin.getText()), Float.parseFloat(txtPrecioMax.getText())).size(); i++) {
+					restAux = new RestauranteAUX(restauranteMgr.filtrarPorPrecio(Float.parseFloat(txtPrecioMin.getText()), Float.parseFloat(txtPrecioMax.getText())).get(i));
+					rest.add(restAux);
+				}
+				tabla.setItems(rest);
+			}
 		}
 
 	}
@@ -197,7 +203,6 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		stage = new Stage();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		root = fxmlLoader.load(ControladorListarRestaurantes.class.getResourceAsStream("DetallesRestaurante.fxml"));
-		// stage = (Stage) event.getSource().getScene().getWindow();
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		stage.setScene(scene);
@@ -228,7 +233,8 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		assert btnBuscar != null : "fx:id=\"btnBuscar\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
 		assert cboxBarrio != null : "fx:id=\"cboxBarrio\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
 		assert cboxComida != null : "fx:id=\"cboxComida\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
-		assert cboxPrecio != null : "fx:id=\"cboxPrecio\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
+		assert txtPrecioMax != null : "fx:id=\"txtPrecioMax\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
+		assert txtPrecioMin != null : "fx:id=\"txtPrecioMin\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
 		assert columnaDireccion != null : "fx:id=\"columnaDireccion\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
 		assert columnaNombre != null : "fx:id=\"columnaNombre\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
 		assert columnaTelefono != null : "fx:id=\"columnaTelefono\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="408.0" prefWidth="492.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.restaurante.ControladorMenuRest">
+<AnchorPane prefHeight="352.0" prefWidth="347.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.restaurante.ControladorMenuRest">
   <!-- TODO Add Nodes -->
   <children>
-    <Label alignment="CENTER" layoutX="100.0" layoutY="26.0" prefHeight="56.0" prefWidth="292.0000999999975" text="Seleccione la operación que desea realizar" textAlignment="CENTER" underline="true">
+    <Label alignment="CENTER" layoutX="50.0" layoutY="38.0" prefHeight="56.0" prefWidth="292.0000999999975" text="Seleccione la operación que desea realizar" textAlignment="CENTER" underline="true">
       <font>
         <Font name="Yu Gothic UI Regular" size="15.0" />
       </font>
@@ -19,19 +18,6 @@
         <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
       </textFill>
     </Label>
-    <Button fx:id="btnDatos" blendMode="DARKEN" layoutX="147.0" layoutY="98.0" mnemonicParsing="false" onAction="#actualizarDatos" prefHeight="49.0" prefWidth="199.0" text="Actualizar datos" textFill="$x1">
-      <effect>
-        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-      </effect>
-      <font>
-        <Font name="Yu Gothic UI Bold" size="15.0" fx:id="x3" />
-      </font>
-    </Button>
-    <Button fx:id="btnReservas" blendMode="DARKEN" font="$x3" layoutX="147.0" layoutY="168.0" mnemonicParsing="false" onAction="#verReservasPendientes" prefHeight="49.0" prefWidth="199.0" text="Ver reservas pendientes" textFill="$x1">
-      <effect>
-        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-      </effect>
-    </Button>
     <VBox layoutX="7.0" layoutY="14.0" prefHeight="307.0" prefWidth="63.0">
       <children>
         <Label prefHeight="46.0" prefWidth="50.0" text="R" textFill="$x1">
@@ -48,21 +34,25 @@
         <Label font="$x2" prefHeight="46.0" prefWidth="50.0" text="S" textFill="$x1" />
       </children>
     </VBox>
-    <Button id="btnReservas" fx:id="btnTotalAPagar" blendMode="DARKEN" font="$x3" layoutX="147.0" layoutY="312.0" mnemonicParsing="false" onAction="#verTotalAPagar" prefHeight="49.0" prefWidth="199.0" text="Ver total a pagar" textFill="$x1">
-      <effect>
-        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-      </effect>
-    </Button>
-      <Button fx:id="btnFinalizarReservas" blendMode="DARKEN" layoutX="147.0" layoutY="238.0" mnemonicParsing="false" onAction="#finalizarReservas" prefHeight="49.0" prefWidth="199.0" text="Finalizar reservas">
+      <JFXButton fx:id="btnDatos" buttonType="RAISED" layoutX="113.0" layoutY="110.0" onAction="#actualizarDatos" ripplerFill="LIME" text="ACTUALIZAR DATOS">
          <font>
-            <Font name="Yu Gothic UI Bold" size="15.0" fx:id="x31" />
+            <Font name="Yu Gothic Regular" size="15.0" />
          </font>
-         <textFill>
-            <Color blue="0.000" green="0.000" red="0.600" fx:id="x11" />
-         </textFill>
-         <effect>
-            <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-         </effect>
-      </Button>
+      </JFXButton>
+      <JFXButton fx:id="btnReservas" buttonType="RAISED" layoutX="82.0" layoutY="153.0" onAction="#verReservasPendientes" ripplerFill="LIME" text="VER RESERVAS PENDIENTES">
+         <font>
+            <Font name="Yu Gothic Regular" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnFinalizarReservas" buttonType="RAISED" layoutX="113.0" layoutY="192.0" onAction="#finalizarReservas" ripplerFill="LIME" text="FINALIZAR RESERVAS">
+         <font>
+            <Font name="Yu Gothic Regular" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnTotalAPagar" buttonType="RAISED" layoutX="117.0" layoutY="234.0" onAction="#verTotalAPagar" ripplerFill="LIME" text="VER TOTAL A PAGAR">
+         <font>
+            <Font name="Yu Gothic Regular" size="15.0" />
+         </font>
+      </JFXButton>
   </children>
 </AnchorPane>

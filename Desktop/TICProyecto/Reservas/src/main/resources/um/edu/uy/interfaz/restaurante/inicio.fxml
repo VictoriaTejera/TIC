@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="349.0" prefWidth="378.0" styleClass="anchor" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.restaurante.ControladorInicioSesionRest">
+<AnchorPane prefHeight="349.0" prefWidth="378.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.restaurante.ControladorInicioSesionRest">
   <!-- TODO Add Nodes -->
   <children>
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="21.0" prefHeight="69.0" prefWidth="287.0" text="Restaurante" textAlignment="CENTER" wrapText="false">
@@ -31,12 +32,6 @@
     <TextField id="emailField" fx:id="txtUsuario" layoutX="177.0" layoutY="105.0" prefHeight="40.0" />
     <!-- Add Password Field -->
     <PasswordField id="passwordField" fx:id="txtContrasena" layoutX="177.0" layoutY="181.0" prefHeight="40.0" />
-    <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnIniciarSesion" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" font="$x3" layoutX="211.0" layoutY="256.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="49.0" prefWidth="126.0" text="Iniciar Sesión" textAlignment="LEFT" textFill="BLACK" underline="false" visible="true">
-      <effect>
-        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
-      </effect>
-    </Button>
     <VBox layoutX="5.0" layoutY="14.0" prefHeight="321.0" prefWidth="66.0">
       <children>
         <Label prefHeight="46.0" prefWidth="54.0" text="R" textFill="$x1">
@@ -53,5 +48,10 @@
         <Label font="$x2" prefHeight="46.0" prefWidth="54.0" text="S" textFill="$x1" />
       </children>
     </VBox>
+      <JFXButton fx:id="btnIniciarSesion" buttonType="RAISED" layoutX="110.0" layoutY="256.0" onAction="#handleSubmitButtonAction" prefHeight="41.0" prefWidth="158.0" ripplerFill="LIME" text="INICIAR SESIÓN">
+         <font>
+            <Font name="Yu Gothic Regular" size="15.0" />
+         </font>
+      </JFXButton>
   </children>
 </AnchorPane>

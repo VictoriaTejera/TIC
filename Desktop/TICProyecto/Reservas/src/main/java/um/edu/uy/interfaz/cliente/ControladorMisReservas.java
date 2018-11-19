@@ -60,7 +60,7 @@ public class ControladorMisReservas implements ApplicationContextAware {
 	private ReservaMgr resMgr;
 
 	@Autowired
-	private ControladorInicioSesion controladorInicio;
+	ControladorInicioSesion controladorInicio;
 
 	private ApplicationContext applicationContext;
 
