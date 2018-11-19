@@ -48,8 +48,6 @@ public class RestauranteMgr {
 		return lista;
 	}
 
-
-
 	@Transactional
 	public void save(Restaurante res) {
 		if (res.getBarrio() != null) {
