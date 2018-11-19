@@ -75,10 +75,13 @@ public class TestUsuarioRepository {
 		usuMgr.save(u4);
 		
 		Restaurante r1= new Restaurante("1239", "Rest", 6565, "789");
-		
+		restMgr.save(r1);
+		restMgr.cargarMesas(r1.getRUT(), 5);
 		String rut= r1.getRUT();
 		resMgr.save(u3.getCelular(), rut, 7, LocalDate.now(), LocalTime.now());
-	//	resMgr.
+		resMgr.terminarReserva("1239", u3.getCelular(), LocalDate.now());
+		
+		System.out.println(usuMgr.obtenerRestaurantesVisitados(u3).get(0));
 		
 		
 	}

@@ -25,9 +25,7 @@ public class MesaMgr {
 		repository.deleteById(id);
 	}
 	
-//	public boolean isReservada(Long id) {
-//		return repository.isReservada(id);
-//	}
+
 
 	
 }

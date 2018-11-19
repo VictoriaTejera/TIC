@@ -167,6 +167,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 							"Ingrese la cantidad de lugares por mesa para habilitar las reservas.");
 				}
 			}
+
 			if (imagenAGuardar != null) {
 				resMgr.cargarImagen(rut, imagenAGuardar);
 			}
