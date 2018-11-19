@@ -84,7 +84,7 @@ public class RestauranteAUX {
 		puntos.add(3);
 		puntos.add(4);
 		puntos.add(5);
-//		this.puntaje.setItems(puntos);
+		this.puntaje.setItems(puntos);
 
 //		if(puntos.getValue()!=null) { operacion rating
 //			
