@@ -4,6 +4,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import um.edu.uy.persistance.ReservaMgr;
+import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.UsuarioMgr;
+import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 
 @SpringBootTest(classes = MainRestaurante.class)
@@ -20,6 +25,12 @@ public class TestUsuarioRepository {
 	
 	@Autowired
 	UsuarioMgr usuMgr;
+	
+	@Autowired
+	ReservaMgr resMgr;
+	
+	@Autowired
+	RestauranteMgr restMgr;
 
 	@Test
 	public void testSaveUsuario() throws SQLException {
@@ -54,5 +65,21 @@ public class TestUsuarioRepository {
 		Usuario u2=new Usuario("nombre2", "con1", 12345);
 		usuMgr.save(u2);
 //		Usuario u3=usuMgr.
+	}
+	
+	@Test
+	public void testObtenerRestauantes() {
+		Usuario u3=new Usuario("nombre3", "con3", 12343);
+		usuMgr.save(u3);
+		Usuario u4=new Usuario("nombre4", "con4", 12344);
+		usuMgr.save(u4);
+		
+		Restaurante r1= new Restaurante("1239", "Rest", 6565, "789");
+		
+		String rut= r1.getRUT();
+		resMgr.save(u3.getCelular(), rut, 7, LocalDate.now(), LocalTime.now());
+	//	resMgr.
+		
+		
 	}
 }
