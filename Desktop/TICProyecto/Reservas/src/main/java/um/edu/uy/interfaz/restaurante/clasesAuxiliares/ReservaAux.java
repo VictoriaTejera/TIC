@@ -45,7 +45,7 @@ public class ReservaAux {
 		rechazar.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				resMgr.rechazarReserva(controller.getReserva().getId());;
+				resMgr.rechazarReserva(controller.getReserva().getRestaurante().getRUT(),controller.getReserva().getUsuario().getCelular(), controller.getReserva().getFecha());
 				showAlert("Rechazo de reserva","Reserva rechazada con éxito");
 			}
 		});

@@ -30,7 +30,7 @@ public class Reserva {
 	@Column(name="id", unique=true, nullable=false)
 	private Long Id;
 	private Integer cantPersonas;
-	private Date fecha;
+	private LocalDate fecha;
 	private LocalTime hora;
 
 	@Column(columnDefinition="boolean default FALSE")
@@ -60,8 +60,7 @@ public class Reserva {
 		terminada=false;
 		rechazada=false;
 		
-		java.util.Date fecha= new Date();
-		this.fecha=fecha;
+		fecha=LocalDate.now();
 	}
 
 	public Long getId() {
@@ -106,6 +105,26 @@ public class Reserva {
 
 	public void setRestaurante(Restaurante restaurante) {
 		this.restaurante = restaurante;
+	}
+
+	public LocalDate getFecha() {
+		return fecha;
+	}
+
+	public LocalTime getHora() {
+		return hora;
+	}
+
+	public boolean isConfirmada() {
+		return confirmada;
+	}
+
+	public boolean isRechazada() {
+		return rechazada;
+	}
+
+	public boolean isTerminada() {
+		return terminada;
 	}
 
 	@Override
