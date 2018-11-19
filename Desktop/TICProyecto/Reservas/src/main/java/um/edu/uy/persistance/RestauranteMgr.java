@@ -43,7 +43,6 @@ public class RestauranteMgr {
 			if (repository.obtenerCantMesas(r.getRUT()) != 0) {
 				lista.add(r);
 			}
-
 		}
 		return lista;
 	}
