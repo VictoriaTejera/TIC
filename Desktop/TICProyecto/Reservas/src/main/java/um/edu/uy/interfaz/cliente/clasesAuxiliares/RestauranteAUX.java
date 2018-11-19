@@ -32,8 +32,7 @@ import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 
 public class RestauranteAUX {
-//	@Id
-//	private Integer id;
+
 	private Restaurante restaurante;
 	private Button button;
 	private ComboBox<Integer> puntaje;
@@ -41,23 +40,27 @@ public class RestauranteAUX {
 
 	ControladorListarRestaurantes controller;
 	ControladorPuntuarRestaurantes controladorPuntuar;
-	
+
 	RestauranteMgr resMgr;
 
 	public RestauranteAUX(Restaurante restaurante) throws IOException {
 		this.restaurante = restaurante;
-//		byte[] array = restaurante.getImagen();
-//		BufferedImage img=ImageIO.read(new ByteArrayInputStream(array));
-//		this.logo=SwingFXUtils.toFXImage(img,null);
+
+		//byte[] array = restaurante.getImagen();
+		
+		//BufferedImage img = ImageIO.read(new ByteArrayInputStream(array));
+		
+		this.logo = SwingFXUtils.toFXImage(resMgr.obtenerLogo(restaurante.getRUT()), null);
 		// this.imagen = restaurante.getImagen();
-		
+
 		this.button = new Button("Reservar");
-		
+
 		button.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				FXMLLoader fxmlLoader = new FXMLLoader();;
-	    		Stage stage = null;
+				FXMLLoader fxmlLoader = new FXMLLoader();
+				;
+				Stage stage = null;
 				fxmlLoader.setControllerFactory(MainCliente.getContext()::getBean);
 				fxmlLoader.setLocation(ControladorInicio.class.getResource("Reservar2.fxml"));
 				try {
@@ -69,35 +72,35 @@ public class RestauranteAUX {
 				controller = (ControladorListarRestaurantes) MainCliente.getContext()
 						.getBean("ControladorListarRestaurantes");
 				controller.setRestaurante(restaurante);
-			
+
 				Parent root = fxmlLoader.getRoot();
-	    		stage = (Stage) button.getScene().getWindow();
+				stage = (Stage) button.getScene().getWindow();
 				Scene scene = new Scene(root);
 				scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 				stage.setScene(scene);
-	        	stage.show();
+				stage.show();
 			}
 		});
-		
+
 		ObservableList<Integer> puntos = FXCollections.observableArrayList();
 		puntos.add(1);
 		puntos.add(2);
 		puntos.add(3);
 		puntos.add(4);
 		puntos.add(5);
-		this.puntaje.setItems(puntos);
-		
-		puntaje.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				if(puntaje.getValue()!=null) {
-					resMgr = (RestauranteMgr) MainCliente.getContext().getBean("RestauranteMgr");
-					controladorPuntuar.setRestaurante(restaurante);
-					resMgr.agregarRating(controladorPuntuar.getRestaurante().getRUT(), puntaje.getValue());
-				}
-			}
-		});
-		
+		// this.puntaje.setItems(puntos);
+
+		// puntaje.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		// @Override
+		// public void handle(MouseEvent event) {
+		// if(puntaje.getValue()!=null) {
+		// resMgr = (RestauranteMgr) MainCliente.getContext().getBean("RestauranteMgr");
+		// controladorPuntuar.setRestaurante(restaurante);
+		// resMgr.agregarRating(controladorPuntuar.getRestaurante().getRUT(),
+		// puntaje.getValue());
+		// }
+		// }
+		// });
 
 	}
 

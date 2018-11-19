@@ -155,7 +155,11 @@ public class Restaurante implements Serializable {
 	public void setImagen(byte[] imagen) {
 		this.imagen = imagen;
 	}
-
+	
+	public byte[] getLogo() {
+		return logo;
+	}
+	
 	@Override
 	public String toString() {
 		return "Restaurante [nombre=" + nombre + ", horarioApertura=" + horarioApertura + ", direccion=" + direccion
