@@ -131,8 +131,9 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 		ObservableList<RestauranteAUX> restaurantes = FXCollections.observableArrayList();
 		RestauranteAUX restAux;
-
+		restauranteMgr.getRestaurants();
 		for (int i = 0; i < restauranteMgr.getRestaurants().size(); i++) {
+			Restaurante res=restauranteMgr.getRestaurants().get(i);
 			restAux = new RestauranteAUX(restauranteMgr.getRestaurants().get(i));
 			restaurantes.add(restAux);
 		}
