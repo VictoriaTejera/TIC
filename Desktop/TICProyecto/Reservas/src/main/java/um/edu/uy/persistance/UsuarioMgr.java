@@ -1,10 +1,13 @@
 package um.edu.uy.persistance;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 
 @Service
@@ -44,5 +47,16 @@ public class UsuarioMgr {
 	
 	public Usuario find(String nombre, String contrasena) {
 		return repository.verificarUsuario(nombre, contrasena);
+	}
+	
+	public List<Restaurante> obtenerRestaurantesVisitados(Usuario usuario){
+		List<Restaurante> restaurantesVisitados= new LinkedList<>();
+		
+		for (int i=0; i<repository.reservasTerminadas(usuario.getCelular()).size(); i++) {
+			restaurantesVisitados.add(repository.reservasTerminadas(usuario.getCelular()).get(i).getRestaurante());
+			
+		}
+		return restaurantesVisitados;
+		
 	}
 }
