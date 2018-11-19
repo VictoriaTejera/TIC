@@ -6,7 +6,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -88,6 +87,10 @@ public class ReservaMgr{
 
 	public void rechazarReserva(String rut, Integer telefonoUsuario, LocalDate fecha) {
 		repository.marcarRechazada(rut, telefonoUsuario, fecha);
+	}
+	
+	public void terminarReserva(String rut, Integer telefonoUsuario, LocalDate fecha) {
+		repository.marcarTerminada(rut, telefonoUsuario, fecha);
 	}
 
 

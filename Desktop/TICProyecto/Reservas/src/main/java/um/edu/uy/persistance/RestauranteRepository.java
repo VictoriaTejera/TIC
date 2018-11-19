@@ -121,7 +121,7 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	byte[] obtenerLogo(@Param ("rut") String rut);
 	
 	@Query("SELECT rv FROM Reserva rv WHERE rv.restaurante.rut= :rut AND rv.terminada=0 AND rv.fecha BETWEEN :fecha1 AND :fecha2")
-	List<Reserva> obtenerReservasTerminadasRangoDeFechas(@Param("rut") String rut, @Param("fecha1") Date fecha1, @Param("fecha2") Date fecha2);
+	List<Reserva> obtenerReservasTerminadasRangoDeFechas(@Param("rut") String rut, @Param("fecha1") LocalDate fecha1, @Param("fecha2") LocalDate fecha2);
 	
 	@Query("SELECT r.rating FROM Restaurante r WHERE r.rut= :rut")
 	Float getRating(@Param("rut") String rut);

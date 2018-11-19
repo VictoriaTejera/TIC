@@ -22,7 +22,7 @@
         </Button>
       </bottom>
       <center>
-        <TableView prefHeight="402.0" prefWidth="294.0">
+        <TableView prefHeight="402.0" prefWidth="294.0" styleClass="anchor">
           <columns>
             <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="151.0" text="Restaurante" fx:id="colRestaurante" />
             <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="146.0" text="Puntaje" fx:id="colPuntaje" />
