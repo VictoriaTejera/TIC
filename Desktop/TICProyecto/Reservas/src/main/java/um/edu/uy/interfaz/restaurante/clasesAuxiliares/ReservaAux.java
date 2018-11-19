@@ -79,5 +79,9 @@ public class ReservaAux {
 	public Button getRechazar() {
 		return rechazar;
 	}
+	
+	public Button getFinalizar() {
+		return finalizar;
+	}
 
 }

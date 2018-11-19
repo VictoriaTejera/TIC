@@ -2,6 +2,8 @@ package um.edu.uy.interfaz.cliente;
 
 import java.io.IOException;
 import java.net.URL;
+
+import um.edu.uy.interfaz.cliente.clasesAuxiliares.RestauranteAUX;
 import um.edu.uy.persistance.ReservaMgr;
 import um.edu.uy.persistance.entidades.Reserva;
 
@@ -17,6 +19,8 @@ import org.springframework.stereotype.Component;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -107,9 +111,24 @@ public class ControladorMisReservas implements ApplicationContextAware {
 						return prop;
 					}
 				});
+		
+		ObservableList<Reserva> reservasPendientes = FXCollections.observableArrayList();
+		ObservableList<Reserva> reservasConfirmadas = FXCollections.observableArrayList();
+		List<Reserva> todasLasReservas = resMgr.verEstadoReservasUsuario(controladorInicio.getUsuario().getCelular());
+		
+		for (int i = 0; i < todasLasReservas.size(); i++) {
+			Reserva reserva = todasLasReservas.get(i);
+			if(reserva.isConfirmada() == true) {
+				reservasConfirmadas.add(reserva);
+			}else {
+				reservasPendientes.add(reserva);
+			}	
+		}
 
-//		List<Reserva> todasLasReservas = resMgr.verEstadoReservasUsuario(controladorInicio.getUsuario().getCelular());
-//
+		tablaPendientes.setItems(reservasPendientes);
+		tablaConfirmadas.setItems(reservasConfirmadas);
+		
+
 //		for (Reserva r : todasLasReservas) {
 //			if (r.isConfirmado() == true) {
 //				((List<Reserva>) tablaPendientes).add(r);

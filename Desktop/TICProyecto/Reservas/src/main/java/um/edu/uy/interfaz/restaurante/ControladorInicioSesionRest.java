@@ -57,8 +57,6 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 
 		if (event.getSource() == btnIniciarSesion) {
 			restauranteMgr.cargarDescripcion("rut", "descripcion");
-//			restauranteMgr.verificarUsuarioRestaurante("123", "111");
-//			restauranteMgr.getRut("123", "111");
 			restauranteRut = restauranteMgr.getRut(txtUsuario.getText(), txtContrasena.getText());
 			if (restauranteRut!=null) {
 				stage = (Stage) btnIniciarSesion.getScene().getWindow();
