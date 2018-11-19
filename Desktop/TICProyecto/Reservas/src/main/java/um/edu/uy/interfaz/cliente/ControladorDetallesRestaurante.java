@@ -103,7 +103,7 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
         Image image = SwingFXUtils.toFXImage(resMgr.obtenerImagen(controlador.restSeleccionado().getRUT()), null);
         imagen.setImage(image);
         
-        //logger.info("AAAAAAAAAAAAAAAAA " + controlador.restSeleccionado().getTelefono());
+        
     }
     
     @FXML
@@ -126,10 +126,7 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
 			stage = (Stage) btnVolver.getScene().getWindow();
 			stage.close();
 		}
-//		Scene scene = new Scene(root);
-//		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
-//		stage.setScene(scene);
-//    	stage.show();
+
 
 	}
     

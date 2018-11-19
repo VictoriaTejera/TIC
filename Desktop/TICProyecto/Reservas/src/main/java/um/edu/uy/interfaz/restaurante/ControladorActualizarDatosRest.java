@@ -53,6 +53,9 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 
 	@FXML
 	private Button btnCargarLogo;
+	
+	@FXML
+	private Button btnVolver;
 
 	@FXML
 	private ImageView imgView;
@@ -164,6 +167,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 							"Ingrese la cantidad de lugares por mesa para habilitar las reservas.");
 				}
 			}
+
 			if (imagenAGuardar != null) {
 				resMgr.cargarImagen(rut, imagenAGuardar);
 			}
@@ -216,21 +220,21 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 		logoAGuardar = fileContent;
 	}
 
-	// @FXML
-	// void volverAMenu(ActionEvent event) throws IOException {
-	// Stage stage = new Stage();
-	// Parent root = null;
-	// FXMLLoader fxmlLoader = new FXMLLoader();
-	// fxmlLoader.setControllerFactory(applicationContext::getBean);
-	// if(event.getSource()==btnVolverAMenu) {
-	// stage = (Stage) btnGuardarDatos.getScene().getWindow();
-	// root = fxmlLoader.load(
-	// ControladorActualizarDatosRest.class.getResourceAsStream("MenuPrincipal.fxml"));
-	// }
-	// Scene scene = new Scene(root);
-	// stage.setScene(scene);
-	// stage.show();
-	// }
+	 @FXML
+	 void volverAlMenu(ActionEvent event) throws IOException {
+	 Stage stage = new Stage();
+	 Parent root = null;
+	 FXMLLoader fxmlLoader = new FXMLLoader();
+	 fxmlLoader.setControllerFactory(applicationContext::getBean);
+	 if(event.getSource()==btnVolver) {
+	 stage = (Stage) btnGuardarDatos.getScene().getWindow();
+	 root = fxmlLoader.load(
+	 ControladorActualizarDatosRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
+	 }
+	 Scene scene = new Scene(root);
+	 stage.setScene(scene);
+	 stage.show();
+	 }
 
 	@FXML
 	void initialize() {

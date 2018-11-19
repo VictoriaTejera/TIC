@@ -47,9 +47,7 @@ public class RestauranteMgr {
 		return lista;
 	}
 
-//	public List<Restaurante> getRestaurantesInicializados(){
-//		
-//	}
+
 
 	@Transactional
 	public void save(Restaurante res) {
@@ -77,15 +75,7 @@ public class RestauranteMgr {
 		return restaurantes;
 	}
 
-//	public ObservableList<Restaurante> filtrarPorComida(String tipoComida) {
-//		List<Restaurante> restaurantes = repository.filtrarPorComida(repository.obtenerIdComida(tipoComida));
-//		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
-//		for (int i = 0; i < restaurantes.size(); i++) {
-//			observ.add(restaurantes.get(i));
-//		}
-//		return observ;
-//
-//	}
+
 
 	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor) {
 		List<Restaurante> restaurantes = repository.filtrarPorPrecio(precioMenor, precioMayor);
@@ -101,29 +91,7 @@ public class RestauranteMgr {
 		return verifico;
 	}
 
-//	@Transactional
-//	public void cargarDatosRes(String rut, String descripcion, String direccion, String horarioApertura,
-//			String horarioCierre, Float precio_promedio, String mail, String barrio, byte[] imagen, byte[] logo, Integer cantMesas, Integer lugaresPorMesa) {
-//		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, mail,
-//				barrioMgr.find(barrio), imagen, logo, lugaresPorMesa);
-//		if (cantMesas != null) {
-//			Integer cantMesasActuales = repository.obtenerCantMesas(rut);
-//			if (cantMesasActuales == 0) {
-//				for (int i = 0; i < cantMesas; i++) {
-//					mesaMgr.save(rut, 4);
-//				}
-//			} else if (cantMesasActuales > cantMesas) {
-//				List<Mesa> mesas = repository.obtenerMesas(rut);
-//				for (int i = 0; i < cantMesasActuales - cantMesas; i++) {
-//					mesaMgr.delete(mesas.get(i).getId());
-//				}
-//			} else if (cantMesasActuales < cantMesas) {
-//				for (int i = 0; i < cantMesas - cantMesasActuales; i++) {
-//					mesaMgr.save(rut, 4);
-//				}
-//			}
-//		}
-//	}
+
 
 	@Transactional
 	public void cargarDescripcion(String rut, String descripcion) {
@@ -271,8 +239,6 @@ public class RestauranteMgr {
 		repository.agregarRating(rut, nuevoRating, cantRatings + 1);
 	}
 
-//	public LocalTime obtenerHorarioApertura(String rut) {
-//		return repository.obtenerHorarioApertura(rut);
-//	}
+
 
 }

@@ -96,9 +96,6 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 
 	
 
-//	@Query("SELECT r from Restaurante r WHERE nombre= :nombre ")
-//	Restaurante res1(@Param("nombre") String nombre);
-
 	@Query("SELECT res FROM Restaurante res WHERE res.rut= :rut")
 	Restaurante verificarRutRestaurante(@Param("rut") String rut);
 	
@@ -129,9 +126,6 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	@Query("SELECT r.cantRatings FROM Restaurante r WHERE r.rut= :rut")
 	Integer getCantRatings(@Param("rut") String rut);
 	
-	
-//	@Query("SELECT r.horarioApertura FROM Restaurante r WHERE r.rut= :rut")
-//	LocalTime obtenerHorarioApertura(@Param("rut") String rut);
 	
 //	@Query("SELECT distinct r FROM Restaurant r INNER JOIN r.comidas c WHERE c.id IN (?1) " +
 //            "AND r.barrio IN (?2) ORDER BY r.rating desc ")

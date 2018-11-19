@@ -33,24 +33,24 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 
 	@FXML
 	private Button btnConfirmarInicioSesion;
-	
+
 	@FXML
 	private Button btnAceptar;
-	
+
 	@FXML
 	private Button btnVolver;
-	
+
 	@FXML
 	private PasswordField txtContrasena;
 
 	@FXML
 	private TextField txtUsuario;
-	
+
 	@Autowired
 	private UsuarioMgr usuarioMgr;
-	
+
 	private ApplicationContext applicationContext;
-	
+
 	Usuario usuario;
 
 	public ControladorInicioSesion() {
@@ -69,8 +69,8 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 			if (usuarioMgr.verificarUsuario(txtUsuario.getText(), txtContrasena.getText()) == true) {
 				stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
-				usuario=usuarioMgr.find(txtUsuario.getText(), txtContrasena.getText());
-				} else {
+				usuario = usuarioMgr.find(txtUsuario.getText(), txtContrasena.getText());
+			} else {
 				showAlert("Lo sentimos, ", "El usuario o contraseña son incorrectos.");
 			}
 		}
@@ -83,7 +83,7 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 		stage.setScene(scene);
 		stage.show();
 	}
-	
+
 	Usuario getUsuario() {
 		return usuario;
 	}
@@ -95,15 +95,16 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
-		
+
 	}
-	
+
 	public static void showAlert(String title, String contextText) {
-        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(contextText);
-        alert.showAndWait();
-    }
+		javafx.scene.control.Alert alert = new javafx.scene.control.Alert(
+				javafx.scene.control.Alert.AlertType.INFORMATION);
+		alert.setTitle(title);
+		alert.setHeaderText(null);
+		alert.setContentText(contextText);
+		alert.showAndWait();
+	}
 
 }
