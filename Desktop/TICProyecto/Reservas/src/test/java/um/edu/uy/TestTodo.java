@@ -117,6 +117,26 @@ public class TestTodo {
 		resMgr.cargarBarrio("rutLaPasiva", "Carrasco");
 		resMgr.cargarBarrio("rutBK", "Prado");
 		
+		
+		resMgr.cargarDescripcion("rutMc", "Me encanta! - Comida rapida");
+		resMgr.cargarDescripcion("rutBK", "Ideal para darse un gusto con amigos");
+		resMgr.cargarDescripcion("rutLaPasiva", "Lo mejor para un corte laboral o para una cena en familia");
+
+		resMgr.cargarPrecioPromedio("rutLaPasiva", (float)400);
+		resMgr.cargarPrecioPromedio("rutMc", (float) 300);
+		resMgr.cargarPrecioPromedio("rutBK", (float)350);
+		
+		resMgr.cargarDireccion("rutMC", "Ellauri 123");
+		resMgr.cargarDireccion("rutBK", "19 de abril 2036");
+		resMgr.cargarDireccion("rutLaPasiva", "Blanes Viale 1456");
+		
+		resMgr.cargarMesas("rutMc", 35);
+		resMgr.cargarMesas("rutbk", 30);
+		resMgr.cargarMesas("rutLaPasiva", 20);
+		
+		resMgr.cargarEmail("rutMc", "Mcdonalds@mc.com");
+		resMgr.cargarEmail("rutLaPasiva", "LaPasiva@lp.com");
+		resMgr.cargarEmail("rutBK", "BurgerKing@bk.com");
 		Usuario Juan= new Usuario("Juan", "12");
 		usuMgr.save(Juan);
 		Usuario Lucia= new Usuario("Lucia","13");
@@ -132,6 +152,6 @@ public class TestTodo {
 	public void test() {
 		fail("Not yet implemented");
 	}
-
+		
 }
 
