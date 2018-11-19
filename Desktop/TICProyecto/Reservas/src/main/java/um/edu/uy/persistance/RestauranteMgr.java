@@ -269,6 +269,13 @@ public class RestauranteMgr {
 		return ImageIO.read(new ByteArrayInputStream(array));
 	}
 	
+	public void agregarRating(String rut, Integer rating) {
+		Float ratingAnterior=repository.getRating(rut);
+		Integer cantRatings=repository.getCantRatings(rut);
+		Float nuevoRating=(ratingAnterior*cantRatings + rating)/(cantRatings+1);
+		repository.agregarRating(rut, nuevoRating, cantRatings+1);
+	}
+	
 //	public LocalTime obtenerHorarioApertura(String rut) {
 //		return repository.obtenerHorarioApertura(rut);
 //	}

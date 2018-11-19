@@ -131,6 +131,15 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	@Query("SELECT rv FROM Reserva rv WHERE rv.restaurante.rut= :rut AND rv.terminada=0 AND rv.fecha BETWEEN :fecha1 AND :fecha2")
 	List<Reserva> obtenerReservasTerminadasRangoDeFechas(@Param("rut") String rut, @Param("fecha1") Date fecha1, @Param("fecha2") Date fecha2);
 	
+	@Query("SELECT r.rating FROM Restaurante r WHERE r.rut= :rut")
+	Float getRating(@Param("rut") String rut);
+	
+	@Query("SELECT r.cantRatings FROM Restaurante r WHERE r.rut= :rut")
+	Integer getCantRatings(@Param("rut") String rut);
+	
+	@Query("UPDATE Restaurante r SET r.rating = :rating, r.cantRatings= :cantRatings WHERE r.rut= :rut")
+	void agregarRating(@Param("rut") String rut, @Param("rating") Float rating , @Param("cantRatings") Integer cantRatings);
+	
 //	@Query("SELECT r.horarioApertura FROM Restaurante r WHERE r.rut= :rut")
 //	LocalTime obtenerHorarioApertura(@Param("rut") String rut);
 	
