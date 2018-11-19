@@ -12,7 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-
+import java.time.LocalTime;
 import java.util.LinkedList;
 
 import java.util.List;
@@ -38,7 +38,6 @@ import um.edu.uy.persistance.entidades.Usuario;
 @SpringBootTest(classes = MainRestaurante.class)
 @RunWith(SpringRunner.class)
 
-
 public class TestTodo {
 	@Autowired
 	RestauranteMgr resMgr;
@@ -48,7 +47,7 @@ public class TestTodo {
 
 	@Autowired
 	ComidaMgr comidaMgr;
-	
+
 	@Autowired
 	UsuarioMgr usuMgr;
 
@@ -66,8 +65,8 @@ public class TestTodo {
 		}
 		McDonalds.setImagen(img);
 		resMgr.save(McDonalds);
-		
-		Restaurante LaPasiva = new Restaurante("rutLaPasiva", "LaPasiva",2222, "ContraLaPasiva");
+
+		Restaurante LaPasiva = new Restaurante("rutLaPasiva", "LaPasiva", 2222, "ContraLaPasiva");
 		File file1 = new File("C:\\Users\\pachu\\Desktop\\Fotos TIC\\LaPasiva-logo.png.jpeg");
 		byte[] img1 = null;
 		try {
@@ -80,8 +79,8 @@ public class TestTodo {
 		}
 		LaPasiva.setImagen(img1);
 		resMgr.save(LaPasiva);
-		
-		Restaurante BurgerKing = new Restaurante("rutBK", "BurgerKing",3333, "ContraBK");
+
+		Restaurante BurgerKing = new Restaurante("rutBK", "BurgerKing", 3333, "ContraBK");
 		File file2 = new File("C:\\Users\\pachu\\Desktop\\Fotos TIC\\BK-logo.svg.png.jpeg");
 		byte[] img2 = null;
 		try {
@@ -94,19 +93,18 @@ public class TestTodo {
 		}
 		LaPasiva.setImagen(img2);
 		resMgr.save(BurgerKing);
-	
 
-	Comida Hamburguesas = new Comida("Hamburguesas");
-	Comida Wraps = new Comida("Wraps"); 
-	Comida Panchos = new Comida("Panchos");
-	comidaMgr.save(Hamburguesas);
-	comidaMgr.save(Wraps);
-	comidaMgr.save(Panchos);
-	 resMgr.insertarComida("rutMc", Hamburguesas);
-	 resMgr.insertarComida("rutBK", Wraps);
-	 resMgr.insertarComida("rutLaPasiva", Panchos);
-	 
-	 Barrio Pocitos = new Barrio("idPocitos", "Pocitos");
+		Comida Hamburguesas = new Comida("Hamburguesas");
+		Comida Wraps = new Comida("Wraps");
+		Comida Panchos = new Comida("Panchos");
+		comidaMgr.save(Hamburguesas);
+		comidaMgr.save(Wraps);
+		comidaMgr.save(Panchos);
+		resMgr.insertarComida("rutMc", Hamburguesas);
+		resMgr.insertarComida("rutBK", Wraps);
+		resMgr.insertarComida("rutLaPasiva", Panchos);
+
+		Barrio Pocitos = new Barrio("idPocitos", "Pocitos");
 		Barrio Prado = new Barrio("idPrado", "Prado");
 		Barrio Carrasco = new Barrio("idCarrasco", "Carrasco");
 		barrioMgr.save(Carrasco);
@@ -116,42 +114,52 @@ public class TestTodo {
 		resMgr.cargarBarrio("rutMc", "Pocitos");
 		resMgr.cargarBarrio("rutLaPasiva", "Carrasco");
 		resMgr.cargarBarrio("rutBK", "Prado");
-		
-		
+
 		resMgr.cargarDescripcion("rutMc", "Me encanta! - Comida rapida");
 		resMgr.cargarDescripcion("rutBK", "Ideal para darse un gusto con amigos");
 		resMgr.cargarDescripcion("rutLaPasiva", "Lo mejor para un corte laboral o para una cena en familia");
 
-		resMgr.cargarPrecioPromedio("rutLaPasiva", (float)400);
+		resMgr.cargarPrecioPromedio("rutLaPasiva", (float) 400);
 		resMgr.cargarPrecioPromedio("rutMc", (float) 300);
-		resMgr.cargarPrecioPromedio("rutBK", (float)350);
-		
+		resMgr.cargarPrecioPromedio("rutBK", (float) 350);
+
 		resMgr.cargarDireccion("rutMC", "Ellauri 123");
 		resMgr.cargarDireccion("rutBK", "19 de abril 2036");
 		resMgr.cargarDireccion("rutLaPasiva", "Blanes Viale 1456");
-		
+
 		resMgr.cargarMesas("rutMc", 35);
 		resMgr.cargarMesas("rutbk", 30);
 		resMgr.cargarMesas("rutLaPasiva", 20);
 		
+		resMgr.cargarLugaresPorMesa("rutMc", 4);
+		resMgr.cargarLugaresPorMesa("rutbk", 4);
+		resMgr.cargarLugaresPorMesa("rutLaPasiva", 4);
+
 		resMgr.cargarEmail("rutMc", "Mcdonalds@mc.com");
 		resMgr.cargarEmail("rutLaPasiva", "LaPasiva@lp.com");
 		resMgr.cargarEmail("rutBK", "BurgerKing@bk.com");
-		Usuario Juan= new Usuario("Juan", "12");
+		
+		resMgr.cargarHorarioApertura("rutMc", "9:00");
+		resMgr.cargarHorarioApertura("rutLaPasiva", "9:30");
+		resMgr.cargarHorarioApertura("rutBK", "10:00");
+		
+		resMgr.cargarHorarioCierre("rutMc", "22:00");
+		resMgr.cargarHorarioCierre("rutLaPasiva", "21:30");
+		resMgr.cargarHorarioCierre("rutBK", "22:30");
+		
+		Usuario Juan = new Usuario("Juan", "12");
 		usuMgr.save(Juan);
-		Usuario Lucia= new Usuario("Lucia","13");
+		Usuario Lucia = new Usuario("Lucia", "13");
 		usuMgr.save(Lucia);
-		Usuario Sofia= new Usuario("Sofia","14");
+		Usuario Sofia = new Usuario("Sofia", "14");
 		usuMgr.save(Sofia);
-		Usuario Jose= new Usuario("Jose","15");
+		Usuario Jose = new Usuario("Jose", "15");
 		usuMgr.save(Jose);
-}
-	
-	
+	}
+
 	@Test
 	public void test() {
 		fail("Not yet implemented");
 	}
-		
-}
 
+}
