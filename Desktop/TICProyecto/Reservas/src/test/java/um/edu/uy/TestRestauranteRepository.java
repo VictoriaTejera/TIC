@@ -198,7 +198,7 @@ public class TestRestauranteRepository {
 		resMgr.save(r8);
 		Usuario usu=  new Usuario("usu", "123", 9888);
 		usuMgr.save(usu);
-	    reservaMgr.save(usu.getCelular(), r8.getRUT(), 2);
+	    reservaMgr.save(usu.getCelular(), r8.getRUT(), 2, null, null);
 //	    resMgr.cantidadAPagar(r8.getRUT(), LocalDate.parse(text, formatter)15/8/18, (Date)14/7/18);
 	    
 	    
