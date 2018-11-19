@@ -85,18 +85,18 @@ public class RestauranteAUX {
 		puntos.add(3);
 		puntos.add(4);
 		puntos.add(5);
-		this.puntaje.setItems(puntos);
+//		this.puntaje.setItems(puntos);
 		
-		puntaje.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				if(puntaje.getValue()!=null) {
-					resMgr = (RestauranteMgr) MainCliente.getContext().getBean("RestauranteMgr");
-					controladorPuntuar.setRestaurante(restaurante);
-					resMgr.agregarRating(controladorPuntuar.getRestaurante().getRUT(), puntaje.getValue());
-				}
-			}
-		});
+//		puntaje.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//			@Override
+//			public void handle(MouseEvent event) {
+//				if(puntaje.getValue()!=null) {
+//					resMgr = (RestauranteMgr) MainCliente.getContext().getBean("RestauranteMgr");
+//					controladorPuntuar.setRestaurante(restaurante);
+//					resMgr.agregarRating(controladorPuntuar.getRestaurante().getRUT(), puntaje.getValue());
+//				}
+//			}
+//		});
 		
 
 	}
