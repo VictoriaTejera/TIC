@@ -16,7 +16,7 @@
 <AnchorPane prefHeight="508.0" prefWidth="496.0000999999975" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.restaurante.ControladorActualizarDatosRest">
   <!-- TODO Add Nodes -->
   <children>
-    <Label alignment="CENTER" layoutX="107.0" layoutY="14.0" prefHeight="24.0" prefWidth="282.0" text="Ingrese sus datos" textAlignment="CENTER" underline="true">
+    <Label alignment="CENTER" layoutX="104.0" layoutY="23.0" prefHeight="24.0" prefWidth="282.0" text="Ingrese sus datos" textAlignment="CENTER" underline="true">
       <font>
         <Font name="Yu Gothic UI Regular" size="15.0" fx:id="x4" />
       </font>
@@ -24,8 +24,8 @@
         <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
       </textFill>
     </Label>
-    <Label font="$x4" layoutX="184.0" layoutY="47.0" prefHeight="24.0" prefWidth="144.50006103515625" text="Horario de atención:" textFill="$x1" />
-    <TextField id="txt" fx:id="txtHorarioApertura" layoutX="142.0" layoutY="81.0" prefHeight="21.0" prefWidth="84.0" />
+    <Label font="$x4" layoutX="172.0" layoutY="59.0" prefHeight="24.0" prefWidth="144.50006103515625" text="Horario de atención:" textFill="$x1" />
+    <TextField id="txt" fx:id="txtHorarioApertura" layoutX="144.0" layoutY="83.0" prefHeight="24.0" prefWidth="84.0" />
     <Label layoutX="41.0" layoutY="114.0" prefHeight="24.0" prefWidth="157.0" text="Precio promedio:" textFill="$x1">
       <font>
         <Font name="Yu Gothic UI Bold" size="15.0" fx:id="x3" />
@@ -40,9 +40,9 @@
     </Button>
     <Label font="$x3" layoutX="40.0" layoutY="173.0" prefHeight="24.0" prefWidth="120.0" text="Descripción:" textFill="$x1" />
     <TextField id="txtContrasena" fx:id="txtDescripcion" layoutX="207.0" layoutY="173.0" prefHeight="24.0" prefWidth="162.0" />
-    <TextField id="txt" fx:id="txtHorarioCierre" layoutX="337.0" layoutY="81.0" prefHeight="24.0" prefWidth="84.0" />
-    <Label font="$x3" layoutX="66.0" layoutY="83.0" prefWidth="68.0" text="Apertura" textFill="$x1" />
-    <Label font="$x3" layoutX="254.0" layoutY="83.0" prefWidth="68.0" text="Cierre" textFill="$x1" />
+    <TextField id="txt" fx:id="txtHorarioCierre" layoutX="348.0" layoutY="85.0" prefHeight="24.0" prefWidth="84.0" />
+    <Label font="$x3" layoutX="74.0" layoutY="87.0" prefWidth="68.0" text="Apertura" textFill="$x1" />
+    <Label font="$x3" layoutX="269.0" layoutY="83.0" prefWidth="68.0" text="Cierre" textFill="$x1" />
     <VBox layoutX="4.0" layoutY="4.0" prefHeight="472.0" prefWidth="74.0">
       <children>
         <Label prefHeight="55.0" prefWidth="51.0" text="R" textFill="$x1">
@@ -73,36 +73,23 @@
     <ImageView fx:id="imgView" fitHeight="73.0" fitWidth="109.0" layoutX="50.0" layoutY="419.0" pickOnBounds="true" preserveRatio="true" />
     <Label font="$x3" layoutX="40.0" layoutY="212.0" prefHeight="24.0" prefWidth="109.0" text="Dirección:" textFill="$x1" />
     <Label font="$x3" layoutX="40.0" layoutY="252.0" prefHeight="24.0" prefWidth="109.0" text="E-mail:" textFill="$x1" />
-
-    <Label font="$x3" layoutX="40.0" layoutY="295.0" prefHeight="24.0" prefWidth="142.0" text="Cantidad de mesas:" textFill="$x1" />
-    <ImageView fx:id="logoView" fitHeight="87.75" fitWidth="117.0" layoutX="198.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true" />
-    <TextField id="txtContrasena" fx:id="txtCantMesas" layoutX="207.0" layoutY="293.0" prefHeight="24.0" prefWidth="162.0" />
-    <Label font="$x3" layoutX="40.0" layoutY="334.0" prefHeight="24.0" prefWidth="142.0" text="Lugares por mesa:" textFill="$x1" />
-    <TextField id="txtContrasena" fx:id="txtLugares" layoutX="207.0" layoutY="334.0" prefHeight="24.0" prefWidth="162.0" />
-    <ImageView id="logoView" fitHeight="87.75" fitWidth="117.0" layoutX="50.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true" />
-      <JFXTimePicker defaultColor="#990000" layoutX="142.0" layoutY="47.0" prefHeight="25.0" prefWidth="20.0" />
-      <JFXButton fx:id="btnCargarImagen" buttonType="RAISED" layoutX="42.0" layoutY="373.0" onAction="#cargarImagen" ripplerFill="LIME" text="CARGAR IMAGEN">
-         <font>
-            <Font name="Yu Gothic Regular" size="12.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="btnCargarLogo" buttonType="RAISED" layoutX="226.0" layoutY="373.0" onAction="#cargarLogo" ripplerFill="LIME" text="CARGAR LOGO">
-         <font>
-            <Font name="Yu Gothic Regular" size="12.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="btnGuardarDatos" buttonType="RAISED" layoutX="386.0" layoutY="436.0" onAction="#handleSubmitButtonAction" prefHeight="41.0" prefWidth="74.0" ripplerFill="LIME" text="ACEPTAR">
-         <font>
-            <Font name="Yu Gothic Regular" size="12.0" />
-         </font>
-      </JFXButton>
+    <Button fx:id="btnCargarImagen" blendMode="DARKEN" layoutX="40.0" layoutY="372.0" minHeight="24.0" mnemonicParsing="false" onAction="#cargarImagen" prefHeight="32.0" prefWidth="131.0" text="Cargar Imagen" textFill="$x1">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+      </effect>
+      <font>
+        <Font name="Yu Gothic UI Bold" size="14.0" fx:id="x5" />
+      </font>
     </Button>
     <Label font="$x3" layoutX="40.0" layoutY="295.0" prefHeight="24.0" prefWidth="142.0" text="Cantidad de mesas:" textFill="$x1" />
+    <Button id="btnCargarImagen" fx:id="btnCargarLogo" blendMode="DARKEN" font="$x5" layoutX="198.0" layoutY="372.0" minHeight="24.0" mnemonicParsing="false" onAction="#cargarLogo" prefHeight="32.0" prefWidth="131.0" text="Cargar logo" textFill="$x1">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+      </effect>
     </Button>
     <ImageView fx:id="logoView" fitHeight="73.0" fitWidth="109.0" layoutX="209.0" layoutY="419.0" pickOnBounds="true" preserveRatio="true" />
     <TextField id="txtContrasena" fx:id="txtCantMesas" layoutX="207.0" layoutY="295.0" prefHeight="24.0" prefWidth="162.0" />
     <Label font="$x3" layoutX="40.0" layoutY="334.0" prefHeight="24.0" prefWidth="142.0" text="Lugares por mesa:" textFill="$x1" />
     <TextField id="txtContrasena" fx:id="txtLugares" layoutX="207.0" layoutY="334.0" prefHeight="24.0" prefWidth="162.0" />
-
   </children>
 </AnchorPane>

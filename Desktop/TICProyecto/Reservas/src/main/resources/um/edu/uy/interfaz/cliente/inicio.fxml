@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="358.0" prefWidth="495.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.cliente.ControladorInicio">
-<children>
+  <!-- TODO Add Nodes -->
+  <children>
     <BorderPane prefHeight="404.9608154296875" prefWidth="454.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <center>
         <GridPane prefHeight="404.9608154296875" prefWidth="401.0">
           <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="37.999900000002526" prefWidth="60.0" text="R" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="0" GridPane.rowIndex="0">
               <font>
-               <Font name="System Bold Italic" size="25.0" fx:id="x1" />
+                <Font name="System Bold Italic" size="25.0" fx:id="x1" />
               </font>
               <textFill>
                 <Color blue="0.000" green="0.000" red="0.600" fx:id="x2" />
@@ -37,6 +37,22 @@
                 <Font name="Yu Gothic Bold" size="16.0" />
               </font>
             </Label>
+            <Button fx:id="btnIniciarSesion" alignment="CENTER" blendMode="DARKEN" defaultButton="false" mnemonicParsing="false" onAction="#handleButtonAction" opacity="1.0" prefHeight="30.0" prefWidth="131.0" text="Inicie Sesión" textAlignment="LEFT" textFill="BLACK" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+              <effect>
+                <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+              </effect>
+              <font>
+                <Font name="Yu Gothic Bold" size="15.0" fx:id="x3" />
+              </font>
+              <GridPane.margin>
+                <Insets />
+              </GridPane.margin>
+            </Button>
+            <Button fx:id="btnRegistrarse" blendMode="DARKEN" font="$x3" mnemonicParsing="false" onAction="#handleButtonAction" opacity="1.0" prefHeight="30.0" prefWidth="131.0" text="Regístrese" textFill="BLACK" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+              <effect>
+                <DropShadow blurType="TWO_PASS_BOX" height="31.078" radius="15.039" width="31.078" />
+              </effect>
+            </Button>
             <Label alignment="CENTER" prefHeight="39.0" prefWidth="155.0" text="¿Ya eres un usuario?" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
               <font>
                 <Font name="Yu Gothic Medium" size="14.0" fx:id="x4" />
@@ -48,16 +64,6 @@
                 <Font name="System Bold" size="20.0" />
               </font>
             </Label>
-                  <JFXButton fx:id="btnIniciarSesion" buttonType="RAISED" onAction="#handleButtonAction" prefHeight="29.0" prefWidth="211.0" ripplerFill="LIME" text="INICIE SESIÓN" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
-                     <font>
-                        <Font name="Yu Gothic Regular" size="15.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton fx:id="btnRegistrarse" buttonType="RAISED" onAction="#handleButtonAction" ripplerFill="LIME" text="REGÍSTRESE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
-                     <font>
-                        <Font name="Yu Gothic Regular" size="15.0" />
-                     </font>
-                  </JFXButton>
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="84.0" minWidth="10.0" prefWidth="47.0" />

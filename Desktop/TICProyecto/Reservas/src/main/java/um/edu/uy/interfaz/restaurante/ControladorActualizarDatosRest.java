@@ -122,7 +122,6 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 
 		if (event.getSource() == btnGuardarDatos) {
 			String rut = controller.getRutRestaurante();
-
 			if (!txtDescripcion.getText().trim().isEmpty()) {
 				resMgr.cargarDescripcion(rut, txtDescripcion.getText());
 			}
