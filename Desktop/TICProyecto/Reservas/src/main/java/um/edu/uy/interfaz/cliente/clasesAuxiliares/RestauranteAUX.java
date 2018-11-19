@@ -82,9 +82,10 @@ public class RestauranteAUX {
 		puntos.add(3);
 		puntos.add(4);
 		puntos.add(5);
-
+		
+		puntaje = new ComboBox<Integer>();
 		this.puntaje.setItems(puntos);
-
+		
 		puntaje.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
