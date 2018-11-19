@@ -43,8 +43,9 @@ public class RestauranteAUX {
 		//byte[] array = resMgr.obtenerLogo(restaurante.getRUT());
 		//BufferedImage img = ImageIO.read(new ByteArrayInputStream(array));
 		
-		this.logo = SwingFXUtils.toFXImage(resMgr.obtenerLogo(restaurante.getRUT()), null);
-
+//		this.logo = SwingFXUtils.toFXImage(resMgr.obtenerLogo(restaurante.getRUT()), null);
+		// this.imagen = restaurante.getImagen();
+		
 		this.button = new Button("Reservar");
 
 		button.setOnMouseClicked(new EventHandler<MouseEvent>() {
