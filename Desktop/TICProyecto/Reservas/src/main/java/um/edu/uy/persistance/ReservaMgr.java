@@ -1,5 +1,6 @@
 package um.edu.uy.persistance;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -92,10 +93,10 @@ public class ReservaMgr{
 		repository.marcarRechazada(idReserva);
 	}
 
-	public boolean agregarHora(LocalTime hora, Restaurante restaurante) {
+	public boolean agregarHora(LocalTime hora, LocalDate fecha, Restaurante restaurante) {
 		boolean agregarHora=false;
 		if(repository.verificarSiHayReservaAEsaHora(hora, restaurante.getRUT())==null) {
-			repository.agregarHora(hora);
+			repository.agregarHoraYFecha(hora, fecha);
 			agregarHora=true;
 		}
 		else {
