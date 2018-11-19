@@ -122,11 +122,19 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 
 		if (event.getSource() == btnGuardarDatos) {
 			String rut = controller.getRutRestaurante();
-			if(txtDescripcion.getText()!=null) {
-				resMgr.cargarDireccion(rut, txtDescripcion.getText());
+			if(!txtDescripcion.getText().trim().isEmpty()) {
+				resMgr.cargarDescripcion(rut, txtDescripcion.getText());
 			}
-			String descripcion = txtDescripcion.getText();
-			String direccion = txtDireccion.getText();
+			if(!txtDireccion.getText().trim().isEmpty()) {
+				resMgr.cargarDireccion(rut, txtDireccion.getText());
+			}
+			if(!txtHorarioApertura.getText().trim().isEmpty()) {
+				resMgr.cargarHorarioApertura(rut, txtHorarioApertura.getText());
+			}
+			if(!txtHorarioCierre.getText().trim().isEmpty()) {
+				resMgr.cargarHorarioCierre(rut, txtHorarioCierre.getText());
+			}
+			
 			String horarioApertura = txtHorarioApertura.getText();
 			String horarioCierre = txtHorarioCierre.getText();
 			String mail = txtMail.getText();
