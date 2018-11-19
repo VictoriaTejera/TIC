@@ -50,13 +50,16 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 
 	@FXML
 	private Button btnCargarImagen;
-	
+
 	@FXML
 	private Button btnCargarLogo;
+	
+	@FXML
+	private Button btnVolver;
 
 	@FXML
 	private ImageView imgView;
-	
+
 	@FXML
 	private ImageView logoView;
 
@@ -96,7 +99,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 	private RestauranteMgr resMgr;
 
 	byte[] imagenAGuardar = null;
-	
+
 	byte[] logoAGuardar = null;
 
 	private Stage stage;
@@ -122,60 +125,60 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 
 		if (event.getSource() == btnGuardarDatos) {
 			String rut = controller.getRutRestaurante();
-			if(!txtDescripcion.getText().trim().isEmpty()) {
+			if (!txtDescripcion.getText().trim().isEmpty()) {
 				resMgr.cargarDescripcion(rut, txtDescripcion.getText());
 			}
-			if(!txtDireccion.getText().trim().isEmpty()) {
+			if (!txtDireccion.getText().trim().isEmpty()) {
 				resMgr.cargarDireccion(rut, txtDireccion.getText());
 			}
-			if(!txtHorarioApertura.getText().trim().isEmpty()) {
+			if (!txtHorarioApertura.getText().trim().isEmpty()) {
 				resMgr.cargarHorarioApertura(rut, txtHorarioApertura.getText());
 			}
-			if(!txtHorarioCierre.getText().trim().isEmpty()) {
+			if (!txtHorarioCierre.getText().trim().isEmpty()) {
 				resMgr.cargarHorarioCierre(rut, txtHorarioCierre.getText());
 			}
-			
-			String horarioApertura = txtHorarioApertura.getText();
-			String horarioCierre = txtHorarioCierre.getText();
-			String mail = txtMail.getText();
-			String barrio = null;
-			Float precioPromedio = null;
-			Integer cantMesas = null;
-			Integer lugaresPorMesa = null;
-
+			if (!txtMail.getText().trim().isEmpty()) {
+				resMgr.cargarEmail(rut, txtMail.getText());
+			}
 			if (cboxBarrio.getValue() != null) {
-				barrio = cboxBarrio.getValue();
+				String barrio = cboxBarrio.getValue();
+				resMgr.cargarBarrio(rut, barrio);
 			}
 			try {
-				precioPromedio = Float.parseFloat(txtPrecioPromedio.getText());
+				Float precioPromedio = Float.parseFloat(txtPrecioPromedio.getText());
+				resMgr.cargarPrecioPromedio(rut, precioPromedio);
+
 			} catch (NumberFormatException e) {
 			}
 			try {
-
-				cantMesas = Integer.parseInt(txtCantMesas.getText());
+				Integer cantMesas = Integer.parseInt(txtCantMesas.getText());
+				resMgr.cargarMesas(rut, cantMesas);
 			} catch (NumberFormatException e) {
 				if (resMgr.getCantMesas(rut) == 0) {
 					showAlert("Cantidad de mesas", "Ingrese la cantidad de mesas para habilitar las reservas.");
-				}	
+				}
 			}
 			try {
-				lugaresPorMesa = Integer.parseInt(txtLugares.getText());
+				Integer lugaresPorMesa = Integer.parseInt(txtLugares.getText());
+				resMgr.cargarLugaresPorMesa(rut, lugaresPorMesa);
 			} catch (NumberFormatException e) {
 				if (resMgr.getCantLugarPorMesa(rut) == null) {
-					showAlert("Lugares por mesa", "Ingrese la cantidad de lugares por mesa para habilitar las reservas.");
+					showAlert("Lugares por mesa",
+							"Ingrese la cantidad de lugares por mesa para habilitar las reservas.");
 				}
-				
 			}
 
-
-
-
+			if (imagenAGuardar != null) {
+				resMgr.cargarImagen(rut, imagenAGuardar);
+			}
+			if (logoAGuardar != null) {
+				resMgr.cargarLogo(rut, logoAGuardar);
+			}
 			stage = (Stage) btnGuardarDatos.getScene().getWindow();
 			root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("AgregarTiposComida.fxml"));
 			controllerTiposComida.handleTipoComidaCbox1(event);
 			controllerTiposComida.handleTipoComidaCbox2(event);
 			controllerTiposComida.handleTipoComidaCbox3(event);
-
 		}
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
@@ -199,7 +202,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 		byte[] fileContent = Files.readAllBytes(file.toPath());
 		imagenAGuardar = fileContent;
 	}
-	
+
 	@FXML
 	void cargarLogo() throws IOException {
 		FileChooser fc = new FileChooser();
@@ -217,21 +220,21 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 		logoAGuardar = fileContent;
 	}
 
-	// @FXML
-	// void volverAMenu(ActionEvent event) throws IOException {
-	// Stage stage = new Stage();
-	// Parent root = null;
-	// FXMLLoader fxmlLoader = new FXMLLoader();
-	// fxmlLoader.setControllerFactory(applicationContext::getBean);
-	// if(event.getSource()==btnVolverAMenu) {
-	// stage = (Stage) btnGuardarDatos.getScene().getWindow();
-	// root = fxmlLoader.load(
-	// ControladorActualizarDatosRest.class.getResourceAsStream("MenuPrincipal.fxml"));
-	// }
-	// Scene scene = new Scene(root);
-	// stage.setScene(scene);
-	// stage.show();
-	// }
+	 @FXML
+	 void volverAlMenu(ActionEvent event) throws IOException {
+	 Stage stage = new Stage();
+	 Parent root = null;
+	 FXMLLoader fxmlLoader = new FXMLLoader();
+	 fxmlLoader.setControllerFactory(applicationContext::getBean);
+	 if(event.getSource()==btnVolver) {
+	 stage = (Stage) btnGuardarDatos.getScene().getWindow();
+	 root = fxmlLoader.load(
+	 ControladorActualizarDatosRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
+	 }
+	 Scene scene = new Scene(root);
+	 stage.setScene(scene);
+	 stage.show();
+	 }
 
 	@FXML
 	void initialize() {

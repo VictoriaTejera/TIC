@@ -121,7 +121,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 					}
 				});
 		
-		columnaFoto.setCellValueFactory(new PropertyValueFactory<RestauranteAUX, String>("imagen"));
+		columnaFoto.setCellValueFactory(new PropertyValueFactory<RestauranteAUX, String>("logo"));
 
 		columnaReservar.setCellValueFactory(new PropertyValueFactory<RestauranteAUX, String>("button"));
 
@@ -238,7 +238,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		filtroBarrio();
 		filtroComida();
 		filtroPrecio();
-		
+
 
 		tabla.setOnMousePressed(new EventHandler<MouseEvent>() {
 			@Override
