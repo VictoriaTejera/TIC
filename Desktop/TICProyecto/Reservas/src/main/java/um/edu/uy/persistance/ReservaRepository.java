@@ -59,7 +59,7 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 	@Query("SELECT rv FROM Reserva rv WHERE rv.restaurante= :rut  and rv.terminada=1")
 	List<Reserva> obtenerReservasTerminadas(@Param ("rut") String rut);
 	
-	@Query("SELECT rv FROM Reserva rv WHERE rv.restaurante= :rut and rv.terminada=0 and rv.confirmada=1")
+	@Query("SELECT rv FROM Reserva rv WHERE rv.restaurante.rut= :rut and rv.terminada=0 and rv.confirmada=1")
 	List<Reserva> obtenerReservasConfirmadasNoTerminadas(@Param("rut") String rut);
 
 	@Query("SELECT rv FROM Reserva rv WHERE rv.usuario.celular= :celUsuario AND rv.terminada=1")
