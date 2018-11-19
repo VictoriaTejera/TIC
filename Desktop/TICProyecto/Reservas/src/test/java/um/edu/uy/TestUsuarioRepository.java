@@ -79,7 +79,7 @@ public class TestUsuarioRepository {
 		restMgr.cargarMesas(r1.getRUT(), 5);
 		String rut= r1.getRUT();
 		resMgr.save(u3.getCelular(), rut, 7, LocalDate.now(), LocalTime.now());
-		resMgr.terminarReserva("1239", u3.getCelular(), LocalDate.now());
+//		resMgr.terminarReserva("1239", u3.getCelular(), LocalDate.now());
 		
 		System.out.println(usuMgr.obtenerRestaurantesVisitados(u3).get(0));
 		

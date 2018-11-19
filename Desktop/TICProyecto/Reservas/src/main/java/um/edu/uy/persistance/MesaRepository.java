@@ -17,6 +17,13 @@ public interface MesaRepository extends CrudRepository<Mesa, Long>{
 	@Query("UPDATE Mesa m SET m.reservada= true WHERE m.id= :id")
 	void marcarMesaComoReservada(@Param("id") Long id);
 	
+	@Transactional
+	@Modifying
+	@Query("UPDATE Mesa m SET m.reservada= false WHERE m.id= :id")
+	void marcarMesaComoNoReservada(@Param("id") Long id);
+	
+	
+	
 	@Modifying
 	@Query(value="INSERT INTO Mesa (capacidad, restaurante_id)  VALUES (:capacidad, :rut)", nativeQuery=true)
 	@Transactional

@@ -187,6 +187,12 @@ public class RestauranteMgr {
 	public List<Mesa> obtenerMesasNoReservadas(String RUT) {
 		return repository.obtenerMesasNoReservadas(RUT);
 	}
+	
+	public List<Mesa> obtenerMesasReservadas(String RUT) {
+		return repository.obtenerMesasReservadas(RUT);
+	}
+	
+	
 
 	public long cantidadAPagar(String rut, LocalDate fecha1, LocalDate fecha2) {
 		long cantAPagar = 0;

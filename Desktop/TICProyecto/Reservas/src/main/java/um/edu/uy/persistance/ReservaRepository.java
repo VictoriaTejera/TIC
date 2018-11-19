@@ -21,7 +21,6 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 	
 	@Query("SELECT r FROM Reserva r WHERE r.confirmada=false AND r.rechazada=false AND r.restaurante.rut= :rut")
 	List<Reserva> obtenerReservasNoConfirmadasNiRechazadas(@Param("rut") String rut);	
-	
 
 	@Query("SELECT r FROM Reserva r WHERE r.usuario.celular= :usuarioCelular and r.terminada=false")
 	public List<Reserva> verEstadoReservasUsuario(@Param("usuarioCelular") Integer usuarioCelular);
@@ -39,8 +38,8 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 	
 	@Transactional
 	@Modifying
-	@Query("UPDATE Reserva r SET r.terminada =true WHERE r.restaurante.rut= :rut and r.usuario.celular= :celular and r.fecha= :fecha")
-	public void marcarTerminada(@Param("rut") String rut, @Param("celular")Integer telefonoUsuario,@Param("fecha") LocalDate fecha);
+	@Query("UPDATE Reserva r SET r.terminada =true WHERE r.id= :id")
+	public void marcarTerminada(@Param("id") Long id);
 	
 	@Transactional
 	@Modifying
@@ -54,7 +53,6 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 
 	@Query("SELECT r FROM Reserva r WHERE r.hora= :hora AND r.restaurante.rut= :rut ")
 	Reserva verificarSiHayReservaAEsaHora(@Param ("hora") LocalTime hora, @Param("rut") String rut);
-
 			
 	@Query("SELECT rv FROM Reserva rv WHERE rv.restaurante= :rut  and rv.terminada=1")
 	List<Reserva> obtenerReservasTerminadas(@Param ("rut") String rut);
@@ -64,4 +62,7 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 
 	@Query("SELECT rv FROM Reserva rv WHERE rv.usuario.celular= :celUsuario AND rv.terminada=1")
 	List<Reserva> reservasTerminadas(@Param("celUsuario") Integer celUsuario);
+	
+	@Query("SELECT rv FROM Reserva rv WHERE rv.id= :id")
+	Reserva obtenerReserva(@Param("id") Long id);
 }

@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,53 +26,57 @@ public class TestReserva {
 
 	@Autowired
 	ReservaMgr reservaMgr;
-	
-	@Autowired 
-	RestauranteMgr restauranteMgr; 
-	
+
+	@Autowired
+	RestauranteMgr restauranteMgr;
+
 	@Autowired
 	UsuarioMgr usuarioMgr;
-	
-	//@Test
+
+	// @Test
 	public void obtenerReservasNoTerminadas() {
-		Usuario u1=new Usuario("nombre2", "con2", 1234);
+		Usuario u1 = new Usuario("nombre2", "con2", 1234);
 		usuarioMgr.save(u1);
 
-		Restaurante r1=new Restaurante("12355", "R", 3654, "123");
+		Restaurante r1 = new Restaurante("12355", "R", 3654, "123");
 		restauranteMgr.save(r1);
 
 //		Restaurante r1=new Restaurante("Mc", "123");
 //		restauranteMgr.save(r1);
 
-		Reserva rr= new Reserva(u1, r1, 3, null, null);
+		Reserva rr = new Reserva(u1, r1, 3, null, null);
 	}
-	
-//	@Test
+
+	@Test
 	public void testConfirmarReserva() {
-		Usuario u5=new Usuario("nombre2", "con2", 1234);
+		Usuario u5 = new Usuario("nombre2", "con2", 1234);
 		usuarioMgr.save(u5);
-		Restaurante r5=new Restaurante("12366", "J", 1234, "12345");
+		Restaurante r5 = new Restaurante("12366", "J", 1234, "12345");
 		restauranteMgr.save(r5);
-		int cantMesas= restauranteMgr.obtenerMesasNoReservadas(r5.getRUT()).size();
+		restauranteMgr.cargarLugaresPorMesa("12366", 4);
+		restauranteMgr.cargarMesas("12366", 5);
+		int cantMesas = restauranteMgr.obtenerMesasNoReservadas(r5.getRUT()).size();
+		System.out.println("----------------------");
+		System.out.println(cantMesas);
+		System.out.println("----------------------");
 		
-		reservaMgr.save(u5.getCelular(), r5.getRUT(), 5, null, null);
+		reservaMgr.save(u5.getCelular(), r5.getRUT(), 5, LocalDate.of(2018, 11, 19), LocalTime.now());
+//		assertTrue(reservaMgr.confirmarReserva());
+		assertEquals(restauranteMgr.obtenerMesasNoReservadas(r5.getRUT()).size(), (cantMesas - 2));
 		
-		assertEquals(restauranteMgr.obtenerMesasNoReservadas(r5.getRUT()).size(), cantMesas-2);		
+		reservaMgr.save(u5.getCelular(), r5.getRUT(), 20, LocalDate.of(2018, 11, 19), LocalTime.now());
+//		assertFalse(reservaMgr.confirmarReserva(r5.getRUT(), u5.getCelular(), LocalDate.of(2018, 11, 19)));
+		
 	}
-	
-	//@Test
+
+	// @Test
 	public void testTerminarReserva() {
-		Usuario u5=new Usuario("nombrett", "con2", 1234567);
+		Usuario u5 = new Usuario("nombrett", "con2", 1234567);
 		usuarioMgr.save(u5);
-		Restaurante r5=new Restaurante("12367", "J1", 1234, "12345");
+		Restaurante r5 = new Restaurante("12367", "J1", 1234, "12345");
 		restauranteMgr.save(r5);
 		reservaMgr.save(u5.getCelular(), r5.getRUT(), 5, LocalDate.now(), LocalTime.now());
 		reservaMgr.rechazarReserva("12367", 1234567, LocalDate.now());
 	}
-	
-	
-	
-	
-	
 
 }

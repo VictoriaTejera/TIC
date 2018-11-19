@@ -14,7 +14,7 @@ import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 
 @Service("ReservaMgr")
-public class ReservaMgr{
+public class ReservaMgr {
 
 	@Autowired
 	private ReservaRepository repository;
@@ -27,22 +27,10 @@ public class ReservaMgr{
 
 	@Autowired
 	private MesaRepository mesaRepository;
-	
-	
-//	private Long ultimoNumeroUsado=(long) 0;
-
-	
-//	@Transactional
-//	public void save(Reserva reserva) {
-//		reserva.setRestaurante(resMgr.find(reserva.getRestaurante().getRUT()));
-//		reserva.setUsuario(usuarioMgr.find(reserva.getUsuario().getCelular()));
-////		reserva.setId(ultimoNumeroUsado);
-//		repository.save(reserva);
-//	//	ultimoNumeroUsado++;
-//	}
 
 	@Transactional
-	public void save(Integer usuarioCelular, String restauranteRUT, Integer cantPersonas, LocalDate fecha, LocalTime hora) {
+	public void save(Integer usuarioCelular, String restauranteRUT, Integer cantPersonas, LocalDate fecha,
+			LocalTime hora) {
 		Usuario usu = usuarioMgr.find(usuarioCelular);
 		Restaurante res = resMgr.find(restauranteRUT);
 		Reserva reserva = new Reserva(usu, res, cantPersonas, fecha, hora);
@@ -62,21 +50,21 @@ public class ReservaMgr{
 		return repository.verEstadoReservasUsuario(usuarioCelular);
 	}
 
-	public boolean confirmarReserva(Long idReserva) {
+	public boolean confirmarReserva(Long id) {
 		boolean reservaConfirmada = false;
-		Reserva reserva = repository.otenerReservaPorId(idReserva);
-		repository.marcarConfirmada(idReserva);
+		Reserva reserva = repository.obtenerReserva(id);
+		repository.marcarConfirmada(id);
 		int cantMesas = 0;
 		if ((reserva.getCantPersonas() % 4) == 0) {
 			cantMesas = reserva.getCantPersonas() / 4;
 		} else {
 			cantMesas = (reserva.getCantPersonas() / 4) + 1;
 		}
-		String rutRestaurante = repository.otenerRutRestauranteDeReserva(idReserva);
-		int cantMesasDisponibles = resMgr.obtenerMesasNoReservadas(rutRestaurante).size();
+		String rut = reserva.getRestaurante().getRUT();
+		int cantMesasDisponibles = resMgr.obtenerMesasNoReservadas(rut).size();
 		if (cantMesasDisponibles >= cantMesas) {
 			for (int i = 0; i < cantMesas; i++) {
-				mesaRepository.marcarMesaComoReservada(resMgr.obtenerMesasNoReservadas(rutRestaurante).get(i).getId());
+				mesaRepository.marcarMesaComoReservada(resMgr.obtenerMesasNoReservadas(rut).get(i).getId());
 			}
 			reservaConfirmada = true;
 		} else {
@@ -88,15 +76,18 @@ public class ReservaMgr{
 	public void rechazarReserva(String rut, Integer telefonoUsuario, LocalDate fecha) {
 		repository.marcarRechazada(rut, telefonoUsuario, fecha);
 	}
-	
-	public void terminarReserva(String rut, Integer telefonoUsuario, LocalDate fecha) {
-		repository.marcarTerminada(rut, telefonoUsuario, fecha);
+
+	public void terminarReserva(Long id) {
+		repository.marcarTerminada(id);
+		Reserva reserva=repository.findById(id).get();
+		Integer cantPersonas = reserva.getCantPersonas();
+		Integer cantMesas = cantPersonas % 4;
+		for (int i = 0; i < cantMesas; i++) {
+			mesaRepository.marcarMesaComoNoReservada(resMgr.obtenerMesasReservadas(reserva.getRestaurante().getRUT()).get(i).getId());
+		}
 	}
 
-
-
-
-	public List<Reserva> obtenerReservasConfirmadasNoTerminadas(String rut){
+	public List<Reserva> obtenerReservasConfirmadasNoTerminadas(String rut) {
 		return repository.obtenerReservasConfirmadasNoTerminadas(rut);
 	}
 
@@ -104,16 +95,16 @@ public class ReservaMgr{
 		return repository.obtenerReservasTerminadas(rut);
 
 	}
-	
-	public List<Restaurante> obtenerRestaurantesVisitados(Usuario usuario){
-		List<Restaurante> restaurantesVisitados= new LinkedList<>();
-		
-		for (int i=0; i<repository.reservasTerminadas(usuario.getCelular()).size(); i++) {
+
+	public List<Restaurante> obtenerRestaurantesVisitados(Usuario usuario) {
+		List<Restaurante> restaurantesVisitados = new LinkedList<>();
+
+		for (int i = 0; i < repository.reservasTerminadas(usuario.getCelular()).size(); i++) {
 			restaurantesVisitados.add(repository.reservasTerminadas(usuario.getCelular()).get(i).getRestaurante());
-			
+
 		}
 		return restaurantesVisitados;
-		
+
 	}
 
 }

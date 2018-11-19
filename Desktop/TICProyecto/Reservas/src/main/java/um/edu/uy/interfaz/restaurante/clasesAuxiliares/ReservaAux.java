@@ -35,8 +35,12 @@ public class ReservaAux {
 		aceptar.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				resMgr.confirmarReserva(controller.getReserva().getId());
-				showAlert("Confirmación de reserva", "Reserva confirmada con éxito");
+				boolean resultadoConfirmacion = resMgr.confirmarReserva(controller.getReserva().getId());
+				if (resultadoConfirmacion) {
+					showAlert("Confirmación de reserva", "Reserva confirmada con éxito");
+				} else {
+					showAlert("Falta de disponibilidad", "No tiene disponibilidad para confirmar esta reserva.");
+				}
 			}
 		});
 
@@ -48,11 +52,11 @@ public class ReservaAux {
 				showAlert("Rechazo de reserva", "Reserva rechazada con éxito");
 			}
 		});
+		
 		finalizar.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				resMgr.terminarReserva(controller.getReserva().getRestaurante().getRUT(),
-						controller.getReserva().getUsuario().getCelular(), controller.getReserva().getFecha());
+				resMgr.terminarReserva(controller.getReserva().getId());
 				showAlert("Finalización de reserva", "Reserva finalizada con éxito");
 			}
 		});
@@ -79,7 +83,7 @@ public class ReservaAux {
 	public Button getRechazar() {
 		return rechazar;
 	}
-	
+
 	public Button getFinalizar() {
 		return finalizar;
 	}

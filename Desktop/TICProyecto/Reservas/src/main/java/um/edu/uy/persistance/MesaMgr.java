@@ -16,9 +16,12 @@ public class MesaMgr {
 		repository.insertarMesa(capacidad, RUT);
 	}
 	
-	
 	public void marcarMesaComoReservada(Long id) {
 		repository.marcarMesaComoReservada(id);
+	}
+	
+	public void marcarMesaComoNoReservada(Long id) {
+		repository.marcarMesaComoNoReservada(id);
 	}
 	
 	public void delete(Long id) {
