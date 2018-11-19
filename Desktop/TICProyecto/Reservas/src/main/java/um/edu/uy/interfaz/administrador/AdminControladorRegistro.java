@@ -66,12 +66,14 @@ public class AdminControladorRegistro implements ApplicationContextAware {
 
 		if (event.getSource() == btnRegistrar) {
 			Restaurante restaurante = null;
-			try {
-				restaurante = new Restaurante(txtRut.getText(), txtNombre.getText(),
-						Integer.parseInt(txtTelefono.getText()), txtContrasena.getText());
-			} catch (NumberFormatException e) {
-				showAlert("Lo sentimos, ", "Ingrese un telefono valido");
+
+			if (txtRut.getText().trim().isEmpty() || txtNombre.getText().trim().isEmpty()
+					|| txtContrasena.getText().trim().isEmpty() || txtTelefono.getText().trim().isEmpty()) {
+				showAlert("Lo sentimos, ", "Debe ingresar todos los datos para registrar un restaurante");
 			}
+			restaurante = new Restaurante(txtRut.getText(), txtNombre.getText(),
+					Integer.parseInt(txtTelefono.getText()), txtContrasena.getText());
+
 			if (resMgr.restauranteYaFueCreado(restaurante) == false) {
 				resMgr.save(restaurante);
 				root = fxmlLoader.load(AdminControladorRegistro.class.getResourceAsStream("final.fxml"));

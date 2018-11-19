@@ -20,15 +20,15 @@
       </textFill>
     </Label>
     <!-- Add Email Label -->
-    <Label layoutX="71.0" layoutY="115.0" prefHeight="20.0" prefWidth="104.0" text="Usted debe " textAlignment="RIGHT" textFill="$x1">
+    <Label layoutX="89.0" layoutY="105.0" prefHeight="20.0" prefWidth="176.0" text="Su monto a pagar es de" textAlignment="RIGHT" textFill="$x1">
       <font>
         <Font name="Yu Gothic UI Bold" size="15.0" fx:id="x3" />
       </font>
     </Label>
     <!-- Add Password Label -->
-    <Label font="$x3" layoutX="71.0" layoutY="149.0" text="Por su uso de nuestra aplicacion entre" textFill="$x1" />
+    <Label font="$x3" layoutX="89.0" layoutY="182.0" text="por ser usuario activo entre" textFill="$x1" />
     <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnVolver" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" font="$x3" layoutX="211.0" layoutY="256.0" onAction="#volver" opacity="1.0" prefHeight="49.0" prefWidth="126.0" text="Volver" textAlignment="LEFT" textFill="$x1" underline="false" visible="true">
+    <Button id="submitButton" fx:id="btnVolver" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" font="$x3" layoutX="138.0" layoutY="282.0" onAction="#volver" opacity="1.0" prefHeight="44.0" prefWidth="119.0" text="Volver" textAlignment="LEFT" textFill="BLACK" underline="false" visible="true">
       <effect>
         <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
       </effect>
@@ -49,14 +49,18 @@
         <Label font="$x2" prefHeight="46.0" prefWidth="54.0" text="S" textFill="$x1" />
       </children>
     </VBox>
-    <Label fx:id="txtCantidad" layoutX="177.0" layoutY="115.0" prefWidth="126.0" text="Label" textFill="$x1">
+    <Label fx:id="txtCantidad" layoutX="136.0" layoutY="145.0" prefWidth="126.0" text="Label" textFill="$x1">
       <font>
         <Font name="Yu Gothic UI Regular" size="15.0" fx:id="x4" />
       </font>
     </Label>
-    <Label fx:id="txtFechaDesde" font="$x4" layoutX="71.0" layoutY="182.0" prefWidth="126.0" text="Label" textFill="$x1" />
-    <Label fx:id="txtFechaHasta" font="$x4" layoutX="201.0" layoutY="182.0" prefWidth="126.0" text="Label" textFill="$x1" />
+    <Label fx:id="txtFechaDesde" font="$x4" layoutX="59.0" layoutY="219.0" prefWidth="97.0" text="Label" textFill="$x1" />
+    <Label fx:id="txtFechaHasta" font="$x4" layoutX="252.0" layoutY="215.0" minHeight="16.0" prefHeight="27.0" prefWidth="112.0" text="Label" textFill="$x1" />
     <!-- Add Email Label -->
-    <Label font="$x3" layoutX="152.0" layoutY="186.0" prefHeight="20.0" prefWidth="25.0" text="y" textAlignment="RIGHT" textFill="$x1" />
+    <Label layoutX="170.0" layoutY="212.0" prefHeight="20.0" prefWidth="25.0" text="-" textAlignment="RIGHT" textFill="$x1">
+      <font>
+        <Font name="Yu Gothic UI Bold" size="25.0" />
+      </font>
+    </Label>
   </children>
 </AnchorPane>

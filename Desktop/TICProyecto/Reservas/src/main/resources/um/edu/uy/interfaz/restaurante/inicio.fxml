@@ -32,7 +32,7 @@
     <!-- Add Password Field -->
     <PasswordField id="passwordField" fx:id="txtContrasena" layoutX="177.0" layoutY="181.0" prefHeight="40.0" />
     <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnIniciarSesion" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" font="$x3" layoutX="211.0" layoutY="256.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="49.0" prefWidth="126.0" text="Iniciar Sesión" textAlignment="LEFT" textFill="$x1" underline="false" visible="true">
+    <Button id="submitButton" fx:id="btnIniciarSesion" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" font="$x3" layoutX="211.0" layoutY="256.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="49.0" prefWidth="126.0" text="Iniciar Sesión" textAlignment="LEFT" textFill="BLACK" underline="false" visible="true">
       <effect>
         <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
       </effect>

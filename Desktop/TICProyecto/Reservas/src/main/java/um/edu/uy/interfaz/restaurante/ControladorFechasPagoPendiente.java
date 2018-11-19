@@ -2,6 +2,7 @@ package um.edu.uy.interfaz.restaurante;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -53,8 +54,8 @@ public class ControladorFechasPagoPendiente implements ApplicationContextAware  
 
     ApplicationContext applicationContext;
     
-    private Date fechaInicio;
-    private Date fechaFin;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
 
 	@FXML
     void verPagosPendientes(ActionEvent event) throws IOException {
@@ -65,16 +66,8 @@ public class ControladorFechasPagoPendiente implements ApplicationContextAware  
 		stage = new Stage();
 		if (event.getSource() == btnVerPagosPendientes) {
 			try {
-				Calendar cal = Calendar.getInstance();
-				cal.set(Calendar.YEAR, Integer.parseInt(txtAnioInicio.getText()));
-				cal.set(Calendar.MONTH, Integer.parseInt(txtMesInicio.getText()));
-				cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(txtDiaInicio.getText()));
-				fechaInicio = cal.getTime();
-
-				cal.set(Calendar.YEAR, Integer.parseInt(txtAnioFin.getText()));
-				cal.set(Calendar.MONTH, Integer.parseInt(txtMesFin.getText()));
-				cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(txtDiaFin.getText()));
-				fechaFin = cal.getTime();
+				fechaInicio = LocalDate.of(Integer.parseInt(txtAnioInicio.getText()), Integer.parseInt(txtMesInicio.getText()), Integer.parseInt(txtDiaInicio.getText()));
+				fechaFin = LocalDate.of(Integer.parseInt(txtAnioFin.getText()), Integer.parseInt(txtMesFin.getText()), Integer.parseInt(txtDiaFin.getText()));
 			} catch (NumberFormatException e) {
 				showAlert("Lo sentimos, ", "Ingrese una fecha de inicio y de finalizacion.");
 			}
@@ -113,11 +106,11 @@ public class ControladorFechasPagoPendiente implements ApplicationContextAware  
         alert.showAndWait();
     }
 	
-	public Date getFechaInicio() {
+	public LocalDate getFechaInicio() {
 		return fechaInicio;
 	}
 
-	public Date getFechaFin() {
+	public LocalDate getFechaFin() {
 		return fechaFin;
 	}
 }

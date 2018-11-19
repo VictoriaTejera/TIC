@@ -42,13 +42,11 @@ public class ReservaMgr{
 //	}
 
 	@Transactional
-	public void save(Integer usuarioCelular, String restauranteRUT, Integer cantPersonas) {
+	public void save(Integer usuarioCelular, String restauranteRUT, Integer cantPersonas, LocalDate fecha, LocalTime hora) {
 		Usuario usu = usuarioMgr.find(usuarioCelular);
 		Restaurante res = resMgr.find(restauranteRUT);
-		Reserva reserva = new Reserva(usu, res, cantPersonas);
-//		reserva.setId(ultimoNumeroUsado);
+		Reserva reserva = new Reserva(usu, res, cantPersonas, fecha, hora);
 		repository.save(reserva);
-//		ultimoNumeroUsado++;
 	}
 
 	public List<Reserva> obtenerReservasNoTerminadas(String rut) {
@@ -87,26 +85,31 @@ public class ReservaMgr{
 		return reservaConfirmada;
 	}
 
-
-//	public boolean confirmarReserva() {}
-
 	public void rechazarReserva(String rut, Integer telefonoUsuario, LocalDate fecha) {
 		repository.marcarRechazada(rut, telefonoUsuario, fecha);
 	}
-
-	public boolean agregarHora(LocalTime hora, Restaurante restaurante) {
-		boolean agregarHora=false;
-		if(repository.verificarSiHayReservaAEsaHora(hora, restaurante.getRUT())==null) {
-			repository.agregarHora(hora);
-			agregarHora=true;
-		}
-		else {
-			agregarHora=false;
-			
-		}
-		return agregarHora;
+	
+	public void terminarReserva(String rut, Integer telefonoUsuario, LocalDate fecha) {
+		repository.marcarTerminada(rut, telefonoUsuario, fecha);
 	}
 	
+	
+
+
+//	public boolean agregarHora(LocalTime hora, Restaurante restaurante) {
+//		boolean agregarHora=false;
+//		if(repository.verificarSiHayReservaAEsaHora(hora, restaurante.getRUT())==null) {
+//			repository.agregarHora(hora);
+//			agregarHora=true;
+//		}
+//		else {
+//			agregarHora=false;
+//			
+//		}
+//		return agregarHora;
+//	}
+
+
 	public List<Reserva> obtenerReservasConfirmadasNoTerminadas(String rut){
 		return repository.obtenerReservasConfirmadasNoTerminadas(rut);
 	}

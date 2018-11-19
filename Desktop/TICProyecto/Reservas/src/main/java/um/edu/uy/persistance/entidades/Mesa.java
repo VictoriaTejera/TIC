@@ -16,7 +16,7 @@ public class Mesa {
 	private Long id;
 
 	private Integer capacidad;
-	// @Column(columnDefinition="boolean default FALSE")
+	 @Column(columnDefinition="boolean default FALSE")
 	private boolean reservada;
 
 	public Mesa() {
