@@ -77,7 +77,8 @@ public class TestUsuarioRepository {
 		Restaurante r1= new Restaurante("1239", "Rest", 6565, "789");
 		
 		String rut= r1.getRUT();
-		//resMgr.save(u3.getCelular(), rut, 7, (LocalDate)15-07-2018, (LocalTime)20,8,56);
+		resMgr.save(u3.getCelular(), rut, 7, LocalDate.now(), LocalTime.now());
+	//	resMgr.
 		
 		
 	}
