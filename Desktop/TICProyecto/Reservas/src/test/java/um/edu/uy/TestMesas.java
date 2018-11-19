@@ -33,7 +33,7 @@ public class TestMesas {
 		restauranteMgr.cargarMesas("123", 3);
 		restauranteMgr.cargarMesas("111", 3);
 		
-		mesaMgr.save("rut2", 4);
+//		mesaMgr.save("rut2", 4);
 //		mesaMgr.save("rut2", 4);
 //		mesaMgr.save("rut2", 4);
 //		mesaMgr.save("rut2", 4);
