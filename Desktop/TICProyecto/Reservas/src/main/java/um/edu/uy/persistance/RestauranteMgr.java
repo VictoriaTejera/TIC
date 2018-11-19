@@ -43,12 +43,9 @@ public class RestauranteMgr {
 			if (repository.obtenerCantMesas(r.getRUT()) != 0) {
 				lista.add(r);
 			}
-
 		}
 		return lista;
 	}
-
-
 
 	@Transactional
 	public void save(Restaurante res) {
@@ -76,8 +73,6 @@ public class RestauranteMgr {
 		return restaurantes;
 	}
 
-
-
 	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor) {
 		List<Restaurante> restaurantes = repository.filtrarPorPrecio(precioMenor, precioMayor);
 		return restaurantes;
@@ -91,8 +86,6 @@ public class RestauranteMgr {
 		}
 		return verifico;
 	}
-
-
 
 	@Transactional
 	public void cargarDescripcion(String rut, String descripcion) {
@@ -194,8 +187,6 @@ public class RestauranteMgr {
 	public List<Mesa> obtenerMesasNoReservadas(String RUT) {
 		return repository.obtenerMesasNoReservadas(RUT);
 	}
-	
-	
 
 	public long cantidadAPagar(String rut, LocalDate fecha1, LocalDate fecha2) {
 		long cantAPagar = 0;
@@ -224,7 +215,13 @@ public class RestauranteMgr {
 
 	public BufferedImage obtenerLogo(String rut) throws IOException {
 		byte[] array = repository.obtenerLogo(rut);
-		return ImageIO.read(new ByteArrayInputStream(array));
+		BufferedImage bf=null;
+		if (array != null) {
+			ByteArrayInputStream bis = new ByteArrayInputStream(array);
+			bf= ImageIO.read(bis);
+		}
+		return bf;
+
 	}
 
 	public void agregarRating(String rut, Integer rating) {
@@ -234,12 +231,10 @@ public class RestauranteMgr {
 		if (ratingAnterior != null) {
 			nuevoRating = (ratingAnterior * cantRatings + rating) / (cantRatings + 1);
 		} else {
-			nuevoRating = (float)rating;
-			cantRatings=0;
+			nuevoRating = (float) rating;
+			cantRatings = 0;
 		}
 		repository.agregarRating(rut, nuevoRating, cantRatings + 1);
 	}
-
-
 
 }

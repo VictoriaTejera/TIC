@@ -60,7 +60,7 @@ public class ControladorMisReservas implements ApplicationContextAware {
 	private ReservaMgr resMgr;
 
 	@Autowired
-	private ControladorInicioSesion controladorInicio;
+	ControladorInicioSesion controladorInicio;
 
 	private ApplicationContext applicationContext;
 
@@ -114,7 +114,8 @@ public class ControladorMisReservas implements ApplicationContextAware {
 		
 		ObservableList<Reserva> reservasPendientes = FXCollections.observableArrayList();
 		ObservableList<Reserva> reservasConfirmadas = FXCollections.observableArrayList();
-		List<Reserva> todasLasReservas = resMgr.verEstadoReservasUsuario(controladorInicio.getUsuario().getCelular());
+		
+		List<Reserva> todasLasReservas = resMgr.verEstadoReservasUsuario(controladorInicio.getUsuarioCelular());
 		
 		for (int i = 0; i < todasLasReservas.size(); i++) {
 			Reserva reserva = todasLasReservas.get(i);

@@ -29,9 +29,11 @@ import um.edu.uy.persistance.BarrioMgr;
 import um.edu.uy.persistance.BarrioRepository;
 import um.edu.uy.persistance.ComidaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
+import um.edu.uy.persistance.UsuarioMgr;
 import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Comida;
 import um.edu.uy.persistance.entidades.Restaurante;
+import um.edu.uy.persistance.entidades.Usuario;
 
 @SpringBootTest(classes = MainRestaurante.class)
 @RunWith(SpringRunner.class)
@@ -46,6 +48,9 @@ public class TestTodo {
 
 	@Autowired
 	ComidaMgr comidaMgr;
+	
+	@Autowired
+	UsuarioMgr usuMgr;
 
 	public void testGuardarUnRestaurante() {
 		Restaurante McDonalds = new Restaurante("rutMc", "McDonalds", 1111, "ContraMc");
@@ -93,7 +98,7 @@ public class TestTodo {
 
 	Comida Hamburguesas = new Comida("Hamburguesas");
 	Comida Wraps = new Comida("Wraps"); 
-	Comida Panchos = new Comida("Hamburguesas");
+	Comida Panchos = new Comida("Panchos");
 	comidaMgr.save(Hamburguesas);
 	comidaMgr.save(Wraps);
 	comidaMgr.save(Panchos);
@@ -132,6 +137,14 @@ public class TestTodo {
 		resMgr.cargarEmail("rutMc", "Mcdonalds@mc.com");
 		resMgr.cargarEmail("rutLaPasiva", "LaPasiva@lp.com");
 		resMgr.cargarEmail("rutBK", "BurgerKing@bk.com");
+		Usuario Juan= new Usuario("Juan", "12");
+		usuMgr.save(Juan);
+		Usuario Lucia= new Usuario("Lucia","13");
+		usuMgr.save(Lucia);
+		Usuario Sofia= new Usuario("Sofia","14");
+		usuMgr.save(Sofia);
+		Usuario Jose= new Usuario("Jose","15");
+		usuMgr.save(Jose);
 }
 	
 	
@@ -141,3 +154,4 @@ public class TestTodo {
 	}
 
 }
+

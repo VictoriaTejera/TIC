@@ -51,7 +51,7 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 
 	private ApplicationContext applicationContext;
 
-	Usuario usuario;
+	Integer usuarioCelular;
 
 	public ControladorInicioSesion() {
 		super();
@@ -69,7 +69,7 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 			if (usuarioMgr.verificarUsuario(txtUsuario.getText(), txtContrasena.getText()) == true) {
 				stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
-				usuario = usuarioMgr.find(txtUsuario.getText(), txtContrasena.getText());
+				usuarioCelular = usuarioMgr.find(txtUsuario.getText(), txtContrasena.getText()).getCelular();
 			} else {
 				showAlert("Lo sentimos, ", "El usuario o contraseña son incorrectos.");
 			}
@@ -84,8 +84,8 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 		stage.show();
 	}
 
-	Usuario getUsuario() {
-		return usuario;
+	Integer getUsuarioCelular() {
+		return usuarioCelular;
 	}
 
 	@FXML
