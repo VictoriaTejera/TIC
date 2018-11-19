@@ -169,6 +169,19 @@ public class TestTodo {
 		resMgr.cargarEmail("rutMc", "Mcdonalds@mc.com");
 		resMgr.cargarEmail("rutLaPasiva", "LaPasiva@lp.com");
 		resMgr.cargarEmail("rutBK", "BurgerKing@bk.com");
+		
+		resMgr.cargarLugaresPorMesa("rutMc", 4);
+		resMgr.cargarLugaresPorMesa("rutbk", 4);
+		resMgr.cargarLugaresPorMesa("rutLaPasiva", 4);
+		
+		resMgr.cargarHorarioApertura("rutMc", "9:00");
+		resMgr.cargarHorarioApertura("rutLaPasiva", "9:30");
+		resMgr.cargarHorarioApertura("rutBK", "10:00");
+		
+		resMgr.cargarHorarioCierre("rutMc", "22:00");
+		resMgr.cargarHorarioCierre("rutLaPasiva", "21:30");
+		resMgr.cargarHorarioCierre("rutBK", "22:30");
+		
 		Usuario Juan = new Usuario("Juan", "12", 11992);
 		usuMgr.save(Juan);
 		Usuario Lucia = new Usuario("Lucia", "13", 051223);
