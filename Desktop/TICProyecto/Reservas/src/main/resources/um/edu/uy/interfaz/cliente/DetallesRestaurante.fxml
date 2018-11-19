@@ -36,10 +36,10 @@
             </HBox>
           </top>
                <center>
-                  <JFXButton fx:id="btnReservar" buttonType="RAISED" onAction="#RealizarReserva" prefHeight="53.0" prefWidth="102.0" ripplerFill="#8ddc70" text="RESERVAR" BorderPane.alignment="CENTER" />
+                  <JFXButton fx:id="btnReservar" buttonType="RAISED" onAction="#RealizarReserva" prefHeight="25.0" prefWidth="122.0" ripplerFill="#8ddc70" text="RESERVAR" BorderPane.alignment="CENTER" />
                </center>
                <bottom>
-                  <JFXButton fx:id="btnVolver" buttonType="RAISED" onAction="#RealizarReserva" prefHeight="48.0" prefWidth="59.0" text="VOLVER" BorderPane.alignment="CENTER" />
+                  <JFXButton fx:id="btnVolver" buttonType="RAISED" onAction="#RealizarReserva" prefHeight="51.0" prefWidth="59.0" text="VOLVER" BorderPane.alignment="CENTER" />
                </bottom>
         </BorderPane>
       </bottom>
@@ -63,12 +63,12 @@
             <Label fx:id="txtHoraApertura" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
             <Label fx:id="txtHoraCierre" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
             <Label fx:id="txtRating" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                  <JFXTimePicker prefHeight="45.0" prefWidth="163.0" GridPane.rowIndex="2" />
-                  <JFXTimePicker prefHeight="35.0" prefWidth="159.0" GridPane.rowIndex="3" />
+                  <JFXTimePicker defaultColor="#990000" prefHeight="45.0" prefWidth="159.0" GridPane.rowIndex="2" />
+                  <JFXTimePicker defaultColor="#990000" prefHeight="35.0" prefWidth="159.0" GridPane.rowIndex="3" />
           </children>
           <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.20001220703125" minWidth="10.0" prefWidth="160.20001220703125" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.5999755859375" minWidth="10.0" prefWidth="132.79998779296875" />
           </columnConstraints>
           <rowConstraints>
             <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />

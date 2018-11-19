@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="421.0" prefWidth="549.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.restaurante.ControladorFinalizarReservas">
+<AnchorPane prefHeight="421.0" prefWidth="549.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.restaurante.ControladorFinalizarReservas">
    <children>
       <BorderPane prefHeight="360.0" prefWidth="437.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -37,7 +36,14 @@
             <VBox prefHeight="268.0" prefWidth="73.0" BorderPane.alignment="CENTER" />
          </right>
          <bottom>
-            <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="30.0" prefWidth="68.0" text="Volver" BorderPane.alignment="CENTER_RIGHT" />
+            <JFXButton fx:id="btnVolver" buttonType="RAISED" onAction="#volverAlMenu" ripplerFill="RED" text="VOLVER" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Yu Gothic Regular" size="15.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </BorderPane.margin>
+            </JFXButton>
          </bottom>
       </BorderPane>
    </children>

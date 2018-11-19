@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="350.0000999999975" prefWidth="341.0000999999975" styleClass="anchor" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorPagosPendientes">
+<AnchorPane prefHeight="335.0" prefWidth="378.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorPagosPendientes">
   <!-- TODO Add Nodes -->
   <children>
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="37.0" prefHeight="79.0" prefWidth="287.0" text="Ingrese el rango de fechas entre las que " textAlignment="CENTER" textOverrun="ELLIPSIS" underline="true">
@@ -36,29 +37,36 @@
         <Label font="$x2" prefHeight="39.000099999997474" prefWidth="56.0" text="S" textFill="$x1" />
       </children>
     </VBox>
-    <Label alignment="CENTER" contentDisplay="CENTER" font="$x3" layoutX="42.0" layoutY="69.0" prefHeight="79.0" prefWidth="287.0" text="desea ver lo que debe:" textAlignment="CENTER" textFill="$x1" textOverrun="ELLIPSIS" underline="true" />
-    <TextField id="txtFechaInicio" fx:id="txtDiaInicio" layoutX="149.0" layoutY="158.0" prefWidth="36.0" />
-    <Label layoutX="42.0" layoutY="160.0" prefWidth="107.0" text="FECHA INICIO">
+    <Label alignment="CENTER" contentDisplay="CENTER" font="$x3" layoutX="42.0" layoutY="64.0" prefHeight="79.0" prefWidth="287.0" text="desea ver lo que debe:" textAlignment="CENTER" textFill="$x1" textOverrun="ELLIPSIS" underline="true" />
+    <TextField id="txtFechaInicio" fx:id="txtDiaInicio" layoutX="154.0" layoutY="159.0" prefWidth="36.0" />
+    <Label layoutX="55.0" layoutY="200.0" text="FECHA FIN">
+         <font>
+            <Font size="14.0" fx:id="x5" />
+         </font></Label>
+    <Label layoutX="167.0" layoutY="133.0" text="D">
+         <font>
+            <Font size="14.0" fx:id="x6" />
+         </font></Label>
+    <Label layoutX="290.0" layoutY="133.0" text="A">
+         <font>
+            <Font size="14.0" fx:id="x7" />
+         </font></Label>
+    <Label layoutX="222.0" layoutY="133.0" text="M">
+         <font>
+            <Font size="14.0" fx:id="x8" />
+         </font></Label>
+    <TextField id="txtFechaInicio" fx:id="txtAnioInicio" layoutX="268.0" layoutY="157.0" prefHeight="25.0" prefWidth="55.0" />
+    <TextField id="txtFechaInicio" fx:id="txtMesInicio" layoutX="211.0" layoutY="157.0" prefWidth="36.0" />
+    <TextField id="txtFechaInicio" fx:id="txtDiaFin" layoutX="154.0" layoutY="198.0" prefWidth="36.0" />
+    <TextField id="txtFechaInicio" fx:id="txtMesFin" layoutX="211.0" layoutY="198.0" prefWidth="36.0" />
+    <TextField id="txtFechaInicio" fx:id="txtAnioFin" layoutX="268.0" layoutY="198.0" prefWidth="55.0" />
+      <JFXDatePicker defaultColor="#990000" layoutX="89.0" layoutY="158.0" prefHeight="0.0" prefWidth="67.0" />
+    <Label layoutX="28.0" layoutY="161.0" prefHeight="20.0" prefWidth="114.0" text="FECHA INICIO">
       <font>
         <Font size="14.0" fx:id="x4" />
       </font>
     </Label>
-    <Label font="$x4" layoutX="55.0" layoutY="200.0" text="FECHA FIN" />
-    <Button fx:id="btnVerPagosPendientes" blendMode="DARKEN" layoutX="89.0" layoutY="259.0" mnemonicParsing="false" onAction="#verPagosPendientes" prefHeight="46.0" prefWidth="193.0" text="Ver pagos pendientes">
-      <effect>
-        <DropShadow blurType="TWO_PASS_BOX" height="31.64" radius="15.32" width="31.64" />
-      </effect>
-      <font>
-        <Font name="Yu Gothic UI Bold" size="15.0" />
-      </font>
-    </Button>
-    <Label font="$x4" layoutX="162.0" layoutY="133.0" text="D" />
-    <Label font="$x4" layoutX="290.0" layoutY="133.0" text="A" />
-    <Label font="$x4" layoutX="222.0" layoutY="133.0" text="M" />
-    <TextField id="txtFechaInicio" fx:id="txtAnioInicio" layoutX="268.0" layoutY="157.0" prefWidth="55.0" />
-    <TextField id="txtFechaInicio" fx:id="txtMesInicio" layoutX="211.0" layoutY="157.0" prefWidth="36.0" />
-    <TextField id="txtFechaInicio" fx:id="txtDiaFin" layoutX="149.0" layoutY="198.0" prefWidth="36.0" />
-    <TextField id="txtFechaInicio" fx:id="txtMesFin" layoutX="211.0" layoutY="198.0" prefWidth="36.0" />
-    <TextField id="txtFechaInicio" fx:id="txtAnioFin" layoutX="268.0" layoutY="198.0" prefWidth="55.0" />
+      <JFXDatePicker defaultColor="#990000" layoutX="89.0" layoutY="198.0" prefHeight="0.0" prefWidth="67.0" />
+      <JFXButton fx:id="btnVerPagosPendientes" buttonType="RAISED" layoutX="112.0" layoutY="261.0" onAction="#verPagosPendientes" prefHeight="56.0" prefWidth="178.0" ripplerFill="LIME" text="VER PAGOS PENDIENTES" />
   </children>
 </AnchorPane>
