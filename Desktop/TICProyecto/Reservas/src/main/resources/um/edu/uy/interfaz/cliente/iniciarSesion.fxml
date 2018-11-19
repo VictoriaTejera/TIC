@@ -15,16 +15,13 @@
     <GridPane prefHeight="332.0" prefWidth="367.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="0.0">
       <children>
         <!-- Add Submit Button -->
-        <Button id="submitButton" fx:id="btnConfirmarInicioSesion" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" focusTraversable="true" mnemonicParsing="false" mouseTransparent="false" onAction="#handleSubmitButtonAction" opacity="1.0" pickOnBounds="false" prefHeight="32.0" prefWidth="151.0" text="Iniciar Sesión" textAlignment="LEFT" underline="false" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+        <Button id="submitButton" fx:id="btnConfirmarInicioSesion" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" focusTraversable="true" mnemonicParsing="false" mouseTransparent="false" onAction="#handleSubmitButtonAction" opacity="1.0" pickOnBounds="false" prefHeight="32.0" prefWidth="151.0" text="Iniciar Sesión" textAlignment="LEFT" textFill="#330000" underline="false" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
           <effect>
             <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
           </effect>
           <font>
             <Font name="Yu Gothic Bold" size="15.0" fx:id="x4" />
           </font>
-          <textFill>
-            <Color blue="0.000" green="0.000" red="0.600" fx:id="x2" />
-          </textFill>
         </Button>
         <Label prefHeight="27.0" prefWidth="118.0" text="CONTRASEÑA" GridPane.columnIndex="1" GridPane.rowIndex="2">
           <font>
@@ -32,7 +29,11 @@
           </font>
         </Label>
         <Label font="$x3" prefHeight="27.0" prefWidth="118.0" text="USUARIO" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Label font="$x3" prefHeight="27.0" prefWidth="118.0" text="DATOS" textFill="$x2" underline="true" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+        <Label font="$x3" prefHeight="27.0" prefWidth="118.0" text="DATOS" underline="true" GridPane.columnIndex="2" GridPane.rowIndex="0">
+          <textFill>
+            <Color blue="0.000" green="0.000" red="0.600" fx:id="x2" />
+          </textFill>
+        </Label>
         <VBox alignment="CENTER" minHeight="262.0" prefHeight="262.0" prefWidth="47.0" snapToPixel="true" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="2147483647">
           <children>
             <Label prefHeight="59.0" prefWidth="42.0" text="R" textFill="$x2">

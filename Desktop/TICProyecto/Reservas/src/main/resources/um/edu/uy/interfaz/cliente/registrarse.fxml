@@ -32,7 +32,7 @@
     <!-- Add Name Label -->
     <Label alignment="CENTER_RIGHT" font="$x3" layoutX="12.0" layoutY="183.0" prefWidth="100.0" text="Celular:" textAlignment="JUSTIFY" textFill="$x1" />
     <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnConfirmarRegistro" blendMode="DARKEN" cancelButton="true" defaultButton="false" font="$x3" layoutX="210.0" layoutY="295.0" onAction="#handleSubmitButtonAction" prefHeight="44.0" prefWidth="116.0" text="Registrarse" textFill="#5a0000d7">
+    <Button id="submitButton" fx:id="btnConfirmarRegistro" blendMode="DARKEN" cancelButton="true" defaultButton="false" font="$x3" layoutX="210.0" layoutY="295.0" onAction="#handleSubmitButtonAction" prefHeight="44.0" prefWidth="116.0" text="Registrarse" textFill="BLACK">
       <effect>
         <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
       </effect>

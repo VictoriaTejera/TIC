@@ -95,6 +95,7 @@ public class ReservaMgr{
 	
 	
 
+
 //	public boolean agregarHora(LocalTime hora, Restaurante restaurante) {
 //		boolean agregarHora=false;
 //		if(repository.verificarSiHayReservaAEsaHora(hora, restaurante.getRUT())==null) {
@@ -107,6 +108,7 @@ public class ReservaMgr{
 //		}
 //		return agregarHora;
 //	}
+
 
 	public List<Reserva> obtenerReservasConfirmadasNoTerminadas(String rut){
 		return repository.obtenerReservasConfirmadasNoTerminadas(rut);
