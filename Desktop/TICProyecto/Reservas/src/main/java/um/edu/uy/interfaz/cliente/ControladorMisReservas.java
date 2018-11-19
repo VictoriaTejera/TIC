@@ -129,14 +129,6 @@ public class ControladorMisReservas implements ApplicationContextAware {
 		tablaConfirmadas.setItems(reservasConfirmadas);
 		
 
-//		for (Reserva r : todasLasReservas) {
-//			if (r.isConfirmado() == true) {
-//				((List<Reserva>) tablaPendientes).add(r);
-//			} else {
-//				((List<Reserva>) tablaConfirmadas).add(r);
-//			}
-//		}
-
 	}
 
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
