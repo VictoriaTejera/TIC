@@ -23,7 +23,7 @@ public class MainRestaurante extends Application{
 	
 	private static ConfigurableApplicationContext context;
 	private FXMLLoader fxmlLoader;
-	private Parent root, root1, root2, root3, root4, root5;
+	private Parent root, root1, root2, root4, root5;
 	
 	@Override
 	public void init() throws IOException  {
