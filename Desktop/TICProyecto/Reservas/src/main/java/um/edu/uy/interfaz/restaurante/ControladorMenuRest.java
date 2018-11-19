@@ -35,6 +35,9 @@ public class ControladorMenuRest implements ApplicationContextAware{
     private Button btnReservas;
     
     @FXML
+    private Button btnFinalizarReservas;
+    
+    @FXML
     private Button btnTotalAPagar;
     
     private ApplicationContext applicationContext;
@@ -80,6 +83,24 @@ public class ControladorMenuRest implements ApplicationContextAware{
     	stage.show();
     }
     
+    @FXML
+    void finalizarReservas(ActionEvent event) throws IOException {
+    	Stage stage = null;
+		Parent root = null;
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		stage = new Stage();
+		fxmlLoader.setControllerFactory(applicationContext::getBean);
+
+		if (event.getSource() == btnReservas) {
+			stage = (Stage) btnReservas.getScene().getWindow();
+			root = fxmlLoader.load(ControladorReservasPendientes.class.getResourceAsStream("FinalizarReservas.fxml"));
+		}
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
+    }
+    
     @FXML 
     void verTotalAPagar(ActionEvent event) throws IOException {
     	Stage stage = null;
@@ -102,6 +123,7 @@ public class ControladorMenuRest implements ApplicationContextAware{
     void initialize() {
         assert btnDatos != null : "fx:id=\"btnDatos\" was not injected: check your FXML file 'MenuPrincipalRest.fxml'.";
         assert btnReservas != null : "fx:id=\"btnReservas\" was not injected: check your FXML file 'MenuPrincipalRest.fxml'.";
+        assert btnFinalizarReservas != null : "fx:id=\"btnReservas\" was not injected: check your FXML file 'MenuPrincipalRest.fxml'.";
     }
 
 	@Override
